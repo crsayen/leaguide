@@ -119,12 +119,26 @@
         .settings-btn:hover {
             background: #444;
         }
+        .settings-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9998;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
         .settings-panel {
-            margin-top: 20px;
             background-color: #2a2a2a;
             border: 1px solid #444;
-            padding: 15px;
-            border-radius: 6px;
+            padding: 28px 32px;
+            border-radius: 8px;
+            max-width: 420px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
         }
         .setting-checkbox {
             display: flex;
@@ -736,7 +750,10 @@
 
     <ul class="checklist" id="checklist"></ul>
 
-    <div id="settings-panel" class="settings-panel" style="display: none;">
+</div>
+
+<div class="settings-overlay" id="settings-overlay">
+    <div class="settings-panel" id="settings-panel">
         <h3 style="margin-top:0; color:#d4af37;">Character</h3>
         <div style="display:flex; gap:8px; margin-bottom:15px;">
             <input type="text" id="settings-character-name" placeholder="Character Name" style="flex:1; padding:8px; background:#333; border:1px solid #555; border-radius:4px; color:#e0e0e0;">
@@ -744,10 +761,10 @@
                 Set
             </button>
         </div>
-        <h2>Gear Tracking Preferences</h2>
-        <p style="font-size: 0.9em; color: #aaa; margin-top: -10px;">Select which weapon/armour bases you want to track breakpoints for. These will automatically update if we detect your class in the logs.</p>
+        <h2 style="font-size:1.1em;">Gear Tracking Preferences</h2>
+        <p style="font-size: 0.9em; color: #aaa; margin-top: -10px;">Select which weapon/armour bases you want to track breakpoints for.</p>
         <div id="tracking-options"></div>
-        <button id="save-settings-btn" style="margin-top: 15px; padding: 8px 16px; background: #3498db; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Save Settings</button>
+        <button id="save-settings-btn" style="margin-top: 15px; padding: 8px 16px; background: #3498db; color: #fff; border: none; border-radius: 4px; cursor: pointer; width:100%;">Save Settings</button>
     </div>
 </div>
 
@@ -933,15 +950,21 @@
     }
 
     document.getElementById('settings-btn').addEventListener('click', () => {
-        const panel = document.getElementById('settings-panel');
-        panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+        const overlay = document.getElementById('settings-overlay');
+        overlay.style.display = overlay.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    document.getElementById('settings-overlay').addEventListener('click', (e) => {
+        if (e.target === e.currentTarget) {
+            e.currentTarget.style.display = 'none';
+        }
     });
 
     document.getElementById('save-settings-btn').addEventListener('click', () => {
         const checkboxes = document.querySelectorAll('#tracking-options input[type="checkbox"]');
         trackedBases = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
         localStorage.setItem('trackedBases', JSON.stringify(trackedBases));
-        document.getElementById('settings-panel').style.display = 'none';
+        document.getElementById('settings-overlay').style.display = 'none';
         updateBreakpointsUI(currentLevel);
     });
 
