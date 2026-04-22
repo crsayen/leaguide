@@ -1176,7 +1176,7 @@
     }
 
     function loadGearBreakpoints() {
-        return fetch('../poe2db-all-items.json')
+        return fetch('poe2db-all-items.json')
             .then(response => response.json())
             .then(data => {
                 gearBreakpoints = sanitizeGearBreakpoints(data);
