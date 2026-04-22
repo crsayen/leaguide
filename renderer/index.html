@@ -750,6 +750,7 @@
 
     <ul class="checklist" id="checklist"></ul>
 
+    <div id="app-version" style="text-align:center; font-size:0.75em; color:#444; margin-top:16px; user-select:none;"></div>
 </div>
 
 <div class="settings-overlay" id="settings-overlay">
@@ -1490,6 +1491,10 @@
                 knownCharacters.push(data.character_name);
             }
         }
+    });
+
+    window.electronAPI.getVersion().then(v => {
+        document.getElementById('app-version').textContent = 'v' + v;
     });
 
     (function initCharacterModal() {

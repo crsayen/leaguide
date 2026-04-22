@@ -226,6 +226,11 @@ async function createWindow() {
 }
 
 function setupIpc() {
+  ipcMain.handle('get-version', async () => {
+    const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
+    return pkg.version;
+  });
+
   ipcMain.handle('get-characters', async () => ({
     active: characterName || config.character_name || '',
     known: knownCharacters

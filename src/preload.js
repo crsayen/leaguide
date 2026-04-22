@@ -1,6 +1,7 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('electronAPI', {
+  getVersion: () => ipcRenderer.invoke('get-version'),
   getCharacters: () => ipcRenderer.invoke('get-characters'),
   setCharacter: (name) => ipcRenderer.invoke('set-character', name),
   getState: () => ipcRenderer.invoke('get-state'),
