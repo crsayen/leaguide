@@ -1,0 +1,2129 @@
+- generic [ref=e1]:
+  - banner [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e5]:
+        - link "PoE2DB" [ref=e6] [cursor=pointer]:
+          - /url: /us/
+          - text: PoE2DB
+          - subscript
+        - generic [ref=e7]:
+          - list [ref=e8]:
+            - listitem [ref=e9]:
+              - link "Items" [ref=e10] [cursor=pointer]:
+                - /url: "#"
+                - text: Items
+            - listitem [ref=e11]:
+              - link "Modifiers" [ref=e12] [cursor=pointer]:
+                - /url: "#"
+                - text: Modifiers
+            - listitem [ref=e13]:
+              - link "Quest" [ref=e14] [cursor=pointer]:
+                - /url: "#"
+                - text: Quest
+            - listitem [ref=e15]:
+              - link "Economy" [ref=e16] [cursor=pointer]:
+                - /url: Economy
+            - listitem [ref=e17]:
+              - link "Patreon" [ref=e18] [cursor=pointer]:
+                - /url: /us/patreon
+          - list [ref=e19]:
+            - listitem [ref=e20]:
+              - link "PoEDB" [ref=e21] [cursor=pointer]:
+                - /url: https://poedb.tw/us/Wands
+            - listitem [ref=e22]:
+              - link [ref=e23] [cursor=pointer]:
+                - /url: "#"
+          - search [ref=e25]:
+            - searchbox "Search" [ref=e26]
+  - main [ref=e28]:
+    - generic [ref=e31]:
+      - link "Atziri v0.4" [ref=e32] [cursor=pointer]:
+        - /url: Atziris_Temple
+        - img "IncursionAtziriActive" [ref=e34]
+      - link "Waystones" [ref=e35] [cursor=pointer]:
+        - /url: Waystones
+        - img [ref=e36]
+      - link "Shrine" [ref=e37] [cursor=pointer]:
+        - /url: Shrine
+        - img "Shrine" [ref=e39]
+      - link "Strongbox" [ref=e40] [cursor=pointer]:
+        - /url: Strongbox
+        - img "Strongbox" [ref=e42]
+      - link "Essence" [ref=e43] [cursor=pointer]:
+        - /url: Essence
+        - img "Essence" [ref=e45]
+      - link "Archnemesis" [ref=e46] [cursor=pointer]:
+        - /url: Archnemesis
+        - img "RareMonsterAlive" [ref=e48]
+      - link "Azmeri Spirit v0.2" [ref=e49] [cursor=pointer]:
+        - /url: Azmeri_Spirit
+        - img "SpiritActivated" [ref=e51]
+      - link "Rogue Exile" [ref=e52] [cursor=pointer]:
+        - /url: Rogue_Exile
+        - img "RogueExile" [ref=e54]
+      - link "Map Boss" [ref=e55] [cursor=pointer]:
+        - /url: Map_Boss
+        - img [ref=e56]
+      - link "Precursor Towers" [ref=e57] [cursor=pointer]:
+        - /url: Precursor_Towers
+        - img [ref=e58]
+      - link "Corrupted Nexus" [ref=e59] [cursor=pointer]:
+        - /url: Corrupted_Nexus
+        - img [ref=e60]
+      - link "Abyss v0.3" [ref=e61] [cursor=pointer]:
+        - /url: Abyss
+        - img [ref=e62]
+      - link "Breach" [ref=e63] [cursor=pointer]:
+        - /url: Breach
+        - img [ref=e64]
+      - link "Ritual" [ref=e65] [cursor=pointer]:
+        - /url: Ritual
+        - img [ref=e66]
+      - link "Delirium" [ref=e67] [cursor=pointer]:
+        - /url: Delirium
+        - img [ref=e68]
+      - link "Expedition" [ref=e69] [cursor=pointer]:
+        - /url: Expedition
+        - img [ref=e70]
+      - link "The Burning Monolith" [ref=e71] [cursor=pointer]:
+        - /url: The_Burning_Monolith
+        - img [ref=e72]
+      - link "Trial of the Sekhemas" [ref=e73] [cursor=pointer]:
+        - /url: Trial_of_the_Sekhemas
+        - img [ref=e74]
+      - link "The Trial of Chaos" [ref=e75] [cursor=pointer]:
+        - /url: The_Trial_of_Chaos
+        - img [ref=e76]
+    - iframe [ref=e78]:
+      - iframe [ref=f36e2]:
+        - iframe [ref=f38e3]:
+          - application "Video Player" [ref=f42e2]:
+            - generic:
+              - generic: 0 seconds of 0 secondsVolume 0%
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - button "Play":
+                          - img
+                - text: /
+    - tablist [ref=e79]:
+      - tab "Wands Unique /6" [ref=e80] [cursor=pointer]
+      - tab "Wands Item /13" [selected] [ref=e81] [cursor=pointer]
+      - tab "Modifiers Calc" [ref=e82] [cursor=pointer]
+      - tab "Vaal Orb Corrupted Enchantment /14" [ref=e83] [cursor=pointer]
+      - tab "Wand Ref /11" [ref=e84] [cursor=pointer]
+    - generic [ref=e85]:
+      - tabpanel:
+        - generic [ref=e86]:
+          - heading "Wands Unique /6" [level=5] [ref=e87]
+          - generic [ref=e88]:
+            - generic [ref=e90]:
+              - link "TheWickedQuill" [ref=e92] [cursor=pointer]:
+                - /url: The_Wicked_Quill
+                - img "TheWickedQuill" [ref=e93]
+              - generic [ref=e94]:
+                - link "The Wicked Quill Withered Wand" [ref=e96] [cursor=pointer]:
+                  - /url: /us/The_Wicked_Quill
+                - generic [ref=e97]:
+                  - img [ref=e98]
+                  - text: "Grants Skill:"
+                  - link "Chaos Bolt" [ref=e99] [cursor=pointer]:
+                    - /url: /us/Chaos_Bolt
+                - generic [ref=e101]:
+                  - generic [ref=e102]: (60—100)
+                  - text: "% increased"
+                  - link "Spell" [ref=e103] [cursor=pointer]:
+                    - /url: Spells
+                  - text: Damage
+                - generic [ref=e104]:
+                  - generic [ref=e105]: +(60—100)
+                  - text: to maximum Mana
+                - generic [ref=e106]:
+                  - generic [ref=e107]: +(7—13)
+                  - text: "% to"
+                  - link "Chaos Resistance" [ref=e108] [cursor=pointer]:
+                    - /url: Resistances
+                - generic [ref=e109]:
+                  - link "Spells" [ref=e110] [cursor=pointer]:
+                    - /url: Spells
+                  - text: have a 25% chance to inflict
+                  - link "Withered" [ref=e111] [cursor=pointer]:
+                    - /url: Withered
+                  - text: for 4 seconds on
+                  - link "Hit" [ref=e112] [cursor=pointer]:
+                    - /url: Hit_Damage
+            - generic [ref=e114]:
+              - link "SanguineDiviner" [ref=e116] [cursor=pointer]:
+                - /url: Sanguine_Diviner
+                - img "SanguineDiviner" [ref=e117]
+              - generic [ref=e118]:
+                - link "Sanguine Diviner Bone Wand" [ref=e120] [cursor=pointer]:
+                  - /url: /us/Sanguine_Diviner
+                - generic [ref=e121]:
+                  - img [ref=e122]
+                  - text: "Grants Skill: Level 1"
+                  - link "Bone Blast" [ref=e123] [cursor=pointer]:
+                    - /url: /us/Bone_Blast
+                - generic [ref=e125]:
+                  - generic [ref=e126]: (80—100)
+                  - text: "% increased"
+                  - link "Spell" [ref=e127] [cursor=pointer]:
+                    - /url: Spells
+                  - text: Damage
+                - generic [ref=e128]:
+                  - text: Gain
+                  - generic [ref=e129]: (10—15)
+                  - text: Life per enemy killed
+                - generic [ref=e130]:
+                  - text: 25% chance to inflict
+                  - link "Bleeding" [ref=e131] [cursor=pointer]:
+                    - /url: Bleeding
+                  - text: "on"
+                  - link "Hit" [ref=e132] [cursor=pointer]:
+                    - /url: Hit_Damage
+                - generic [ref=e133]:
+                  - text: 25% of
+                  - link "Spell" [ref=e134] [cursor=pointer]:
+                    - /url: Spells
+                  - text: Mana Cost
+                  - link "Converted" [ref=e135] [cursor=pointer]:
+                    - /url: Stat_Conversion
+                  - text: to Life Cost
+            - generic [ref=e137]:
+              - link "Lifesprig" [ref=e139] [cursor=pointer]:
+                - /url: Lifesprig
+                - img "Lifesprig" [ref=e140]
+              - generic [ref=e141]:
+                - link "Lifesprig Attuned Wand" [ref=e143] [cursor=pointer]:
+                  - /url: /us/Lifesprig
+                - generic [ref=e144]:
+                  - img [ref=e145]
+                  - text: "Grants Skill: Level 1"
+                  - link "Mana Drain" [ref=e146] [cursor=pointer]:
+                    - /url: /us/Mana_Drain
+                - generic [ref=e148]:
+                  - generic [ref=e149]: +(10—20)
+                  - text: to maximum Mana
+                - generic [ref=e150]:
+                  - generic [ref=e151]: +(1—3)
+                  - text: to Level of all
+                  - link "Spell" [ref=e152] [cursor=pointer]:
+                    - /url: Spells
+                  - text: Skills
+                - generic [ref=e153]:
+                  - generic [ref=e154]: (5—10)
+                  - text: "% increased Cast Speed"
+                - generic [ref=e155]:
+                  - link "Leeches" [ref=e156] [cursor=pointer]:
+                    - /url: Life_Leech
+                  - text: 1% of maximum Life when you Cast a
+                  - link "Spell" [ref=e157] [cursor=pointer]:
+                    - /url: Spells
+            - generic [ref=e159]:
+              - link "CourtlyDiscord" [ref=e161] [cursor=pointer]:
+                - /url: Adonias_Ego
+                - img "CourtlyDiscord" [ref=e162]
+              - generic [ref=e163]:
+                - link "Adonia's Ego Siphoning Wand" [ref=e165] [cursor=pointer]:
+                  - /url: /us/Adonias_Ego
+                - generic [ref=e166]:
+                  - img [ref=e167]
+                  - text: "Grants Skill: Level 4"
+                  - link "Power Siphon" [ref=e168] [cursor=pointer]:
+                    - /url: /us/Power_Siphon
+                - generic [ref=e169]:
+                  - img [ref=e170]
+                  - text: "Grants Skill: Level 15"
+                  - link "Pinnacle of Power" [ref=e171] [cursor=pointer]:
+                    - /url: /us/Pinnacle_of_Power
+                - generic [ref=e173]:
+                  - generic [ref=e174]: +(100—150)
+                  - text: to maximum Mana
+                - generic [ref=e175]:
+                  - text: +3 to Level of all
+                  - link "Spell" [ref=e176] [cursor=pointer]:
+                    - /url: Spells
+                  - text: Skills
+                - generic [ref=e177]:
+                  - generic [ref=e178]: (15—30)
+                  - text: "% increased Cast Speed"
+                - generic [ref=e179]:
+                  - text: "-10% to all"
+                  - link "Elemental" [ref=e180] [cursor=pointer]:
+                    - /url: Elemental_Damage_Types
+                  - link "Resistances" [ref=e181] [cursor=pointer]:
+                    - /url: Resistances
+                  - text: per
+                  - link "Power Charge" [ref=e182] [cursor=pointer]:
+                    - /url: Charges
+                - generic [ref=e183]:
+                  - generic [ref=e184]: (-1—1)
+                  - text: to Maximum
+                  - link "Power Charges" [ref=e185] [cursor=pointer]:
+                    - /url: Charges
+                - generic [ref=e186]: power siphon unique elemental art variation [1]
+                - generic [ref=e187]: visual use power charges elemental epk [1]
+            - generic [ref=e189]:
+              - link "EnezunsCharge" [ref=e191] [cursor=pointer]:
+                - /url: Enezuns_Charge
+                - img "EnezunsCharge" [ref=e192]
+              - generic [ref=e193]:
+                - link "Enezun's Charge Volatile Wand" [ref=e195] [cursor=pointer]:
+                  - /url: /us/Enezuns_Charge
+                - generic [ref=e196]:
+                  - img [ref=e197]
+                  - text: "Grants Skill: Level 5"
+                  - link "Volatile Dead" [ref=e198] [cursor=pointer]:
+                    - /url: /us/Volatile_Dead
+                - generic [ref=e200]:
+                  - generic [ref=e201]: (80—100)
+                  - text: "% increased"
+                  - link "Spell" [ref=e202] [cursor=pointer]:
+                    - /url: Spells
+                  - text: Damage
+                - generic [ref=e203]:
+                  - generic [ref=e204]: (30—50)
+                  - text: "% increased"
+                  - link "Critical Hit Chance" [ref=e205] [cursor=pointer]:
+                    - /url: Critical_Hits
+                  - text: for
+                  - link "Spells" [ref=e206] [cursor=pointer]:
+                    - /url: Spells
+                - generic [ref=e207]:
+                  - text: Gain
+                  - generic [ref=e208]: (10—15)
+                  - text: Mana per enemy killed
+                - generic [ref=e209]:
+                  - text: 25% chance to not destroy
+                  - link "Corpses" [ref=e210] [cursor=pointer]:
+                    - /url: Corpses
+                  - text: when Consuming
+                  - link "Corpses" [ref=e211] [cursor=pointer]:
+                    - /url: Corpses
+            - generic [ref=e213]:
+              - link "Clawmark" [ref=e215] [cursor=pointer]:
+                - /url: Cursecarver
+                - img "Clawmark" [ref=e216]
+              - generic [ref=e217]:
+                - link "Cursecarver Acrid Wand" [ref=e219] [cursor=pointer]:
+                  - /url: /us/Cursecarver
+                - generic [ref=e220]:
+                  - img [ref=e221]
+                  - text: "Grants Skill: Level 9"
+                  - link "Decompose" [ref=e222] [cursor=pointer]:
+                    - /url: /us/Decompose
+                - generic [ref=e224]:
+                  - generic [ref=e225]: (80—100)
+                  - text: "% increased"
+                  - link "Spell" [ref=e226] [cursor=pointer]:
+                    - /url: Spells
+                  - text: Damage
+                - generic [ref=e227]:
+                  - generic [ref=e228]: (10—20)
+                  - text: "% increased Cast Speed"
+                - generic [ref=e229]: Lose 10 Life per enemy killed
+                - generic [ref=e230]:
+                  - generic [ref=e231]: (30—50)
+                  - text: "% increased Mana Regeneration Rate"
+                - generic [ref=e232]: +4 to Level of [Random Curse] Skills
+      - tabpanel [active] [ref=e233]:
+        - generic [ref=e234]:
+          - heading "Wands Item /13" [level=5] [ref=e235]
+          - generic [ref=e237]:
+            - heading "Wands" [level=5] [ref=e238]:
+              - link "Wands" [ref=e239] [cursor=pointer]:
+                - /url: Wands
+            - generic [ref=e241]:
+              - text: Wands are
+              - link "One-Handed" [ref=e243] [cursor=pointer]:
+                - /url: One-Handed
+              - link "Spellcasting" [ref=e244] [cursor=pointer]:
+                - /url: Spells
+              - text: weapons that require
+              - link "Intelligence" [ref=e245] [cursor=pointer]:
+                - /url: Intelligence
+              - text: to equip.
+              - text: Wands cannot be
+              - link "Dual Wielded" [ref=e246] [cursor=pointer]:
+                - /url: Dual_Wielding
+              - text: and cannot be used to
+              - link "Attack" [ref=e247] [cursor=pointer]:
+                - /url: Attacks
+              - text: directly. However, they grant inbuilt
+              - link "Spells" [ref=e248] [cursor=pointer]:
+                - /url: Spells
+              - text: based on the wand type and powerful bonuses to spells.
+          - generic [ref=e249]:
+            - generic [ref=e251]:
+              - link "Wand01" [ref=e253] [cursor=pointer]:
+                - /url: Withered_Wand
+                - img "Wand01" [ref=e254]
+              - generic [ref=e255]:
+                - link "Withered Wand" [ref=e256] [cursor=pointer]:
+                  - /url: Withered_Wand
+                - generic [ref=e257]:
+                  - generic [ref=e258]: "Requires: 6 Int"
+                  - generic [ref=e260]:
+                    - img [ref=e261]
+                    - text: "Grants Skill:"
+                    - link "Chaos Bolt" [ref=e262] [cursor=pointer]:
+                      - /url: /us/Chaos_Bolt
+            - generic [ref=e264]:
+              - link "Wand02" [ref=e266] [cursor=pointer]:
+                - /url: Bone_Wand
+                - img "Wand02" [ref=e267]
+              - generic [ref=e268]:
+                - link "Bone Wand" [ref=e269] [cursor=pointer]:
+                  - /url: Bone_Wand
+                - generic [ref=e270]:
+                  - generic [ref=e271]: "Requires: Level 2, 7 Int"
+                  - generic [ref=e273]:
+                    - img [ref=e274]
+                    - text: "Grants Skill: Level 1"
+                    - link "Bone Blast" [ref=e275] [cursor=pointer]:
+                      - /url: /us/Bone_Blast
+            - generic [ref=e277]:
+              - link "Wand03" [ref=e279] [cursor=pointer]:
+                - /url: Attuned_Wand
+                - img "Wand03" [ref=e280]
+              - generic [ref=e281]:
+                - link "Attuned Wand" [ref=e282] [cursor=pointer]:
+                  - /url: Attuned_Wand
+                - generic [ref=e283]:
+                  - generic [ref=e284]: "Requires: Level 2, 7 Int"
+                  - generic [ref=e286]:
+                    - img [ref=e287]
+                    - text: "Grants Skill: Level 1"
+                    - link "Mana Drain" [ref=e288] [cursor=pointer]:
+                      - /url: /us/Mana_Drain
+            - generic [ref=e290]:
+              - link "Wand04" [ref=e292] [cursor=pointer]:
+                - /url: Siphoning_Wand
+                - img "Wand04" [ref=e293]
+              - generic [ref=e294]:
+                - link "Siphoning Wand" [ref=e295] [cursor=pointer]:
+                  - /url: Siphoning_Wand
+                - generic [ref=e296]:
+                  - generic [ref=e297]: "Requires: Level 11, 23 Int"
+                  - generic [ref=e299]:
+                    - img [ref=e300]
+                    - text: "Grants Skill: Level 4"
+                    - link "Power Siphon" [ref=e301] [cursor=pointer]:
+                      - /url: /us/Power_Siphon
+            - generic [ref=e303]:
+              - link "Wand05" [ref=e305] [cursor=pointer]:
+                - /url: Volatile_Wand
+                - img "Wand05" [ref=e306]
+              - generic [ref=e307]:
+                - link "Volatile Wand" [ref=e308] [cursor=pointer]:
+                  - /url: Volatile_Wand
+                - generic [ref=e309]:
+                  - generic [ref=e310]: "Requires: Level 16, 31 Int"
+                  - generic [ref=e312]:
+                    - img [ref=e313]
+                    - text: "Grants Skill: Level 5"
+                    - link "Volatile Dead" [ref=e314] [cursor=pointer]:
+                      - /url: /us/Volatile_Dead
+            - generic [ref=e316]:
+              - link "Wand06" [ref=e318] [cursor=pointer]:
+                - /url: Galvanic_Wand
+                - img "Wand06" [ref=e319]
+              - generic [ref=e320]:
+                - link "Galvanic Wand" [ref=e321] [cursor=pointer]:
+                  - /url: Galvanic_Wand
+                - generic [ref=e322]:
+                  - generic [ref=e323]: "Requires: Level 25, 46 Int"
+                  - generic [ref=e325]:
+                    - img [ref=e326]
+                    - text: "Grants Skill: Level 7"
+                    - link "Galvanic Field" [ref=e327] [cursor=pointer]:
+                      - /url: /us/Galvanic_Field
+            - generic [ref=e329]:
+              - link "Wand07" [ref=e331] [cursor=pointer]:
+                - /url: Acrid_Wand
+                - img "Wand07" [ref=e332]
+              - generic [ref=e333]:
+                - link "Acrid Wand" [ref=e334] [cursor=pointer]:
+                  - /url: Acrid_Wand
+                - generic [ref=e335]:
+                  - generic [ref=e336]: "Requires: Level 33, 60 Int"
+                  - generic [ref=e338]:
+                    - img [ref=e339]
+                    - text: "Grants Skill: Level 9"
+                    - link "Decompose" [ref=e340] [cursor=pointer]:
+                      - /url: /us/Decompose
+            - generic [ref=e342]:
+              - link "Wand08" [ref=e344] [cursor=pointer]:
+                - /url: Offering_Wand
+                - img "Wand08" [ref=e345]
+              - generic [ref=e346]:
+                - link "Offering Wand" [ref=e347] [cursor=pointer]:
+                  - /url: Offering_Wand
+                - generic [ref=e348]:
+                  - generic [ref=e349]: "Requires: Level 38, 69 Int"
+                  - generic [ref=e351]:
+                    - img [ref=e352]
+                    - text: "Grants Skill: Level 10"
+                    - link "Exsanguinate" [ref=e353] [cursor=pointer]:
+                      - /url: /us/Exsanguinate
+            - generic [ref=e355]:
+              - link "Wand01" [ref=e357] [cursor=pointer]:
+                - /url: Frigid_Wand
+                - img "Wand01" [ref=e358]
+              - generic [ref=e359]:
+                - link "Frigid Wand" [ref=e360] [cursor=pointer]:
+                  - /url: Frigid_Wand
+                - generic [ref=e361]:
+                  - generic [ref=e362]: "Requires: Level 45, 80 Int"
+                  - generic [ref=e364]:
+                    - img [ref=e365]
+                    - text: "Grants Skill: Level 11"
+                    - link "Chaos Bolt" [ref=e366] [cursor=pointer]:
+                      - /url: /us/Chaos_Bolt
+            - generic [ref=e368]:
+              - link "Wand01" [ref=e370] [cursor=pointer]:
+                - /url: Torture_Wand
+                - img "Wand01" [ref=e371]
+              - generic [ref=e372]:
+                - link "Torture Wand" [ref=e373] [cursor=pointer]:
+                  - /url: Torture_Wand
+                - generic [ref=e374]:
+                  - generic [ref=e375]: "Requires: Level 49, 87 Int"
+                  - generic [ref=e377]:
+                    - img [ref=e378]
+                    - text: "Grants Skill: Level 12"
+                    - link "Chaos Bolt" [ref=e379] [cursor=pointer]:
+                      - /url: /us/Chaos_Bolt
+            - generic [ref=e381]:
+              - link "Wand11" [ref=e383] [cursor=pointer]:
+                - /url: Critical_Wand
+                - img "Wand11" [ref=e384]
+              - generic [ref=e385]:
+                - link "Critical Wand" [ref=e386] [cursor=pointer]:
+                  - /url: Critical_Wand
+                - generic [ref=e387]:
+                  - generic [ref=e388]: "Requires: Level 52, 92 Int"
+                  - generic [ref=e390]:
+                    - img [ref=e391]
+                    - text: "Grants Skill: Level 13"
+                    - link "Chaos Bolt" [ref=e392] [cursor=pointer]:
+                      - /url: /us/Chaos_Bolt
+            - generic [ref=e394]:
+              - link "Wand12" [ref=e396] [cursor=pointer]:
+                - /url: Primordial_Wand
+                - img "Wand12" [ref=e397]
+              - generic [ref=e398]:
+                - link "Primordial Wand" [ref=e399] [cursor=pointer]:
+                  - /url: Primordial_Wand
+                - generic [ref=e400]:
+                  - generic [ref=e401]: "Requires: Level 56, 99 Int"
+                  - generic [ref=e403]:
+                    - img [ref=e404]
+                    - text: "Grants Skill: Level 13"
+                    - link "Wither" [ref=e405] [cursor=pointer]:
+                      - /url: /us/Wither
+            - generic [ref=e407]:
+              - link "Wand13" [ref=e409] [cursor=pointer]:
+                - /url: Dueling_Wand
+                - img "Wand13" [ref=e410]
+              - generic [ref=e411]:
+                - link "Dueling Wand" [ref=e412] [cursor=pointer]:
+                  - /url: Dueling_Wand
+                - generic [ref=e413]:
+                  - generic [ref=e414]: "Requires: Level 65, 114 Int"
+                  - generic [ref=e416]:
+                    - img [ref=e417]
+                    - text: "Grants Skill: Level 15"
+                    - link "Spellslinger" [ref=e418] [cursor=pointer]:
+                      - /url: /us/Spellslinger
+      - tabpanel:
+        - alert [ref=e419]:
+          - generic [ref=e421]:
+            - link "Modifier weight" [ref=e422] [cursor=pointer]:
+              - /url: weightings
+            - text: information cannot be obtained from game files.
+          - button "Close" [ref=e423] [cursor=pointer]
+        - generic [ref=e424]:
+          - generic [ref=e425] [cursor=pointer]: Ulaman
+          - generic [ref=e426] [cursor=pointer]: Amanamu
+          - generic [ref=e427] [cursor=pointer]: Kurgal
+          - generic [ref=e428] [cursor=pointer]: Gem
+          - generic [ref=e429] [cursor=pointer]: Caster
+          - generic [ref=e430] [cursor=pointer]: Fire
+          - generic [ref=e431] [cursor=pointer]: Cold
+          - generic [ref=e432] [cursor=pointer]: Lightning
+          - generic [ref=e433] [cursor=pointer]: Chaos
+          - generic [ref=e434] [cursor=pointer]: Physical
+          - generic [ref=e435] [cursor=pointer]: Life
+          - generic [ref=e436] [cursor=pointer]: Defences
+          - generic [ref=e437] [cursor=pointer]: Elemental
+          - generic [ref=e438] [cursor=pointer]: Attack
+          - generic [ref=e439] [cursor=pointer]: Minion
+          - generic [ref=e440] [cursor=pointer]: Aura
+          - generic [ref=e441] [cursor=pointer]: Mana
+          - generic [ref=e442] [cursor=pointer]: Speed
+          - generic [ref=e443] [cursor=pointer]: Critical
+          - generic [ref=e444] [cursor=pointer]: Damage
+          - generic [ref=e445] [cursor=pointer]: Resistance
+          - generic [ref=e446] [cursor=pointer]: Attribute
+          - generic [ref=e447] [cursor=pointer]: Ailment
+          - generic [ref=e448] [cursor=pointer]: Curse
+          - generic [ref=e449] [cursor=pointer]: Charm
+        - generic [ref=e450]:
+          - textbox "Filter:" [ref=e452]
+          - textbox "Min iLvL:" [ref=e454]
+          - textbox "Max iLvL:" [ref=e456]
+          - button "Import Item" [ref=e458] [cursor=pointer]
+          - button "Toggle Hide" [ref=e460] [cursor=pointer]
+        - generic [ref=e461]:
+          - generic [ref=e462]:
+            - generic [ref=e463]:
+              - generic [ref=e466]: Crafting Project
+              - generic [ref=e468]: "Item Level: 100"
+            - generic [ref=e469]:
+              - button "Reset" [ref=e470] [cursor=pointer]
+              - generic [ref=e471]:
+                - text: P
+                - text: S
+              - button "Craft" [disabled]
+          - generic [ref=e473]:
+            - img [ref=e475] [cursor=pointer]
+            - generic [ref=e476] [cursor=pointer]:
+              - generic [ref=e477]: II
+              - img [ref=e478]
+            - generic [ref=e479] [cursor=pointer]:
+              - generic [ref=e480]: III
+              - img [ref=e481]
+            - img [ref=e483]
+            - generic [ref=e484]:
+              - generic [ref=e485]: II
+              - img [ref=e486]
+            - generic [ref=e487]:
+              - generic [ref=e488]: III
+              - img [ref=e489]
+            - img [ref=e491]
+            - generic [ref=e492]:
+              - generic [ref=e493]: II
+              - img [ref=e494]
+            - generic [ref=e495]:
+              - generic [ref=e496]: III
+              - img [ref=e497]
+            - img [ref=e499] [cursor=pointer]
+            - img [ref=e501]
+            - generic [ref=e502]:
+              - generic [ref=e503]: II
+              - img [ref=e504]
+            - generic [ref=e505]:
+              - generic [ref=e506]: III
+              - img [ref=e507]
+            - img [ref=e509]
+            - generic [ref=e510]:
+              - generic [ref=e511]: II
+              - img [ref=e512]
+            - generic [ref=e513]:
+              - generic [ref=e514]: III
+              - img [ref=e515]
+            - img [ref=e517]
+            - img [ref=e519]
+            - img [ref=e521]
+            - img [ref=e523] [cursor=pointer]
+            - img [ref=e525]
+            - img [ref=e527]
+            - img [ref=e529]
+            - generic "Greater Essences" [ref=e530]:
+              - img [ref=e531]
+            - generic "Perfect Essences" [ref=e532]:
+              - img [ref=e533]
+        - generic [ref=e535]:
+          - generic [ref=e536]:
+            - link "Modifiers" [ref=e537] [cursor=pointer]:
+              - /url: Modifiers
+            - link "Wands" [ref=e539] [cursor=pointer]:
+              - /url: Wands
+          - generic [ref=e540]:
+            - generic [ref=e541]: Crafting Tag
+            - text: /
+            - generic [ref=e542]: Tiers
+            - text: /
+            - generic [ref=e543]: iLvl
+            - text: /
+            - generic [ref=e544]: Weights
+        - generic [ref=e545]:
+          - generic [ref=e546]:
+            - generic [ref=e547]:
+              - heading "Base Prefix" [level=5] [ref=e548] [cursor=pointer]: Base Prefix
+              - generic [ref=e550]:
+                - generic [ref=e551] [cursor=pointer]:
+                  - generic [ref=e553]: "11000"
+                  - generic [ref=e555]: "70"
+                  - generic [ref=e557]: "11"
+                  - generic [ref=e558]:
+                    - text: "# to maximum Mana"
+                    - generic [ref=e560]: Mana
+                - generic [ref=e561] [cursor=pointer]:
+                  - generic [ref=e563]: "4350"
+                  - generic [ref=e565]: "80"
+                  - generic [ref=e567]: "8"
+                  - generic [ref=e568]:
+                    - text: "#% increased Spell Damage"
+                    - generic [ref=e569]:
+                      - generic [ref=e570]: Damage
+                      - generic [ref=e571]: Caster
+                - generic [ref=e572] [cursor=pointer]:
+                  - generic [ref=e574]: "4300"
+                  - generic [ref=e576]: "80"
+                  - generic [ref=e578]: "7"
+                  - generic [ref=e579]:
+                    - text: "#% increased Spell Damage# to maximum Mana"
+                    - generic [ref=e580]:
+                      - generic [ref=e581]: Mana
+                      - generic [ref=e582]: Damage
+                      - generic [ref=e583]: Caster
+                - generic [ref=e584] [cursor=pointer]:
+                  - generic [ref=e586]: "12750"
+                  - generic [ref=e588]: "81"
+                  - generic [ref=e590]: "40"
+                  - generic [ref=e591]:
+                    - text: "#% increased Fire Damage"
+                    - generic [ref=e592]:
+                      - generic [ref=e593]: Damage
+                      - generic [ref=e594]: Elemental
+                      - generic [ref=e595]: Fire
+                  - separator [ref=e596]
+                  - generic [ref=e597]:
+                    - text: "#% increased Cold Damage"
+                    - generic [ref=e598]:
+                      - generic [ref=e599]: Damage
+                      - generic [ref=e600]: Elemental
+                      - generic [ref=e601]: Cold
+                  - separator [ref=e602]
+                  - generic [ref=e603]:
+                    - text: "#% increased Lightning Damage"
+                    - generic [ref=e604]:
+                      - generic [ref=e605]: Damage
+                      - generic [ref=e606]: Elemental
+                      - generic [ref=e607]: Lightning
+                  - separator [ref=e608]
+                  - generic [ref=e609]:
+                    - text: "#% increased Chaos Damage"
+                    - generic [ref=e610]:
+                      - generic [ref=e611]: Damage
+                      - generic [ref=e612]: Chaos
+                  - separator [ref=e613]
+                  - generic [ref=e614]:
+                    - text: "#% increased Spell Physical Damage"
+                    - generic [ref=e615]:
+                      - generic [ref=e616]: Damage
+                      - generic [ref=e617]: Physical
+                - generic [ref=e618] [cursor=pointer]:
+                  - generic [ref=e620]: "3000"
+                  - generic [ref=e622]: "80"
+                  - generic [ref=e624]: "6"
+                  - generic [ref=e625]:
+                    - text: "Gain #% of Damage as Extra Fire Damage"
+                    - generic [ref=e626]:
+                      - generic [ref=e627]: Damage
+                      - generic [ref=e628]: Elemental
+                      - generic [ref=e629]: Fire
+                - generic [ref=e630] [cursor=pointer]:
+                  - generic [ref=e632]: "3000"
+                  - generic [ref=e634]: "80"
+                  - generic [ref=e636]: "6"
+                  - generic [ref=e637]:
+                    - text: "Gain #% of Damage as Extra Cold Damage"
+                    - generic [ref=e638]:
+                      - generic [ref=e639]: Damage
+                      - generic [ref=e640]: Elemental
+                      - generic [ref=e641]: Cold
+                - generic [ref=e642] [cursor=pointer]:
+                  - generic [ref=e644]: "3000"
+                  - generic [ref=e646]: "80"
+                  - generic [ref=e648]: "6"
+                  - generic [ref=e649]:
+                    - text: "Gain #% of Damage as Extra Lightning Damage"
+                    - generic [ref=e650]:
+                      - generic [ref=e651]: Damage
+                      - generic [ref=e652]: Elemental
+                      - generic [ref=e653]: Lightning
+                - generic [ref=e654]:
+                  - generic [ref=e656]: "41400"
+                  - generic [ref=e657]: "81"
+                  - text: Total
+            - generic [ref=e658]:
+              - heading "Base Suffix" [level=5] [ref=e659] [cursor=pointer]: Base Suffix
+              - generic [ref=e661]:
+                - generic [ref=e662] [cursor=pointer]:
+                  - generic [ref=e664]: "8000"
+                  - generic [ref=e666]: "74"
+                  - generic [ref=e668]: "8"
+                  - generic [ref=e669]:
+                    - text: "# to Intelligence"
+                    - generic [ref=e671]: Attribute
+                - generic [ref=e672] [cursor=pointer]:
+                  - generic [ref=e674]: "5000"
+                  - generic [ref=e676]: "60"
+                  - generic [ref=e678]: "5"
+                  - generic [ref=e679]: "#% reduced Attribute Requirements"
+                - generic [ref=e680] [cursor=pointer]:
+                  - generic [ref=e682]: "13500"
+                  - generic [ref=e684]: "81"
+                  - generic [ref=e686]: "29"
+                  - generic [ref=e687]:
+                    - text: "# to Level of all Spell Skills"
+                    - generic [ref=e688]:
+                      - generic [ref=e689]: Caster
+                      - generic [ref=e690]: Gem
+                  - separator [ref=e691]
+                  - generic [ref=e692]:
+                    - text: "# to Level of all Fire Spell Skills"
+                    - generic [ref=e693]:
+                      - generic [ref=e694]: Elemental
+                      - generic [ref=e695]: Fire
+                      - generic [ref=e696]: Caster
+                      - generic [ref=e697]: Gem
+                  - separator [ref=e698]
+                  - generic [ref=e699]:
+                    - text: "# to Level of all Cold Spell Skills"
+                    - generic [ref=e700]:
+                      - generic [ref=e701]: Elemental
+                      - generic [ref=e702]: Cold
+                      - generic [ref=e703]: Caster
+                      - generic [ref=e704]: Gem
+                  - separator [ref=e705]
+                  - generic [ref=e706]:
+                    - text: "# to Level of all Lightning Spell Skills"
+                    - generic [ref=e707]:
+                      - generic [ref=e708]: Elemental
+                      - generic [ref=e709]: Lightning
+                      - generic [ref=e710]: Caster
+                      - generic [ref=e711]: Gem
+                  - separator [ref=e712]
+                  - generic [ref=e713]:
+                    - text: "# to Level of all Chaos Spell Skills"
+                    - generic [ref=e714]:
+                      - generic [ref=e715]: Chaos
+                      - generic [ref=e716]: Caster
+                      - generic [ref=e717]: Gem
+                  - separator [ref=e718]
+                  - generic [ref=e719]:
+                    - text: "# to Level of all Physical Spell Skills"
+                    - generic [ref=e720]:
+                      - generic [ref=e721]: Physical
+                      - generic [ref=e722]: Caster
+                      - generic [ref=e723]: Gem
+                - generic [ref=e724] [cursor=pointer]:
+                  - generic [ref=e726]: "6000"
+                  - generic [ref=e728]: "79"
+                  - generic [ref=e730]: "6"
+                  - generic [ref=e731]:
+                    - text: "#% increased Mana Regeneration Rate"
+                    - generic [ref=e733]: Mana
+                - generic [ref=e734] [cursor=pointer]:
+                  - generic [ref=e736]: "6000"
+                  - generic [ref=e738]: "77"
+                  - generic [ref=e740]: "8"
+                  - generic [ref=e741]:
+                    - text: "Gain # Life per enemy killed"
+                    - generic [ref=e743]: Life
+                - generic [ref=e744] [cursor=pointer]:
+                  - generic [ref=e746]: "6000"
+                  - generic [ref=e748]: "78"
+                  - generic [ref=e750]: "8"
+                  - generic [ref=e751]:
+                    - text: "Gain # Mana per enemy killed"
+                    - generic [ref=e753]: Mana
+                - generic [ref=e754] [cursor=pointer]:
+                  - generic [ref=e756]: "5750"
+                  - generic [ref=e758]: "80"
+                  - generic [ref=e760]: "7"
+                  - generic [ref=e761]:
+                    - text: "#% increased Cast Speed"
+                    - generic [ref=e762]:
+                      - generic [ref=e763]: Caster
+                      - generic [ref=e764]: Speed
+                - generic [ref=e765] [cursor=pointer]:
+                  - generic [ref=e767]: "3875"
+                  - generic [ref=e769]: "76"
+                  - generic [ref=e771]: "6"
+                  - generic [ref=e772]:
+                    - text: "#% increased Critical Hit Chance for Spells"
+                    - generic [ref=e773]:
+                      - generic [ref=e774]: Caster
+                      - generic [ref=e775]: Critical
+                - generic [ref=e776] [cursor=pointer]:
+                  - generic [ref=e778]: "3875"
+                  - generic [ref=e780]: "73"
+                  - generic [ref=e782]: "6"
+                  - generic [ref=e783]:
+                    - text: "#% increased Critical Spell Damage Bonus"
+                    - generic [ref=e784]:
+                      - generic [ref=e785]: Caster
+                      - generic [ref=e786]: Critical
+                - generic [ref=e787] [cursor=pointer]:
+                  - generic [ref=e789]: "3000"
+                  - generic [ref=e791]: "30"
+                  - generic [ref=e793]: "3"
+                  - generic [ref=e794]:
+                    - text: "#% increased Mana Regeneration Rate#% increased Light Radius"
+                    - generic [ref=e796]: Mana
+                - generic [ref=e797] [cursor=pointer]:
+                  - generic [ref=e799]: "4000"
+                  - generic [ref=e801]: "75"
+                  - generic [ref=e803]: "5"
+                  - generic [ref=e804]: "#% increased Flammability Magnitude"
+                - generic [ref=e805] [cursor=pointer]:
+                  - generic [ref=e807]: "4000"
+                  - generic [ref=e809]: "75"
+                  - generic [ref=e811]: "5"
+                  - generic [ref=e812]: "#% increased Freeze Buildup"
+                - generic [ref=e813] [cursor=pointer]:
+                  - generic [ref=e815]: "4000"
+                  - generic [ref=e817]: "75"
+                  - generic [ref=e819]: "5"
+                  - generic [ref=e820]: "#% increased chance to Shock"
+                - generic [ref=e821]:
+                  - generic [ref=e823]: "73000"
+                  - generic [ref=e824]: "81"
+                  - text: Total
+          - text: + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+          - generic [ref=e825]:
+            - generic [ref=e826]:
+              - heading "desecratedsymbolDesecrated Modifiers Prefix" [level=5] [ref=e827] [cursor=pointer]:
+                - img "desecratedsymbol" [ref=e828]
+                - link "Desecrated Modifiers" [ref=e829]:
+                  - /url: Desecrated_Modifiers
+                - text: Prefix
+              - generic [ref=e831]:
+                - generic [ref=e832] [cursor=pointer]:
+                  - generic [ref=e834]: "0"
+                  - generic [ref=e836]: "65"
+                  - generic [ref=e838]: "1"
+                  - generic [ref=e839]:
+                    - text: (55—64)% increased Spell DamageMinions deal (55—64)% increased Damage
+                    - generic [ref=e840]:
+                      - generic [ref=e841]: amanamu
+                      - generic [ref=e842]: Caster
+                      - generic [ref=e843]: Minion
+                - generic [ref=e844] [cursor=pointer]:
+                  - generic [ref=e846]: "0"
+                  - generic [ref=e848]: "65"
+                  - generic [ref=e850]: "1"
+                  - generic [ref=e851]:
+                    - text: (74—89)% increased Elemental Damage
+                    - generic [ref=e852]:
+                      - generic [ref=e853]: amanamu
+                      - generic [ref=e854]: Damage
+                      - generic [ref=e855]: Elemental
+                - generic [ref=e856] [cursor=pointer]:
+                  - generic [ref=e858]: "0"
+                  - generic [ref=e860]: "65"
+                  - generic [ref=e862]: "2"
+                  - generic [ref=e863]:
+                    - text: "#% increased Spell Damage with Spells that cost Life"
+                    - generic [ref=e865]: amanamu
+                  - separator [ref=e866]
+                  - generic [ref=e867]:
+                    - text: "Invocated Spells deal #% increased Damage"
+                    - generic [ref=e868]:
+                      - generic [ref=e869]: kurgal
+                      - generic [ref=e870]: Caster
+                - generic [ref=e871] [cursor=pointer]:
+                  - generic [ref=e873]: "0"
+                  - generic [ref=e875]: "65"
+                  - generic [ref=e877]: "1"
+                  - generic [ref=e878]:
+                    - text: (27—38)% increased Magnitude of Bleeding you inflict
+                    - generic [ref=e879]:
+                      - generic [ref=e880]: ulaman
+                      - generic [ref=e881]: Damage
+                      - generic [ref=e882]: Physical
+                      - generic [ref=e883]: Attack
+                      - generic [ref=e884]: Ailment
+                - generic [ref=e885] [cursor=pointer]:
+                  - generic [ref=e887]: "0"
+                  - generic [ref=e889]: "65"
+                  - generic [ref=e891]: "1"
+                  - generic [ref=e892]:
+                    - text: Gain (21—25)% of Damage as Extra Physical Damage
+                    - generic [ref=e893]:
+                      - generic [ref=e894]: ulaman
+                      - generic [ref=e895]: Damage
+                      - generic [ref=e896]: Physical
+                - generic [ref=e897]:
+                  - generic [ref=e899]: "0"
+                  - generic [ref=e900]: "65"
+                  - text: Total
+            - generic [ref=e901]:
+              - heading "desecratedsymbolDesecrated Modifiers Suffix" [level=5] [ref=e902] [cursor=pointer]:
+                - img "desecratedsymbol" [ref=e903]
+                - link "Desecrated Modifiers" [ref=e904]:
+                  - /url: Desecrated_Modifiers
+                - text: Suffix
+              - generic [ref=e906]:
+                - generic [ref=e907] [cursor=pointer]:
+                  - generic [ref=e909]: "0"
+                  - generic [ref=e911]: "65"
+                  - generic [ref=e913]: "3"
+                  - generic [ref=e914]:
+                    - text: "Enemies Hindered by you take #% increased Elemental Damage"
+                    - generic [ref=e916]: amanamu
+                  - separator [ref=e917]
+                  - generic [ref=e918]:
+                    - text: "Enemies Hindered by you take #% increased Chaos Damage"
+                    - generic [ref=e920]: kurgal
+                  - separator [ref=e921]
+                  - generic [ref=e922]:
+                    - text: "Enemies Hindered by you take #% increased Physical Damage"
+                    - generic [ref=e924]: ulaman
+                - generic [ref=e925] [cursor=pointer]:
+                  - generic [ref=e927]: "0"
+                  - generic [ref=e929]: "65"
+                  - generic [ref=e931]: "1"
+                  - generic [ref=e932]:
+                    - text: Spell Skills have (8—16)% increased Area of Effect
+                    - generic [ref=e934]: amanamu
+                - generic [ref=e935] [cursor=pointer]:
+                  - generic [ref=e937]: "0"
+                  - generic [ref=e939]: "65"
+                  - generic [ref=e941]: "1"
+                  - generic [ref=e942]:
+                    - text: (5—10)% increased Cost Efficiency(15—25)% of Spell Mana Cost Converted to Life Cost
+                    - generic [ref=e943]:
+                      - generic [ref=e944]: amanamu
+                      - generic [ref=e945]: Life
+                      - generic [ref=e946]: Caster
+                - generic [ref=e947] [cursor=pointer]:
+                  - generic [ref=e949]: "0"
+                  - generic [ref=e951]: "65"
+                  - generic [ref=e953]: "2"
+                  - generic [ref=e954]:
+                    - text: "#% increased Cast Speed while on Full Mana"
+                    - generic [ref=e955]:
+                      - generic [ref=e956]: kurgal
+                      - generic [ref=e957]: Mana
+                      - generic [ref=e958]: Caster
+                      - generic [ref=e959]: Speed
+                  - separator [ref=e960]
+                  - generic [ref=e961]:
+                    - text: "#% increased Cast Speed for each different Non-Instant Spell you've Cast Recently"
+                    - generic [ref=e963]: kurgal
+                - generic [ref=e964] [cursor=pointer]:
+                  - generic [ref=e966]: "0"
+                  - generic [ref=e968]: "65"
+                  - generic [ref=e970]: "2"
+                  - generic [ref=e971]:
+                    - text: "Break #% increased Armour"
+                    - generic [ref=e973]: ulaman
+                  - separator [ref=e974]
+                  - generic [ref=e975]:
+                    - text: "Break Armour on Critical Hit with Spells equal to #% of Physical Damage dealt"
+                    - generic [ref=e976]:
+                      - generic [ref=e977]: ulaman
+                      - generic [ref=e978]: Caster
+                      - generic [ref=e979]: Critical
+                - generic [ref=e980]:
+                  - generic [ref=e982]: "0"
+                  - generic [ref=e983]: "65"
+                  - text: Total
+          - text: + + + + + + + + + + + + + + +
+          - generic [ref=e984]:
+            - generic [ref=e985]:
+              - heading "EssenceEssence Prefix" [level=5] [ref=e986] [cursor=pointer]:
+                - img "Essence" [ref=e988]
+                - text: Essence Prefix
+              - generic [ref=e990]:
+                - generic [ref=e991] [cursor=pointer]:
+                  - generic [ref=e993]: "0"
+                  - generic [ref=e995]: "60"
+                  - generic [ref=e997]: "3"
+                  - generic [ref=e998]:
+                    - text: "#% increased Spell Damage"
+                    - generic [ref=e999]:
+                      - generic [ref=e1000]: Damage
+                      - generic [ref=e1001]: Caster
+                - generic [ref=e1002] [cursor=pointer]:
+                  - generic [ref=e1004]: "0"
+                  - generic [ref=e1006]: "1"
+                  - generic [ref=e1008]: "1"
+                  - generic [ref=e1009]: Mark of the Abyssal Lord
+                - generic [ref=e1010]:
+                  - generic [ref=e1012]: "0"
+                  - generic [ref=e1013]: "60"
+                  - text: Total
+            - generic [ref=e1014]:
+              - heading "EssenceEssence Suffix" [level=5] [ref=e1015] [cursor=pointer]:
+                - img "Essence" [ref=e1017]
+                - text: Essence Suffix
+              - generic [ref=e1019]:
+                - generic [ref=e1020] [cursor=pointer]:
+                  - generic [ref=e1022]: "0"
+                  - generic [ref=e1024]: "55"
+                  - generic [ref=e1026]: "3"
+                  - generic [ref=e1027]:
+                    - text: "# to Strength, Dexterity or Intelligence"
+                    - generic [ref=e1029]: Attribute
+                - generic [ref=e1030] [cursor=pointer]:
+                  - generic [ref=e1032]: "0"
+                  - generic [ref=e1034]: "55"
+                  - generic [ref=e1036]: "3"
+                  - generic [ref=e1037]:
+                    - text: "# to Strength, Dexterity or Intelligence"
+                    - generic [ref=e1039]: Attribute
+                - generic [ref=e1040] [cursor=pointer]:
+                  - generic [ref=e1042]: "0"
+                  - generic [ref=e1044]: "55"
+                  - generic [ref=e1046]: "3"
+                  - generic [ref=e1047]:
+                    - text: "# to Strength, Dexterity or Intelligence"
+                    - generic [ref=e1049]: Attribute
+                - generic [ref=e1050] [cursor=pointer]:
+                  - generic [ref=e1052]: "0"
+                  - generic [ref=e1054]: "41"
+                  - generic [ref=e1056]: "3"
+                  - generic [ref=e1057]:
+                    - text: "#% increased Critical Hit Chance for Spells"
+                    - generic [ref=e1058]:
+                      - generic [ref=e1059]: Caster
+                      - generic [ref=e1060]: Critical
+                - generic [ref=e1061] [cursor=pointer]:
+                  - generic [ref=e1063]: "0"
+                  - generic [ref=e1065]: "1"
+                  - generic [ref=e1067]: "1"
+                  - generic [ref=e1068]: Mark of the Abyssal Lord
+                - generic [ref=e1069] [cursor=pointer]:
+                  - generic [ref=e1071]: "0"
+                  - generic [ref=e1073]: "60"
+                  - generic [ref=e1075]: "3"
+                  - generic [ref=e1076]:
+                    - text: "#% increased Cast Speed"
+                    - generic [ref=e1077]:
+                      - generic [ref=e1078]: Caster
+                      - generic [ref=e1079]: Speed
+                - generic [ref=e1080]:
+                  - generic [ref=e1082]: "0"
+                  - generic [ref=e1083]: "60"
+                  - text: Total
+          - text: + + + + + + + + + + + + + + + + + + + +
+          - generic [ref=e1084]:
+            - heading "EssencePerfect Essence Prefix" [level=5] [ref=e1086] [cursor=pointer]:
+              - img "Essence" [ref=e1088]
+              - text: Perfect Essence Prefix
+            - generic [ref=e1090]:
+              - heading "EssencePerfect Essence Suffix" [level=5] [ref=e1091] [cursor=pointer]:
+                - img "Essence" [ref=e1093]
+                - text: Perfect Essence Suffix
+              - generic [ref=e1095]:
+                - generic [ref=e1096] [cursor=pointer]:
+                  - generic [ref=e1098]: "0"
+                  - generic [ref=e1100]: "72"
+                  - generic [ref=e1102]: "1"
+                  - generic [ref=e1103]:
+                    - text: +3 to Level of all Spell Skills
+                    - generic [ref=e1104]:
+                      - generic [ref=e1105]: Caster
+                      - generic [ref=e1106]: Gem
+                - generic [ref=e1107] [cursor=pointer]:
+                  - generic [ref=e1109]: "0"
+                  - generic [ref=e1111]: "72"
+                  - generic [ref=e1113]: "1"
+                  - generic [ref=e1114]:
+                    - text: (18—20)% increased Mana Cost Efficiency
+                    - generic [ref=e1116]: Mana
+                - generic [ref=e1117]:
+                  - generic [ref=e1119]: "0"
+                  - generic [ref=e1120]: "72"
+                  - text: Total
+          - text: + +
+          - generic [ref=e1122]:
+            - heading "FireRuneAugment" [level=5] [ref=e1123] [cursor=pointer]:
+              - img "FireRune"
+              - link "Augment" [ref=e1124]:
+                - /url: Augment
+            - generic [ref=e1126]:
+              - generic [ref=e1127] [cursor=pointer]:
+                - generic [ref=e1129]: "0"
+                - generic [ref=e1131]: "1"
+                - generic [ref=e1133]: "3"
+                - generic [ref=e1134]: "Gain #% of Damage as Extra Fire Damage"
+              - generic [ref=e1135] [cursor=pointer]:
+                - generic [ref=e1137]: "0"
+                - generic [ref=e1139]: "1"
+                - generic [ref=e1141]: "3"
+                - generic [ref=e1142]: "Gain #% of Damage as Extra Cold Damage"
+              - generic [ref=e1143] [cursor=pointer]:
+                - generic [ref=e1145]: "0"
+                - generic [ref=e1147]: "1"
+                - generic [ref=e1149]: "3"
+                - generic [ref=e1150]: "Gain #% of Damage as Extra Lightning Damage"
+              - generic [ref=e1151] [cursor=pointer]:
+                - generic [ref=e1153]: "0"
+                - generic [ref=e1155]: "1"
+                - generic [ref=e1157]: "3"
+                - generic [ref=e1158]: "#% increased Spell Damage"
+              - generic [ref=e1159] [cursor=pointer]:
+                - generic [ref=e1161]: "0"
+                - generic [ref=e1163]: "1"
+                - generic [ref=e1165]: "3"
+                - generic [ref=e1166]: "# to maximum Energy Shield"
+              - generic [ref=e1167] [cursor=pointer]:
+                - generic [ref=e1169]: "0"
+                - generic [ref=e1171]: "1"
+                - generic [ref=e1173]: "3"
+                - generic [ref=e1174]: "# to maximum Mana"
+              - generic [ref=e1175] [cursor=pointer]:
+                - generic [ref=e1177]: "0"
+                - generic [ref=e1179]: "1"
+                - generic [ref=e1181]: "3"
+                - generic [ref=e1182]: "#% increased Energy Shield Recharge Rate"
+              - generic [ref=e1183] [cursor=pointer]:
+                - generic [ref=e1185]: "0"
+                - generic [ref=e1187]: "1"
+                - generic [ref=e1189]: "3"
+                - generic [ref=e1190]: "#% increased Mana Regeneration Rate"
+              - generic [ref=e1191] [cursor=pointer]:
+                - generic [ref=e1193]: "0"
+                - generic [ref=e1195]: "1"
+                - generic [ref=e1197]: "3"
+                - generic [ref=e1198]: "Gain additional Stun Threshold equal to #% of maximum Energy Shield"
+              - generic [ref=e1199] [cursor=pointer]:
+                - generic [ref=e1201]: "0"
+                - generic [ref=e1203]: "1"
+                - generic [ref=e1205]: "3"
+                - generic [ref=e1206]: "#% increased Critical Hit Chance for Spells"
+              - generic [ref=e1207] [cursor=pointer]:
+                - generic [ref=e1209]: "0"
+                - generic [ref=e1211]: "1"
+                - generic [ref=e1213]: "3"
+                - generic [ref=e1214]: "# to Strength"
+              - generic [ref=e1215] [cursor=pointer]:
+                - generic [ref=e1217]: "0"
+                - generic [ref=e1219]: "1"
+                - generic [ref=e1221]: "3"
+                - generic [ref=e1222]: "# to Dexterity"
+              - generic [ref=e1223] [cursor=pointer]:
+                - generic [ref=e1225]: "0"
+                - generic [ref=e1227]: "1"
+                - generic [ref=e1229]: "3"
+                - generic [ref=e1230]: "# to Intelligence"
+              - generic [ref=e1231] [cursor=pointer]:
+                - generic [ref=e1233]: "0"
+                - generic [ref=e1235]: "1"
+                - generic [ref=e1237]: "1"
+                - generic [ref=e1238]: +1 to Level of all Spell Skills
+              - generic [ref=e1239] [cursor=pointer]:
+                - generic [ref=e1241]: "0"
+                - generic [ref=e1243]: "1"
+                - generic [ref=e1245]: "1"
+                - generic [ref=e1246]: Gain 5% of Damage as Extra Damage of all Elements
+              - generic [ref=e1247] [cursor=pointer]:
+                - generic [ref=e1249]: "0"
+                - generic [ref=e1251]: "1"
+                - generic [ref=e1253]: "1"
+                - generic [ref=e1254]: Gain 13% of Damage as Extra Chaos Damage
+              - generic [ref=e1255] [cursor=pointer]:
+                - generic [ref=e1257]: "0"
+                - generic [ref=e1259]: "1"
+                - generic [ref=e1261]: "1"
+                - generic [ref=e1262]: 25% chance for Spell Skills to fire 2 additional Projectiles
+              - generic [ref=e1263] [cursor=pointer]:
+                - generic [ref=e1265]: "0"
+                - generic [ref=e1267]: "1"
+                - generic [ref=e1269]: "1"
+                - generic [ref=e1270]: 50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge
+              - generic [ref=e1271] [cursor=pointer]:
+                - generic [ref=e1273]: "0"
+                - generic [ref=e1275]: "1"
+                - generic [ref=e1277]: "1"
+                - generic [ref=e1278]: 50% chance when you gain an Endurance Charge to gain an additional Endurance Charge
+              - generic [ref=e1279] [cursor=pointer]:
+                - generic [ref=e1281]: "0"
+                - generic [ref=e1283]: "1"
+                - generic [ref=e1285]: "1"
+                - generic [ref=e1286]: 50% chance when you gain a Power Charge to gain an additional Power Charge
+              - generic [ref=e1287] [cursor=pointer]:
+                - generic [ref=e1289]: "0"
+                - generic [ref=e1291]: "1"
+                - generic [ref=e1293]: "1"
+                - generic [ref=e1294]: Minions deal 40% increased Damage with Command Skills
+              - generic [ref=e1295]:
+                - generic [ref=e1297]: "0"
+                - generic [ref=e1298]: "1"
+                - text: Total
+          - generic [ref=e1300]:
+            - heading "ShamanRunesTalismansBonded Modifiers" [level=5] [ref=e1301] [cursor=pointer]:
+              - img "ShamanRunesTalismans"
+              - link "Bonded Modifiers" [ref=e1302]:
+                - /url: Bonded_Modifiers
+            - generic [ref=e1304]:
+              - generic [ref=e1305] [cursor=pointer]:
+                - generic [ref=e1307]: "0"
+                - generic [ref=e1309]: "1"
+                - generic [ref=e1311]: "3"
+                - generic [ref=e1312]: "#% increased Ignite Magnitude"
+              - generic [ref=e1313] [cursor=pointer]:
+                - generic [ref=e1315]: "0"
+                - generic [ref=e1317]: "1"
+                - generic [ref=e1319]: "3"
+                - generic [ref=e1320]: "#% increased Freeze Buildup"
+              - generic [ref=e1321] [cursor=pointer]:
+                - generic [ref=e1323]: "0"
+                - generic [ref=e1325]: "1"
+                - generic [ref=e1327]: "3"
+                - generic [ref=e1328]: "#% increased Magnitude of Shock you inflict"
+              - generic [ref=e1329] [cursor=pointer]:
+                - generic [ref=e1331]: "0"
+                - generic [ref=e1333]: "1"
+                - generic [ref=e1335]: "3"
+                - generic [ref=e1336]: "Break Armour on Critical Hit with Spells equal to #% of Physical Damage dealt"
+              - generic [ref=e1337] [cursor=pointer]:
+                - generic [ref=e1339]: "0"
+                - generic [ref=e1341]: "1"
+                - generic [ref=e1343]: "3"
+                - generic [ref=e1344]: "#% increased maximum Life"
+              - generic [ref=e1345] [cursor=pointer]:
+                - generic [ref=e1347]: "0"
+                - generic [ref=e1349]: "1"
+                - generic [ref=e1351]: "3"
+                - generic [ref=e1352]: "#% increased maximum Mana"
+              - generic [ref=e1353] [cursor=pointer]:
+                - generic [ref=e1355]: "0"
+                - generic [ref=e1357]: "1"
+                - generic [ref=e1359]: "3"
+                - generic [ref=e1360]: "#% of Damage taken Recouped as Life"
+              - generic [ref=e1361] [cursor=pointer]:
+                - generic [ref=e1363]: "0"
+                - generic [ref=e1365]: "1"
+                - generic [ref=e1367]: "3"
+                - generic [ref=e1368]: "#% increased Mana Cost Efficiency"
+              - generic [ref=e1369] [cursor=pointer]:
+                - generic [ref=e1371]: "0"
+                - generic [ref=e1373]: "1"
+                - generic [ref=e1375]: "3"
+                - generic [ref=e1376]: "#% increased Immobilisation buildup"
+              - generic [ref=e1377] [cursor=pointer]:
+                - generic [ref=e1379]: "0"
+                - generic [ref=e1381]: "1"
+                - generic [ref=e1383]: "3"
+                - generic [ref=e1384]: "#% increased Critical Damage Bonus"
+              - generic [ref=e1385] [cursor=pointer]:
+                - generic [ref=e1387]: "0"
+                - generic [ref=e1389]: "1"
+                - generic [ref=e1391]: "3"
+                - generic [ref=e1392]: "# to Armour"
+              - generic [ref=e1393] [cursor=pointer]:
+                - generic [ref=e1395]: "0"
+                - generic [ref=e1397]: "1"
+                - generic [ref=e1399]: "3"
+                - generic [ref=e1400]: "# to Evasion Rating"
+              - generic [ref=e1401] [cursor=pointer]:
+                - generic [ref=e1403]: "0"
+                - generic [ref=e1405]: "1"
+                - generic [ref=e1407]: "3"
+                - generic [ref=e1408]: "# to maximum Energy Shield"
+              - generic [ref=e1409] [cursor=pointer]:
+                - generic [ref=e1411]: "0"
+                - generic [ref=e1413]: "1"
+                - generic [ref=e1415]: "1"
+                - generic [ref=e1416]: Archon recovery period expires 30% faster
+              - generic [ref=e1417] [cursor=pointer]:
+                - generic [ref=e1419]: "0"
+                - generic [ref=e1421]: "1"
+                - generic [ref=e1423]: "1"
+                - generic [ref=e1424]: 12% chance when collecting an Elemental Infusion to gain anadditional Elemental Infusion of the same type
+              - generic [ref=e1425] [cursor=pointer]:
+                - generic [ref=e1427]: "0"
+                - generic [ref=e1429]: "1"
+                - generic [ref=e1431]: "1"
+                - generic [ref=e1432]: Gain 8% of Damage as Extra Physical Damage
+              - generic [ref=e1433] [cursor=pointer]:
+                - generic [ref=e1435]: "0"
+                - generic [ref=e1437]: "1"
+                - generic [ref=e1439]: "1"
+                - generic [ref=e1440]: Every Rage also grants 1% increased Spell Damage
+              - generic [ref=e1441]:
+                - generic [ref=e1443]: "0"
+                - generic [ref=e1444]: "1"
+                - text: Total
+          - generic [ref=e1446]:
+            - heading "CurrencyVaalCorrupted" [level=5] [ref=e1447] [cursor=pointer]:
+              - img "CurrencyVaal" [ref=e1448]
+              - link "Corrupted" [ref=e1449]:
+                - /url: Corrupted_Items
+            - generic [ref=e1451]:
+              - generic [ref=e1452] [cursor=pointer]:
+                - generic [ref=e1454]: "1"
+                - generic [ref=e1456]: "1"
+                - generic [ref=e1458]: "1"
+                - generic [ref=e1459]: (10—20)% reduced Attribute Requirements
+              - generic [ref=e1460] [cursor=pointer]:
+                - generic [ref=e1462]: "5"
+                - generic [ref=e1464]: "1"
+                - generic [ref=e1466]: "5"
+                - generic [ref=e1467]:
+                  - text: "# to Level of all Fire Spell Skills"
+                  - generic [ref=e1468]:
+                    - generic [ref=e1469]: Elemental
+                    - generic [ref=e1470]: Fire
+                    - generic [ref=e1471]: Caster
+                    - generic [ref=e1472]: Gem
+                - separator [ref=e1473]
+                - generic [ref=e1474]:
+                  - text: "# to Level of all Cold Spell Skills"
+                  - generic [ref=e1475]:
+                    - generic [ref=e1476]: Elemental
+                    - generic [ref=e1477]: Cold
+                    - generic [ref=e1478]: Caster
+                    - generic [ref=e1479]: Gem
+                - separator [ref=e1480]
+                - generic [ref=e1481]:
+                  - text: "# to Level of all Lightning Spell Skills"
+                  - generic [ref=e1482]:
+                    - generic [ref=e1483]: Elemental
+                    - generic [ref=e1484]: Lightning
+                    - generic [ref=e1485]: Caster
+                    - generic [ref=e1486]: Gem
+                - separator [ref=e1487]
+                - generic [ref=e1488]:
+                  - text: "# to Level of all Chaos Spell Skills"
+                  - generic [ref=e1489]:
+                    - generic [ref=e1490]: Chaos
+                    - generic [ref=e1491]: Caster
+                    - generic [ref=e1492]: Gem
+                - separator [ref=e1493]
+                - generic [ref=e1494]:
+                  - text: "# to Level of all Physical Spell Skills"
+                  - generic [ref=e1495]:
+                    - generic [ref=e1496]: Physical
+                    - generic [ref=e1497]: Caster
+                    - generic [ref=e1498]: Gem
+              - generic [ref=e1499] [cursor=pointer]:
+                - generic [ref=e1501]: "1"
+                - generic [ref=e1503]: "1"
+                - generic [ref=e1505]: "1"
+                - generic [ref=e1506]:
+                  - text: (20—30)% increased Spell Damage
+                  - generic [ref=e1507]:
+                    - generic [ref=e1508]: Damage
+                    - generic [ref=e1509]: Caster
+              - generic [ref=e1510] [cursor=pointer]:
+                - generic [ref=e1512]: "1"
+                - generic [ref=e1514]: "1"
+                - generic [ref=e1516]: "1"
+                - generic [ref=e1517]: (20—30)% increased Flammability Magnitude
+              - generic [ref=e1518] [cursor=pointer]:
+                - generic [ref=e1520]: "1"
+                - generic [ref=e1522]: "1"
+                - generic [ref=e1524]: "1"
+                - generic [ref=e1525]: (20—30)% increased Freeze Buildup
+              - generic [ref=e1526] [cursor=pointer]:
+                - generic [ref=e1528]: "1"
+                - generic [ref=e1530]: "1"
+                - generic [ref=e1532]: "1"
+                - generic [ref=e1533]: (20—30)% increased chance to Shock
+              - generic [ref=e1534] [cursor=pointer]:
+                - generic [ref=e1536]: "1"
+                - generic [ref=e1538]: "1"
+                - generic [ref=e1540]: "1"
+                - generic [ref=e1541]:
+                  - text: (20—30)% increased Critical Hit Chance for Spells
+                  - generic [ref=e1542]:
+                    - generic [ref=e1543]: Caster
+                    - generic [ref=e1544]: Critical
+              - generic [ref=e1545] [cursor=pointer]:
+                - generic [ref=e1547]: "1"
+                - generic [ref=e1549]: "1"
+                - generic [ref=e1551]: "1"
+                - generic [ref=e1552]:
+                  - text: Gain (20—25) Life per enemy killed
+                  - generic [ref=e1554]: Life
+              - generic [ref=e1555] [cursor=pointer]:
+                - generic [ref=e1557]: "1"
+                - generic [ref=e1559]: "1"
+                - generic [ref=e1561]: "1"
+                - generic [ref=e1562]:
+                  - text: Gain (10—15) Mana per enemy killed
+                  - generic [ref=e1564]: Mana
+              - generic [ref=e1565] [cursor=pointer]:
+                - generic [ref=e1567]: "1"
+                - generic [ref=e1569]: "1"
+                - generic [ref=e1571]: "1"
+                - generic [ref=e1572]:
+                  - text: (10—15)% increased Cast Speed
+                  - generic [ref=e1573]:
+                    - generic [ref=e1574]: Caster
+                    - generic [ref=e1575]: Speed
+              - generic [ref=e1576]:
+                - generic [ref=e1578]: "14"
+                - generic [ref=e1579]: "1"
+                - text: Total
+          - text: + + + + + + + + + + + + + +
+      - tabpanel:
+        - generic [ref=e1580]:
+          - heading "Vaal Orb Corrupted Enchantment /14" [level=5] [ref=e1581]
+          - generic [ref=e1582]:
+            - generic [ref=e1583] [cursor=pointer]:
+              - generic [ref=e1584]: "1"
+              - generic [ref=e1585]: "1"
+              - generic [ref=e1586]: "1"
+              - text: "#% reduced"
+              - link "Attribute" [ref=e1587]:
+                - /url: Attributes
+              - text: Requirements
+            - generic [ref=e1588] [cursor=pointer]:
+              - generic [ref=e1589]: "5"
+              - generic [ref=e1590]: "1"
+              - generic [ref=e1591]: "5"
+              - generic [ref=e1592]:
+                - generic [ref=e1593]: Elemental
+                - generic [ref=e1594]: Fire
+                - generic [ref=e1595]: Caster
+                - generic [ref=e1596]: Gem
+              - text: "# to Level of all"
+              - link "Fire" [ref=e1597]:
+                - /url: Fire_Damage
+              - link "Spell" [ref=e1598]:
+                - /url: Spells
+              - text: Skills
+              - text: "# to Level of all"
+              - link "Cold" [ref=e1600]:
+                - /url: Cold_Damage
+              - link "Spell" [ref=e1601]:
+                - /url: Spells
+              - text: Skills
+              - text: "# to Level of all"
+              - link "Lightning" [ref=e1603]:
+                - /url: Lightning_Damage
+              - link "Spell" [ref=e1604]:
+                - /url: Spells
+              - text: Skills
+              - text: "# to Level of all"
+              - link "Chaos" [ref=e1606]:
+                - /url: Chaos_Damage
+              - link "Spell" [ref=e1607]:
+                - /url: Spells
+              - text: Skills
+              - text: "# to Level of all"
+              - link "Physical" [ref=e1609]:
+                - /url: Physical_Damage
+              - link "Spell" [ref=e1610]:
+                - /url: Spells
+              - text: Skills
+            - generic [ref=e1611] [cursor=pointer]:
+              - generic [ref=e1612]: "1"
+              - generic [ref=e1613]: "1"
+              - generic [ref=e1614]: "1"
+              - generic [ref=e1615]:
+                - generic [ref=e1616]: Damage
+                - generic [ref=e1617]: Caster
+              - text: "#% increased"
+              - link "Spell" [ref=e1618]:
+                - /url: Spells
+              - text: Damage
+            - generic [ref=e1619] [cursor=pointer]:
+              - generic [ref=e1620]: "1"
+              - generic [ref=e1621]: "1"
+              - generic [ref=e1622]: "1"
+              - text: "#% increased"
+              - link "Flammability" [ref=e1623]:
+                - /url: Flammability
+              - link "Magnitude" [ref=e1624]:
+                - /url: Buff_Debuff_Magnitude
+            - generic [ref=e1625] [cursor=pointer]:
+              - generic [ref=e1626]: "1"
+              - generic [ref=e1627]: "1"
+              - generic [ref=e1628]: "1"
+              - text: "#% increased"
+              - link "Freeze" [ref=e1629]:
+                - /url: Freeze
+              - text: Buildup
+            - generic [ref=e1630] [cursor=pointer]:
+              - generic [ref=e1631]: "1"
+              - generic [ref=e1632]: "1"
+              - generic [ref=e1633]: "1"
+              - text: "#% increased chance to"
+              - link "Shock" [ref=e1634]:
+                - /url: Shock
+            - generic [ref=e1635] [cursor=pointer]:
+              - generic [ref=e1636]: "1"
+              - generic [ref=e1637]: "1"
+              - generic [ref=e1638]: "1"
+              - generic [ref=e1639]:
+                - generic [ref=e1640]: Caster
+                - generic [ref=e1641]: Critical
+              - text: "#% increased"
+              - link "Critical Hit Chance" [ref=e1642]:
+                - /url: Critical_Hits
+              - text: for
+              - link "Spells" [ref=e1643]:
+                - /url: Spells
+            - generic [ref=e1644] [cursor=pointer]:
+              - generic [ref=e1645]: "1"
+              - generic [ref=e1646]: "1"
+              - generic [ref=e1647]: "1"
+              - generic [ref=e1649]: Life
+              - text: "Gain # Life per enemy killed"
+            - generic [ref=e1650] [cursor=pointer]:
+              - generic [ref=e1651]: "1"
+              - generic [ref=e1652]: "1"
+              - generic [ref=e1653]: "1"
+              - generic [ref=e1655]: Mana
+              - text: "Gain # Mana per enemy killed"
+            - generic [ref=e1656] [cursor=pointer]:
+              - generic [ref=e1657]: "1"
+              - generic [ref=e1658]: "1"
+              - generic [ref=e1659]: "1"
+              - generic [ref=e1660]:
+                - generic [ref=e1661]: Caster
+                - generic [ref=e1662]: Speed
+              - text: "#% increased Cast Speed"
+            - generic [ref=e1663]:
+              - generic [ref=e1665]: "14"
+              - generic [ref=e1666]: "1"
+              - text: Total
+      - tabpanel:
+        - generic [ref=e1667]:
+          - heading "Wand Ref /11" [level=5] [ref=e1668]
+          - generic [ref=e1670]:
+            - heading "Wands" [level=5] [ref=e1671]:
+              - link "Wands" [ref=e1672] [cursor=pointer]:
+                - /url: Wands
+            - generic [ref=e1674]:
+              - text: Wands are
+              - link "One-Handed" [ref=e1676] [cursor=pointer]:
+                - /url: One-Handed
+              - link "Spellcasting" [ref=e1677] [cursor=pointer]:
+                - /url: Spells
+              - text: weapons that require
+              - link "Intelligence" [ref=e1678] [cursor=pointer]:
+                - /url: Intelligence
+              - text: to equip.
+              - text: Wands cannot be
+              - link "Dual Wielded" [ref=e1679] [cursor=pointer]:
+                - /url: Dual_Wielding
+              - text: and cannot be used to
+              - link "Attack" [ref=e1680] [cursor=pointer]:
+                - /url: Attacks
+              - text: directly. However, they grant inbuilt
+              - link "Spells" [ref=e1681] [cursor=pointer]:
+                - /url: Spells
+              - text: based on the wand type and powerful bonuses to spells.
+          - generic [ref=e1682]:
+            - generic [ref=e1684]:
+              - link "CasterEssenceLesser" [ref=e1686] [cursor=pointer]:
+                - /url: Lesser_Essence_of_Sorcery
+                - img "CasterEssenceLesser" [ref=e1687]
+              - generic [ref=e1688]:
+                - link "CasterEssenceLesserLesser Essence of Sorcery" [ref=e1689] [cursor=pointer]:
+                  - /url: Lesser_Essence_of_Sorcery
+                  - img "CasterEssenceLesser" [ref=e1690]
+                  - text: Lesser Essence of Sorcery
+                - generic [ref=e1691]:
+                  - generic [ref=e1692]: "Stack Size: 1 / 10"
+                  - generic [ref=e1694]:
+                    - text: Upgrades a
+                    - link "Magic" [ref=e1695] [cursor=pointer]:
+                      - /url: Item_Rarity
+                    - text: item to a
+                    - link "Rare" [ref=e1696] [cursor=pointer]:
+                      - /url: Item_Rarity
+                    - text: item, adding a guaranteed modifier
+                  - generic [ref=e1697]:
+                    - link "Focus" [ref=e1698] [cursor=pointer]:
+                      - /url: Foci
+                    - text: or
+                    - link "Wand" [ref=e1699] [cursor=pointer]:
+                      - /url: Wands
+                    - text: ":"
+                    - generic [ref=e1700]: (35—44)
+                    - text: "% increased"
+                    - link "Spell" [ref=e1701] [cursor=pointer]:
+                      - /url: Spells
+                    - text: Damage
+                  - generic [ref=e1702]:
+                    - link "Staff" [ref=e1703] [cursor=pointer]:
+                      - /url: Staves
+                    - text: ":"
+                    - generic [ref=e1704]: (69—88)
+                    - text: "% increased"
+                    - link "Spell" [ref=e1705] [cursor=pointer]:
+                      - /url: Spells
+                    - text: Damage
+            - generic [ref=e1707]:
+              - link "CasterEssence" [ref=e1709] [cursor=pointer]:
+                - /url: Essence_of_Sorcery
+                - img "CasterEssence" [ref=e1710]
+              - generic [ref=e1711]:
+                - link "CasterEssenceEssence of Sorcery" [ref=e1712] [cursor=pointer]:
+                  - /url: Essence_of_Sorcery
+                  - img "CasterEssence" [ref=e1713]
+                  - text: Essence of Sorcery
+                - generic [ref=e1714]:
+                  - generic [ref=e1715]: "Stack Size: 1 / 10"
+                  - generic [ref=e1717]:
+                    - text: Upgrades a
+                    - link "Magic" [ref=e1718] [cursor=pointer]:
+                      - /url: Item_Rarity
+                    - text: item to a
+                    - link "Rare" [ref=e1719] [cursor=pointer]:
+                      - /url: Item_Rarity
+                    - text: item, adding a guaranteed modifier
+                  - generic [ref=e1720]:
+                    - link "Focus" [ref=e1721] [cursor=pointer]:
+                      - /url: Foci
+                    - text: or
+                    - link "Wand" [ref=e1722] [cursor=pointer]:
+                      - /url: Wands
+                    - text: ":"
+                    - generic [ref=e1723]: (55—64)
+                    - text: "% increased"
+                    - link "Spell" [ref=e1724] [cursor=pointer]:
+                      - /url: Spells
+                    - text: Damage
+                  - generic [ref=e1725]:
+                    - link "Staff" [ref=e1726] [cursor=pointer]:
+                      - /url: Staves
+                    - text: ":"
+                    - generic [ref=e1727]: (109—128)
+                    - text: "% increased"
+                    - link "Spell" [ref=e1728] [cursor=pointer]:
+                      - /url: Spells
+                    - text: Damage
+            - generic [ref=e1730]:
+              - link "GreaterCasterEssence" [ref=e1732] [cursor=pointer]:
+                - /url: Greater_Essence_of_Sorcery
+                - img "GreaterCasterEssence" [ref=e1733]
+              - generic [ref=e1734]:
+                - link "GreaterCasterEssenceGreater Essence of Sorcery" [ref=e1735] [cursor=pointer]:
+                  - /url: Greater_Essence_of_Sorcery
+                  - img "GreaterCasterEssence" [ref=e1736]
+                  - text: Greater Essence of Sorcery
+                - generic [ref=e1737]:
+                  - generic [ref=e1738]: "Stack Size: 1 / 10"
+                  - generic [ref=e1740]:
+                    - text: Upgrades a
+                    - link "Magic" [ref=e1741] [cursor=pointer]:
+                      - /url: Item_Rarity
+                    - text: item to a
+                    - link "Rare" [ref=e1742] [cursor=pointer]:
+                      - /url: Item_Rarity
+                    - text: item, adding a guaranteed modifier
+                  - generic [ref=e1743]:
+                    - link "Focus" [ref=e1744] [cursor=pointer]:
+                      - /url: Foci
+                    - text: or
+                    - link "Wand" [ref=e1745] [cursor=pointer]:
+                      - /url: Wands
+                    - text: ":"
+                    - generic [ref=e1746]: (75—89)
+                    - text: "% increased"
+                    - link "Spell" [ref=e1747] [cursor=pointer]:
+                      - /url: Spells
+                    - text: Damage
+                  - generic [ref=e1748]:
+                    - link "Staff" [ref=e1749] [cursor=pointer]:
+                      - /url: Staves
+                    - text: ":"
+                    - generic [ref=e1750]: (149—188)
+                    - text: "% increased"
+                    - link "Spell" [ref=e1751] [cursor=pointer]:
+                      - /url: Spells
+                    - text: Damage
+            - generic [ref=e1753]:
+              - link "CasterEssencePerfect" [ref=e1755] [cursor=pointer]:
+                - /url: Perfect_Essence_of_Sorcery
+                - img "CasterEssencePerfect" [ref=e1756]
+              - generic [ref=e1757]:
+                - link "CasterEssencePerfectPerfect Essence of Sorcery" [ref=e1758] [cursor=pointer]:
+                  - /url: Perfect_Essence_of_Sorcery
+                  - img "CasterEssencePerfect" [ref=e1759]
+                  - text: Perfect Essence of Sorcery
+                - generic [ref=e1760]:
+                  - generic [ref=e1761]: "Stack Size: 1 / 10"
+                  - generic [ref=e1763]:
+                    - text: Removes a random modifier and augments a
+                    - link "Rare" [ref=e1764] [cursor=pointer]:
+                      - /url: Item_Rarity
+                    - text: item with a new guaranteed modifier
+                  - generic [ref=e1765]:
+                    - link "Wand" [ref=e1766] [cursor=pointer]:
+                      - /url: Wands
+                    - text: ": +3 to Level of all"
+                    - link "Spell" [ref=e1767] [cursor=pointer]:
+                      - /url: Spells
+                    - text: Skills
+                  - generic [ref=e1768]:
+                    - link "Staff" [ref=e1769] [cursor=pointer]:
+                      - /url: Staves
+                    - text: ": +5 to Level of all"
+                    - link "Spell" [ref=e1770] [cursor=pointer]:
+                      - /url: Spells
+                    - text: Skills
+            - generic [ref=e1772]:
+              - link "CriticalEssenceLesser" [ref=e1774] [cursor=pointer]:
+                - /url: Lesser_Essence_of_Seeking
+                - img "CriticalEssenceLesser" [ref=e1775]
+              - generic [ref=e1776]:
+                - link "CriticalEssenceLesserLesser Essence of Seeking" [ref=e1777] [cursor=pointer]:
+                  - /url: Lesser_Essence_of_Seeking
+                  - img "CriticalEssenceLesser" [ref=e1778]
+                  - text: Lesser Essence of Seeking
+                - generic [ref=e1779]:
+                  - generic [ref=e1780]: "Stack Size: 1 / 10"
+                  - generic [ref=e1782]:
+                    - text: Upgrades a
+                    - link "Magic" [ref=e1783] [cursor=pointer]:
+                      - /url: Item_Rarity
+                    - text: item to a
+                    - link "Rare" [ref=e1784] [cursor=pointer]:
+                      - /url: Item_Rarity
+                    - text: item, adding a guaranteed modifier
+                  - generic [ref=e1785]:
+                    - link "Martial Weapon" [ref=e1786] [cursor=pointer]:
+                      - /url: Martial_Weapons
+                    - text: ":"
+                    - generic [ref=e1787]: +(1.51—2.1)
+                    - text: "% to"
+                    - link "Critical Hit" [ref=e1788] [cursor=pointer]:
+                      - /url: Critical_Hits
+                    - text: Chance
+                  - generic [ref=e1789]:
+                    - link "Focus" [ref=e1790] [cursor=pointer]:
+                      - /url: Foci
+                    - text: or
+                    - link "Wand" [ref=e1791] [cursor=pointer]:
+                      - /url: Wands
+                    - text: ":"
+                    - generic [ref=e1792]: (34—39)
+                    - text: "% increased"
+                    - link "Critical Hit Chance" [ref=e1793] [cursor=pointer]:
+                      - /url: Critical_Hits
+                    - text: for
+                    - link "Spells" [ref=e1794] [cursor=pointer]:
+                      - /url: Spells
+                  - generic [ref=e1795]:
+                    - link "Staff" [ref=e1796] [cursor=pointer]:
+                      - /url: Staves
+                    - text: ":"
+                    - generic [ref=e1797]: (50—59)
+                    - text: "% increased"
+                    - link "Critical Hit Chance" [ref=e1798] [cursor=pointer]:
+                      - /url: Critical_Hits
+                    - text: for
+                    - link "Spells" [ref=e1799] [cursor=pointer]:
+                      - /url: Spells
+            - generic [ref=e1801]:
+              - link "CriticalEssence" [ref=e1803] [cursor=pointer]:
+                - /url: Essence_of_Seeking
+                - img "CriticalEssence" [ref=e1804]
+              - generic [ref=e1805]:
+                - link "CriticalEssenceEssence of Seeking" [ref=e1806] [cursor=pointer]:
+                  - /url: Essence_of_Seeking
+                  - img "CriticalEssence" [ref=e1807]
+                  - text: Essence of Seeking
+                - generic [ref=e1808]:
+                  - generic [ref=e1809]: "Stack Size: 1 / 10"
+                  - generic [ref=e1811]:
+                    - text: Upgrades a
+                    - link "Magic" [ref=e1812] [cursor=pointer]:
+                      - /url: Item_Rarity
+                    - text: item to a
+                    - link "Rare" [ref=e1813] [cursor=pointer]:
+                      - /url: Item_Rarity
+                    - text: item, adding a guaranteed modifier
+                  - generic [ref=e1814]:
+                    - link "Martial Weapon" [ref=e1815] [cursor=pointer]:
+                      - /url: Martial_Weapons
+                    - text: ":"
+                    - generic [ref=e1816]: +(2.11—2.7)
+                    - text: "% to"
+                    - link "Critical Hit" [ref=e1817] [cursor=pointer]:
+                      - /url: Critical_Hits
+                    - text: Chance
+                  - generic [ref=e1818]:
+                    - link "Focus" [ref=e1819] [cursor=pointer]:
+                      - /url: Foci
+                    - text: or
+                    - link "Wand" [ref=e1820] [cursor=pointer]:
+                      - /url: Wands
+                    - text: ":"
+                    - generic [ref=e1821]: (40—46)
+                    - text: "% increased"
+                    - link "Critical Hit Chance" [ref=e1822] [cursor=pointer]:
+                      - /url: Critical_Hits
+                    - text: for
+                    - link "Spells" [ref=e1823] [cursor=pointer]:
+                      - /url: Spells
+                  - generic [ref=e1824]:
+                    - link "Staff" [ref=e1825] [cursor=pointer]:
+                      - /url: Staves
+                    - text: ":"
+                    - generic [ref=e1826]: (60—69)
+                    - text: "% increased"
+                    - link "Critical Hit Chance" [ref=e1827] [cursor=pointer]:
+                      - /url: Critical_Hits
+                    - text: for
+                    - link "Spells" [ref=e1828] [cursor=pointer]:
+                      - /url: Spells
+            - generic [ref=e1830]:
+              - link "GreaterCriticalEssence" [ref=e1832] [cursor=pointer]:
+                - /url: Greater_Essence_of_Seeking
+                - img "GreaterCriticalEssence" [ref=e1833]
+              - generic [ref=e1834]:
+                - link "GreaterCriticalEssenceGreater Essence of Seeking" [ref=e1835] [cursor=pointer]:
+                  - /url: Greater_Essence_of_Seeking
+                  - img "GreaterCriticalEssence" [ref=e1836]
+                  - text: Greater Essence of Seeking
+                - generic [ref=e1837]:
+                  - generic [ref=e1838]: "Stack Size: 1 / 10"
+                  - generic [ref=e1840]:
+                    - text: Upgrades a
+                    - link "Magic" [ref=e1841] [cursor=pointer]:
+                      - /url: Item_Rarity
+                    - text: item to a
+                    - link "Rare" [ref=e1842] [cursor=pointer]:
+                      - /url: Item_Rarity
+                    - text: item, adding a guaranteed modifier
+                  - generic [ref=e1843]:
+                    - link "Martial Weapon" [ref=e1844] [cursor=pointer]:
+                      - /url: Martial_Weapons
+                    - text: ":"
+                    - generic [ref=e1845]: +(3.11—3.8)
+                    - text: "% to"
+                    - link "Critical Hit" [ref=e1846] [cursor=pointer]:
+                      - /url: Critical_Hits
+                    - text: Chance
+                  - generic [ref=e1847]:
+                    - link "Focus" [ref=e1848] [cursor=pointer]:
+                      - /url: Foci
+                    - text: or
+                    - link "Wand" [ref=e1849] [cursor=pointer]:
+                      - /url: Wands
+                    - text: ":"
+                    - generic [ref=e1850]: (47—53)
+                    - text: "% increased"
+                    - link "Critical Hit Chance" [ref=e1851] [cursor=pointer]:
+                      - /url: Critical_Hits
+                    - text: for
+                    - link "Spells" [ref=e1852] [cursor=pointer]:
+                      - /url: Spells
+                  - generic [ref=e1853]:
+                    - link "Staff" [ref=e1854] [cursor=pointer]:
+                      - /url: Staves
+                    - text: ":"
+                    - generic [ref=e1855]: (70—79)
+                    - text: "% increased"
+                    - link "Critical Hit Chance" [ref=e1856] [cursor=pointer]:
+                      - /url: Critical_Hits
+                    - text: for
+                    - link "Spells" [ref=e1857] [cursor=pointer]:
+                      - /url: Spells
+            - generic [ref=e1859]:
+              - link "SpeedCasterEssenceLesser" [ref=e1861] [cursor=pointer]:
+                - /url: Lesser_Essence_of_Alacrity
+                - img "SpeedCasterEssenceLesser" [ref=e1862]
+              - generic [ref=e1863]:
+                - link "SpeedCasterEssenceLesserLesser Essence of Alacrity" [ref=e1864] [cursor=pointer]:
+                  - /url: Lesser_Essence_of_Alacrity
+                  - img "SpeedCasterEssenceLesser" [ref=e1865]
+                  - text: Lesser Essence of Alacrity
+                - generic [ref=e1866]:
+                  - generic [ref=e1867]: "Stack Size: 1 / 10"
+                  - generic [ref=e1869]:
+                    - text: Upgrades a
+                    - link "Magic" [ref=e1870] [cursor=pointer]:
+                      - /url: Item_Rarity
+                    - text: item to a
+                    - link "Rare" [ref=e1871] [cursor=pointer]:
+                      - /url: Item_Rarity
+                    - text: item, adding a guaranteed modifier
+                  - generic [ref=e1872]:
+                    - link "Focus" [ref=e1873] [cursor=pointer]:
+                      - /url: Foci
+                    - text: or
+                    - link "Wand" [ref=e1874] [cursor=pointer]:
+                      - /url: Wands
+                    - text: ":"
+                    - generic [ref=e1875]: (13—16)
+                    - text: "% increased Cast Speed"
+                  - generic [ref=e1876]:
+                    - link "Staff" [ref=e1877] [cursor=pointer]:
+                      - /url: Staves
+                    - text: ":"
+                    - generic [ref=e1878]: (20—25)
+                    - text: "% increased Cast Speed"
+            - generic [ref=e1880]:
+              - link "SpeedCasterEssence" [ref=e1882] [cursor=pointer]:
+                - /url: Essence_of_Alacrity
+                - img "SpeedCasterEssence" [ref=e1883]
+              - generic [ref=e1884]:
+                - link "SpeedCasterEssenceEssence of Alacrity" [ref=e1885] [cursor=pointer]:
+                  - /url: Essence_of_Alacrity
+                  - img "SpeedCasterEssence" [ref=e1886]
+                  - text: Essence of Alacrity
+                - generic [ref=e1887]:
+                  - generic [ref=e1888]: "Stack Size: 1 / 10"
+                  - generic [ref=e1890]:
+                    - text: Upgrades a
+                    - link "Magic" [ref=e1891] [cursor=pointer]:
+                      - /url: Item_Rarity
+                    - text: item to a
+                    - link "Rare" [ref=e1892] [cursor=pointer]:
+                      - /url: Item_Rarity
+                    - text: item, adding a guaranteed modifier
+                  - generic [ref=e1893]:
+                    - link "Focus" [ref=e1894] [cursor=pointer]:
+                      - /url: Foci
+                    - text: or
+                    - link "Wand" [ref=e1895] [cursor=pointer]:
+                      - /url: Wands
+                    - text: ":"
+                    - generic [ref=e1896]: (17—20)
+                    - text: "% increased Cast Speed"
+                  - generic [ref=e1897]:
+                    - link "Staff" [ref=e1898] [cursor=pointer]:
+                      - /url: Staves
+                    - text: ":"
+                    - generic [ref=e1899]: (26—31)
+                    - text: "% increased Cast Speed"
+            - generic [ref=e1901]:
+              - link "GreaterSpeedCasterEssence" [ref=e1903] [cursor=pointer]:
+                - /url: Greater_Essence_of_Alacrity
+                - img "GreaterSpeedCasterEssence" [ref=e1904]
+              - generic [ref=e1905]:
+                - link "GreaterSpeedCasterEssenceGreater Essence of Alacrity" [ref=e1906] [cursor=pointer]:
+                  - /url: Greater_Essence_of_Alacrity
+                  - img "GreaterSpeedCasterEssence" [ref=e1907]
+                  - text: Greater Essence of Alacrity
+                - generic [ref=e1908]:
+                  - generic [ref=e1909]: "Stack Size: 1 / 10"
+                  - generic [ref=e1911]:
+                    - text: Upgrades a
+                    - link "Magic" [ref=e1912] [cursor=pointer]:
+                      - /url: Item_Rarity
+                    - text: item to a
+                    - link "Rare" [ref=e1913] [cursor=pointer]:
+                      - /url: Item_Rarity
+                    - text: item, adding a guaranteed modifier
+                  - generic [ref=e1914]:
+                    - link "Focus" [ref=e1915] [cursor=pointer]:
+                      - /url: Foci
+                    - text: or
+                    - link "Wand" [ref=e1916] [cursor=pointer]:
+                      - /url: Wands
+                    - text: ":"
+                    - generic [ref=e1917]: (25—28)
+                    - text: "% increased Cast Speed"
+                  - generic [ref=e1918]:
+                    - link "Staff" [ref=e1919] [cursor=pointer]:
+                      - /url: Staves
+                    - text: ":"
+                    - generic [ref=e1920]: (38—43)
+                    - text: "% increased Cast Speed"
+            - generic [ref=e1922]:
+              - link "SpeedCasterEssencePerfect" [ref=e1924] [cursor=pointer]:
+                - /url: Perfect_Essence_of_Alacrity
+                - img "SpeedCasterEssencePerfect" [ref=e1925]
+              - generic [ref=e1926]:
+                - link "SpeedCasterEssencePerfectPerfect Essence of Alacrity" [ref=e1927] [cursor=pointer]:
+                  - /url: Perfect_Essence_of_Alacrity
+                  - img "SpeedCasterEssencePerfect" [ref=e1928]
+                  - text: Perfect Essence of Alacrity
+                - generic [ref=e1929]:
+                  - generic [ref=e1930]: "Stack Size: 1 / 10"
+                  - generic [ref=e1932]:
+                    - text: Removes a random modifier and augments a
+                    - link "Rare" [ref=e1933] [cursor=pointer]:
+                      - /url: Item_Rarity
+                    - text: item with a new guaranteed modifier
+                  - generic [ref=e1934]:
+                    - link "Focus" [ref=e1935] [cursor=pointer]:
+                      - /url: Foci
+                    - text: or
+                    - link "Wand" [ref=e1936] [cursor=pointer]:
+                      - /url: Wands
+                    - text: ":"
+                    - generic [ref=e1937]: (18—20)
+                    - text: "% increased Mana Cost"
+                    - link "Efficiency" [ref=e1938] [cursor=pointer]:
+                      - /url: Efficiency
+                  - generic [ref=e1939]:
+                    - link "Staff" [ref=e1940] [cursor=pointer]:
+                      - /url: Staves
+                    - text: ":"
+                    - generic [ref=e1941]: (28—32)
+                    - text: "% increased Mana Cost"
+                    - link "Efficiency" [ref=e1942] [cursor=pointer]:
+                      - /url: Efficiency
+    - generic [ref=e1944]:
+      - link "Edit" [ref=e1945] [cursor=pointer]:
+        - /url: /us/marked?id=Wands
+      - generic [ref=e1946]:
+        - separator [ref=e1947]
+        - text: Wikis Content is available under
+        - link "CC BY-NC-SA 3.0" [ref=e1948] [cursor=pointer]:
+          - /url: https://creativecommons.org/licenses/by-nc-sa/3.0/
+        - text: unless otherwise noted.
+    - generic [ref=e1949]:
+      - generic [ref=e1951]:
+        - generic [ref=e1952]:
+          - heading "Sites" [level=5] [ref=e1953]
+          - list [ref=e1954]:
+            - listitem [ref=e1955]:
+              - link "poedb.tw" [ref=e1956] [cursor=pointer]:
+                - /url: https://poedb.tw/
+            - listitem [ref=e1957]:
+              - link "tlidb.com" [ref=e1958] [cursor=pointer]:
+                - /url: https://tlidb.com/
+            - listitem [ref=e1959]:
+              - link "poe2db.tw" [ref=e1960] [cursor=pointer]:
+                - /url: https://poe2db.tw/
+            - listitem [ref=e1961]:
+              - link "paldb.cc" [ref=e1962] [cursor=pointer]:
+                - /url: https://paldb.cc/
+        - generic [ref=e1963]:
+          - heading "News" [level=5] [ref=e1964]
+          - list [ref=e1965]:
+            - listitem [ref=e1966]:
+              - link "GGG Tracker" [ref=e1967] [cursor=pointer]:
+                - /url: news
+            - listitem [ref=e1968]:
+              - link "Concurrent Players" [ref=e1969] [cursor=pointer]:
+                - /url: League#ConcurrentPlayers
+        - generic [ref=e1970]:
+          - heading "About Site" [level=5] [ref=e1971]
+          - list [ref=e1972]:
+            - listitem [ref=e1973]:
+              - link "Privacy" [ref=e1974] [cursor=pointer]:
+                - /url: privacy
+            - listitem [ref=e1975]:
+              - link "Disclaimers" [ref=e1976] [cursor=pointer]:
+                - /url: General_disclaimer
+            - listitem [ref=e1977]:
+              - link "Patreon" [ref=e1978] [cursor=pointer]:
+                - /url: patreon
+        - generic [ref=e1979]:
+          - heading "Community" [level=5] [ref=e1980]
+          - list [ref=e1981]:
+            - listitem [ref=e1982]:
+              - link "/u/chuanhsing" [ref=e1983] [cursor=pointer]:
+                - /url: https://www.reddit.com/user/chuanhsing
+      - generic [ref=e1984]: Copyright © 2014-2025 PoE2DB.
+    - iframe [ref=e1986]:
+      - iframe [ref=f39e2]:
+        - iframe [ref=f40e3]:
+          - application "Video Player" [ref=f41e2]:
+            - generic:
+              - generic: 0 seconds of 0 secondsVolume 0%
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - button "Play":
+                          - img
+                - text: /
+  - link [ref=e1987] [cursor=pointer]:
+    - /url: "#top"
+  - status [ref=e1989]

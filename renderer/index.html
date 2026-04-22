@@ -149,6 +149,117 @@
             margin-right: 10px;
             transform: scale(1.2);
         }
+        .tracking-group {
+            background: #1f1f1f;
+            border: 1px solid #333;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        .tracking-group-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 10px 12px;
+            background: #2a2a2a;
+            border-bottom: 1px solid transparent;
+        }
+        .tracking-group.expanded .tracking-group-header {
+            border-bottom-color: #333;
+        }
+        .tracking-group-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            background: none;
+            border: none;
+            color: #e0e0e0;
+            cursor: pointer;
+            padding: 0;
+            text-align: left;
+        }
+        .tracking-group-caret {
+            color: #d4af37;
+            font-size: 0.85em;
+            transition: transform 0.22s ease;
+        }
+        .tracking-group.expanded .tracking-group-caret {
+            transform: rotate(90deg);
+        }
+        .tracking-group-title {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .tracking-group-name {
+            font-weight: 600;
+            color: #f0f0f0;
+        }
+        .tracking-group-count {
+            font-size: 0.78em;
+            color: #888;
+        }
+        .tracking-group-select {
+            background: #333;
+            color: #d4af37;
+            border: 1px solid #444;
+            border-radius: 999px;
+            padding: 4px 10px;
+            font-size: 0.78em;
+            cursor: pointer;
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+        .tracking-group-select:hover {
+            background: #3a3a3a;
+            border-color: #555;
+        }
+        .tracking-group-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.25s ease;
+            background: #1a1a1a;
+        }
+        .tracking-base-list {
+            padding: 8px 12px 12px;
+        }
+        .tracking-base-item {
+            margin-bottom: 6px;
+        }
+        .tracking-base-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 6px 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        .tracking-base-label:hover {
+            background: #222;
+        }
+        .tracking-base-label .tracking-base-checkbox {
+            margin: 2px 0 0;
+            transform: scale(1.05);
+            flex-shrink: 0;
+        }
+        .tracking-base-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            min-width: 0;
+        }
+        .tracking-base-title {
+            font-size: 0.9em;
+            color: #e7e7e7;
+            line-height: 1.2;
+        }
+        .tracking-base-implicit {
+            font-size: 0.78em;
+            color: #888;
+            line-height: 1.25;
+        }
         .checklist {
             list-style-type: none;
             padding: 0;
@@ -775,127 +886,7 @@
     let zoneDataMap = {};
     let visitedZones = new Set();
 
-    const gearBreakpoints = {
-        "Bows": [
-            { level: 1, name: "Crude Bow" },
-            { level: 5, name: "Shortbow" },
-            { level: 11, name: "Warden Bow" },
-            { level: 16, name: "Recurve Bow" },
-            { level: 22, name: "Composite Bow" },
-            { level: 28, name: "Dualstring Bow" },
-            { level: 33, name: "Cultist Bow" },
-            { level: 39, name: "Zealot Bow" },
-            { level: 45, name: "Artillery Bow" },
-            { level: 50, name: "Tribal Bow" }
-        ],
-        "Quivers": [
-            { level: 1, name: "Broadhead Quiver" },
-            { level: 8, name: "Fire Quiver" },
-            { level: 16, name: "Sacral Quiver" },
-            { level: 24, name: "Two-Point Quiver" },
-            { level: 33, name: "Blunt Quiver" },
-            { level: 39, name: "Toxic Quiver" },
-            { level: 44, name: "Serrated Quiver" },
-            { level: 51, name: "Primed Quiver" }
-        ],
-        "Wands": [
-            { level: 1, name: "Withered Wand (Chaos Bolt)" },
-            { level: 2, name: "Bone/Attuned Wand" },
-            { level: 11, name: "Siphoning Wand (Power Siphon)" },
-            { level: 16, name: "Volatile Wand (Volatile Dead)" },
-            { level: 25, name: "Galvanic Wand (Galvanic Field)" },
-            { level: 33, name: "Acrid Wand (Decompose)" },
-            { level: 38, name: "Offering Wand (Exsanguinate)" },
-            { level: 45, name: "Frigid Wand" }
-        ],
-        "Staves": [
-            { level: 1, name: "Ashen Staff (Firebolt)" },
-            { level: 2, name: "Gelid/Voltaic Staff" },
-            { level: 11, name: "Spriggan Staff" },
-            { level: 16, name: "Pyrophyte Staff (Solar Orb)" },
-            { level: 25, name: "Chiming Staff (Sigil of Power)" },
-            { level: 33, name: "Rending Staff (Soulrend)" },
-            { level: 38, name: "Reaping Staff (Reap)" },
-            { level: 45, name: "Icicle Staff" }
-        ],
-        "Spears": [
-            { level: 1, name: "Hardwood Spear" },
-            { level: 5, name: "Ironhead Spear" },
-            { level: 10, name: "Hunting Spear" },
-            { level: 16, name: "Winged Spear" },
-            { level: 21, name: "War Spear" },
-            { level: 26, name: "Forked Spear" },
-            { level: 33, name: "Barbed Spear" },
-            { level: 40, name: "Broad Spear" },
-            { level: 45, name: "Crossblade Spear" }
-        ],
-        "1H Maces": [
-            { level: 1, name: "Wooden Club" },
-            { level: 4, name: "Smithing Hammer" },
-            { level: 10, name: "Slim Mace" },
-            { level: 16, name: "Spiked Club" },
-            { level: 22, name: "Warpick" },
-            { level: 26, name: "Plated Mace" },
-            { level: 33, name: "Brigand Mace" },
-            { level: 36, name: "Construct Hammer" },
-            { level: 45, name: "Morning Star" }
-        ],
-        "2H Maces": [
-            { level: 1, name: "Felled Greatclub" },
-            { level: 4, name: "Oak Greathammer" },
-            { level: 11, name: "Forge Maul" },
-            { level: 16, name: "Studded Greatclub" },
-            { level: 22, name: "Cultist Greathammer" },
-            { level: 28, name: "Temple Maul" },
-            { level: 33, name: "Leaden Greathammer" },
-            { level: 38, name: "Crumbling Maul" },
-            { level: 45, name: "Pointed Maul" }
-        ],
-        "Sceptres": [
-            { level: 1, name: "Rattling Sceptre (Skele Warrior)" },
-            { level: 6, name: "Stoic Sceptre (Discipline)" },
-            { level: 12, name: "Lupine Sceptre" },
-            { level: 16, name: "Omen Sceptre (Malice)" },
-            { level: 21, name: "Ochre Sceptre" },
-            { level: 26, name: "Shrine Sceptre (Purity)" },
-            { level: 33, name: "Devouring Sceptre" },
-            { level: 36, name: "Clasped Sceptre" },
-            { level: 45, name: "Devotional Sceptre" }
-        ],
-        "Quarterstaves": [
-            { level: 1, name: "Wrapped Quarterstaff" },
-            { level: 4, name: "Long Quarterstaff" },
-            { level: 11, name: "Gothic Quarterstaff" },
-            { level: 16, name: "Crackling Quarterstaff" },
-            { level: 20, name: "Crescent Quarterstaff" },
-            { level: 28, name: "Steelpoint Quarterstaff" },
-            { level: 33, name: "Slicing Quarterstaff" },
-            { level: 37, name: "Barrier Quarterstaff" },
-            { level: 45, name: "Hefty Quarterstaff" }
-        ],
-        "Crossbows": [
-            { level: 1, name: "Makeshift Crossbow" },
-            { level: 4, name: "Tense Crossbow" },
-            { level: 10, name: "Sturdy Crossbow" },
-            { level: 16, name: "Varnished Crossbow" },
-            { level: 20, name: "Dyad Crossbow" },
-            { level: 26, name: "Alloy Crossbow" },
-            { level: 33, name: "Bombard Crossbow" },
-            { level: 38, name: "Construct Crossbow" },
-            { level: 45, name: "Blackfire Crossbow" }
-        ],
-        "Foci": [
-            { level: 1, name: "Twig Focus" },
-            { level: 6, name: "Woven Focus" },
-            { level: 10, name: "Antler Focus" },
-            { level: 16, name: "Engraved Focus" },
-            { level: 22, name: "Tonal Focus" },
-            { level: 26, name: "Crystal Focus" },
-            { level: 33, name: "Voodoo Focus" },
-            { level: 36, name: "Plumed Focus" },
-            { level: 45, name: "Runed Focus" }
-        ]
-    };
+    let gearBreakpoints = {};
 
     const alwaysBreakpoints = {
         "Boots MS": [
@@ -930,23 +921,274 @@
         ]
     };
 
-    let trackedBases = JSON.parse(localStorage.getItem('trackedBases')) || ["Boots"];
+    const TRACKED_BASES_STORAGE_KEY = 'trackedBases';
+    let trackedBases = {};
+    let gearBreakpointsLoaded = false;
+    let pendingAutoDetectedClass = null;
 
     const trackingOptionsEl = document.getElementById('tracking-options');
-    for (const base in gearBreakpoints) {
-        const div = document.createElement('div');
-        div.className = 'setting-checkbox';
-        const cb = document.createElement('input');
-        cb.type = 'checkbox';
-        cb.id = `setting-${base}`;
-        cb.value = base;
-        cb.checked = trackedBases.includes(base);
-        const label = document.createElement('label');
-        label.htmlFor = `setting-${base}`;
-        label.textContent = `Track ${base}`;
-        div.appendChild(cb);
-        div.appendChild(label);
-        trackingOptionsEl.appendChild(div);
+
+    function slugifyCategory(category) {
+        return category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    }
+
+    function sanitizeGearBreakpoints(rawData) {
+        const sanitized = {};
+        for (const [category, bases] of Object.entries(rawData || {})) {
+            sanitized[category] = (Array.isArray(bases) ? bases : [])
+                .map(base => ({
+                    level: Number(base.level) || 0,
+                    name: String(base.name || '').trim(),
+                    implicit: base.implicit == null ? null : String(base.implicit).trim()
+                }))
+                .filter(base => base.name)
+                .sort((a, b) => (a.level - b.level) || a.name.localeCompare(b.name) || ((a.implicit || '').localeCompare(b.implicit || '')));
+        }
+        return sanitized;
+    }
+
+    function getAllBaseNamesForCategory(category) {
+        return [...new Set((gearBreakpoints[category] || []).map(base => base.name))];
+    }
+
+    function normalizeTrackedBases(rawTrackedBases) {
+        const normalized = {};
+        let changed = !rawTrackedBases || typeof rawTrackedBases !== 'object';
+
+        if (Array.isArray(rawTrackedBases)) {
+            changed = true;
+            rawTrackedBases.forEach(category => {
+                if (gearBreakpoints[category]) {
+                    normalized[category] = getAllBaseNamesForCategory(category);
+                }
+            });
+            return { normalized, changed };
+        }
+
+        for (const category of Object.keys(gearBreakpoints)) {
+            const available = new Set(getAllBaseNamesForCategory(category));
+            const selected = Array.isArray(rawTrackedBases?.[category])
+                ? rawTrackedBases[category].filter((name, index, array) => typeof name === 'string' && array.indexOf(name) === index && available.has(name))
+                : [];
+
+            if (selected.length > 0) {
+                normalized[category] = getAllBaseNamesForCategory(category).filter(name => selected.includes(name));
+            }
+
+            if (Array.isArray(rawTrackedBases?.[category]) && JSON.stringify(rawTrackedBases[category]) !== JSON.stringify(selected)) {
+                changed = true;
+            }
+        }
+
+        const rawKeys = rawTrackedBases && !Array.isArray(rawTrackedBases) ? Object.keys(rawTrackedBases) : [];
+        if (rawKeys.some(key => !gearBreakpoints[key])) {
+            changed = true;
+        }
+
+        return { normalized, changed };
+    }
+
+    function persistTrackedBases() {
+        localStorage.setItem(TRACKED_BASES_STORAGE_KEY, JSON.stringify(trackedBases));
+    }
+
+    function syncTrackedBasesFromStorage() {
+        let rawTrackedBases = null;
+        try {
+            rawTrackedBases = JSON.parse(localStorage.getItem(TRACKED_BASES_STORAGE_KEY));
+        } catch {
+            rawTrackedBases = null;
+        }
+
+        const { normalized, changed } = normalizeTrackedBases(rawTrackedBases);
+        trackedBases = normalized;
+        if (changed || JSON.stringify(rawTrackedBases) !== JSON.stringify(normalized)) {
+            persistTrackedBases();
+        }
+    }
+
+    function getSelectedBreakpoints(category) {
+        const selectedNames = new Set(trackedBases[category] || []);
+        if (selectedNames.size === 0) return [];
+        return (gearBreakpoints[category] || []).filter(base => selectedNames.has(base.name));
+    }
+
+    function setTrackedBasesForCategory(category, selectedNames) {
+        const orderedNames = getAllBaseNamesForCategory(category).filter(name => selectedNames.includes(name));
+        if (orderedNames.length > 0) {
+            trackedBases[category] = orderedNames;
+        } else {
+            delete trackedBases[category];
+        }
+        persistTrackedBases();
+    }
+
+    function updateTrackingGroupUI(category) {
+        const slug = slugifyCategory(category);
+        const allNames = getAllBaseNamesForCategory(category);
+        const selectedCount = (trackedBases[category] || []).length;
+        const countEl = document.getElementById(`tracking-count-${slug}`);
+        const selectBtn = document.getElementById(`tracking-select-${slug}`);
+        if (countEl) {
+            countEl.textContent = `${selectedCount}/${allNames.length} selected`;
+        }
+        if (selectBtn) {
+            selectBtn.textContent = selectedCount === allNames.length && allNames.length > 0 ? 'Deselect All' : 'Select All';
+        }
+    }
+
+    function syncDuplicateCheckboxes(category, baseName, checked) {
+        trackingOptionsEl
+            .querySelectorAll('.tracking-base-checkbox')
+            .forEach(checkbox => {
+                if (checkbox.dataset.category === category && checkbox.dataset.baseName === baseName) {
+                    checkbox.checked = checked;
+                }
+            });
+    }
+
+    function setTrackingGroupExpanded(category, expanded) {
+        const slug = slugifyCategory(category);
+        const group = document.getElementById(`tracking-group-${slug}`);
+        const body = document.getElementById(`tracking-body-${slug}`);
+        if (!group || !body) return;
+
+        group.classList.toggle('expanded', expanded);
+        body.style.maxHeight = expanded ? `${body.scrollHeight}px` : '0px';
+    }
+
+    function renderTrackingOptions() {
+        trackingOptionsEl.innerHTML = '';
+
+        for (const [category, bases] of Object.entries(gearBreakpoints)) {
+            const slug = slugifyCategory(category);
+            const selectedNames = new Set(trackedBases[category] || []);
+            const group = document.createElement('div');
+            group.className = 'tracking-group';
+            group.id = `tracking-group-${slug}`;
+
+            const header = document.createElement('div');
+            header.className = 'tracking-group-header';
+
+            const toggleBtn = document.createElement('button');
+            toggleBtn.type = 'button';
+            toggleBtn.className = 'tracking-group-toggle';
+            toggleBtn.innerHTML = `
+                <span class="tracking-group-caret">▶</span>
+                <span class="tracking-group-title">
+                    <span class="tracking-group-name">${category}</span>
+                    <span class="tracking-group-count" id="tracking-count-${slug}"></span>
+                </span>
+            `;
+            toggleBtn.addEventListener('click', () => {
+                setTrackingGroupExpanded(category, !group.classList.contains('expanded'));
+            });
+
+            const selectAllBtn = document.createElement('button');
+            selectAllBtn.type = 'button';
+            selectAllBtn.className = 'tracking-group-select';
+            selectAllBtn.id = `tracking-select-${slug}`;
+            selectAllBtn.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const allNames = getAllBaseNamesForCategory(category);
+                const shouldSelectAll = (trackedBases[category] || []).length !== allNames.length;
+                setTrackedBasesForCategory(category, shouldSelectAll ? allNames : []);
+                trackingOptionsEl
+                    .querySelectorAll(`.tracking-base-checkbox[data-category="${category}"]`)
+                    .forEach(checkbox => {
+                        checkbox.checked = shouldSelectAll;
+                    });
+                updateTrackingGroupUI(category);
+                updateBreakpointsUI(currentLevel);
+            });
+
+            header.appendChild(toggleBtn);
+            header.appendChild(selectAllBtn);
+
+            const body = document.createElement('div');
+            body.className = 'tracking-group-body';
+            body.id = `tracking-body-${slug}`;
+
+            const list = document.createElement('div');
+            list.className = 'tracking-base-list';
+
+            bases.forEach((base, index) => {
+                const row = document.createElement('div');
+                row.className = 'tracking-base-item';
+
+                const label = document.createElement('label');
+                label.className = 'tracking-base-label';
+                label.htmlFor = `tracking-${slug}-${index}`;
+
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.className = 'tracking-base-checkbox';
+                checkbox.id = `tracking-${slug}-${index}`;
+                checkbox.dataset.category = category;
+                checkbox.dataset.baseName = base.name;
+                checkbox.checked = selectedNames.has(base.name);
+                checkbox.addEventListener('change', () => {
+                    syncDuplicateCheckboxes(category, base.name, checkbox.checked);
+                    const checkboxesForCategory = trackingOptionsEl.querySelectorAll(`.tracking-base-checkbox[data-category="${category}"]`);
+                    const selectedForCategory = [...new Set(Array.from(checkboxesForCategory).filter(cb => cb.checked).map(cb => cb.dataset.baseName))];
+                    setTrackedBasesForCategory(category, selectedForCategory);
+                    updateTrackingGroupUI(category);
+                    updateBreakpointsUI(currentLevel);
+                });
+
+                const copy = document.createElement('span');
+                copy.className = 'tracking-base-copy';
+
+                const title = document.createElement('span');
+                title.className = 'tracking-base-title';
+                title.textContent = `${base.name} (Lvl ${base.level})`;
+
+                const implicit = document.createElement('span');
+                implicit.className = 'tracking-base-implicit';
+                implicit.textContent = base.implicit || 'No implicit';
+
+                copy.appendChild(title);
+                copy.appendChild(implicit);
+
+                label.appendChild(checkbox);
+                label.appendChild(copy);
+                row.appendChild(label);
+                list.appendChild(row);
+            });
+
+            body.appendChild(list);
+            group.appendChild(header);
+            group.appendChild(body);
+            trackingOptionsEl.appendChild(group);
+
+            updateTrackingGroupUI(category);
+        }
+
+        requestAnimationFrame(() => {
+            for (const category of Object.keys(gearBreakpoints)) {
+                setTrackingGroupExpanded(category, (trackedBases[category] || []).length > 0);
+            }
+        });
+    }
+
+    function formatBreakpointName(breakpoint) {
+        return breakpoint.implicit ? `${breakpoint.name} (${breakpoint.implicit})` : breakpoint.name;
+    }
+
+    function loadGearBreakpoints() {
+        return fetch('../poe2db-all-items.json')
+            .then(response => response.json())
+            .then(data => {
+                gearBreakpoints = sanitizeGearBreakpoints(data);
+                gearBreakpointsLoaded = true;
+                syncTrackedBasesFromStorage();
+                renderTrackingOptions();
+                if (pendingAutoDetectedClass) {
+                    autoDetectClassSettings(pendingAutoDetectedClass);
+                }
+                updateBreakpointsUI(currentLevel);
+            })
+            .catch(err => console.error('Failed to load poe2db item data:', err));
     }
 
     document.getElementById('settings-btn').addEventListener('click', () => {
@@ -955,9 +1197,7 @@
     });
 
     function saveAndCloseSettings() {
-        const checkboxes = document.querySelectorAll('#tracking-options input[type="checkbox"]');
-        trackedBases = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
-        localStorage.setItem('trackedBases', JSON.stringify(trackedBases));
+        persistTrackedBases();
         document.getElementById('settings-overlay').style.display = 'none';
         updateBreakpointsUI(currentLevel);
     }
@@ -992,13 +1232,18 @@
     };
 
     function autoDetectClassSettings(className) {
+        if (!gearBreakpointsLoaded) {
+            pendingAutoDetectedClass = className;
+            return;
+        }
+
         let changed = false;
         const c = className.toLowerCase();
         for (const [key, gear] of Object.entries(classGearMap)) {
             if (c.includes(key)) {
                 gear.forEach(g => {
-                    if (!trackedBases.includes(g)) {
-                        trackedBases.push(g);
+                    if (gearBreakpoints[g] && !(trackedBases[g] || []).length) {
+                        trackedBases[g] = getAllBaseNamesForCategory(g);
                         changed = true;
                     }
                 });
@@ -1006,33 +1251,33 @@
             }
         }
         if (changed) {
-            localStorage.setItem('trackedBases', JSON.stringify(trackedBases));
-            for (const base in gearBreakpoints) {
-                const cb = document.getElementById(`setting-${base}`);
-                if (cb) cb.checked = trackedBases.includes(base);
-            }
+            persistTrackedBases();
+            renderTrackingOptions();
             updateBreakpointsUI(currentLevel);
         }
     }
 
     function renderBreakpointRow(list, type, breakpoints, level) {
-        if (!breakpoints) return;
+        if (!breakpoints || breakpoints.length === 0) return;
         let current = breakpoints[0];
-        let next = null;
+        let next = breakpoints[1] || null;
         for (let i = 0; i < breakpoints.length; i++) {
             if (level >= breakpoints[i].level) {
                 current = breakpoints[i];
                 next = (i + 1 < breakpoints.length) ? breakpoints[i + 1] : null;
+            } else {
+                next = breakpoints[i];
+                break;
             }
         }
         const div = document.createElement('div');
         div.className = 'breakpoint-item';
-        let html = `<span class="bp-type">${type.split(' ')[0]}:</span> `;
-        html += `<span class="bp-current">${current.name}</span>`;
+        let html = `<span class="bp-type">${type}:</span> `;
+        html += `<span class="bp-current">${formatBreakpointName(current)}</span>`;
         if (next) {
             const isClose = (next.level - level) <= 3 && (next.level - level) > 0;
             const nextClass = isClose ? 'bp-next-highlight' : 'bp-next';
-            html += ` <span class="${nextClass}">| Next: ${next.name} (Lvl ${next.level})</span>`;
+            html += ` <span class="${nextClass}">| Next: ${formatBreakpointName(next)} (Lvl ${next.level})</span>`;
         } else {
             html += ` <span class="bp-next">| Max Tier Reached</span>`;
         }
@@ -1047,11 +1292,16 @@
         for (const type in alwaysBreakpoints) {
             renderBreakpointRow(list, type, alwaysBreakpoints[type], level);
         }
-        trackedBases.forEach(type => {
-            renderBreakpointRow(list, type, gearBreakpoints[type], level);
-        });
+        for (const type of Object.keys(gearBreakpoints)) {
+            const selectedBreakpoints = getSelectedBreakpoints(type);
+            if (selectedBreakpoints.length > 0) {
+                renderBreakpointRow(list, type, selectedBreakpoints, level);
+            }
+        }
         container.style.display = 'block';
     }
+
+    loadGearBreakpoints();
 
     fetch('campaign.json')
         .then(response => response.json())
