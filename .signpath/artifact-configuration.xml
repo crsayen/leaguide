@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SignPath artifact configuration for PoE2 League Guide -->
+<!-- Docs: https://docs.signpath.io/artifact-configuration -->
+<artifact-configuration xmlns="http://signpath.io/artifact-configuration/v2">
+  <pe-file>
+    <authenticode-sign/>
+  </pe-file>
+</artifact-configuration>

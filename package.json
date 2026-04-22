@@ -1,6 +1,8 @@
 {
   "name": "poe2-league-guide",
   "version": "1.0.2",
+  "description": "PoE 2 League Guide - Campaign overlay that tracks your progress via game logs",
+  "author": "crsayen",
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
@@ -17,8 +19,7 @@
     "appId": "com.leaguide.poe2",
     "productName": "PoE2 League Guide",
     "win": {
-      "target": ["nsis", "zip"],
-      "sign": false
+      "target": ["nsis"]
     },
     "nsis": {
       "oneClick": true,
