@@ -25,9 +25,20 @@
             color: #e0e0e0;
             margin: 0;
             padding: 20px;
+            box-sizing: border-box;
+        }
+        .layout-wrapper {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 24px;
+            transition: max-width 0.25s ease;
+        }
+        .layout-wrapper.layout-enabled {
+            max-width: 1140px;
         }
         .container {
             max-width: 600px;
@@ -36,6 +47,118 @@
             border-radius: 8px;
             padding: 20px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            box-sizing: border-box;
+        }
+        .layout-panel {
+            display: none;
+            width: 500px;
+            flex: 0 0 500px;
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+            background: linear-gradient(180deg, rgba(44, 44, 44, 0.98), rgba(30, 30, 30, 0.98));
+            border: 1px solid #3b3b3b;
+            border-radius: 12px;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+            padding: 18px;
+            box-sizing: border-box;
+        }
+        .layout-wrapper.layout-enabled .layout-panel {
+            display: block;
+        }
+        .layout-panel-title {
+            font-size: 0.72em;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: #7f7f7f;
+            margin-bottom: 6px;
+        }
+        .layout-panel-zone {
+            font-size: 1.2em;
+            color: #f0f0f0;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .layout-panel-images {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .layout-image-button {
+            display: block;
+            padding: 0;
+            border: 1px solid #3f3f3f;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #171717;
+            cursor: pointer;
+            transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+        }
+        .layout-image-button:hover {
+            transform: translateY(-1px);
+            border-color: #5a5a5a;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+        }
+        .layout-panel img {
+            display: block;
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            background: #111;
+        }
+        .layout-panel-empty {
+            color: #8b8b8b;
+            font-size: 0.95em;
+            line-height: 1.5;
+            padding: 10px 2px 2px;
+        }
+        .layout-panel-credit {
+            margin-top: 14px;
+            font-size: 0.74em;
+            color: #666;
+            text-align: right;
+        }
+        .image-lightbox {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.88);
+            z-index: 10000;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+        .image-lightbox.visible {
+            display: flex;
+        }
+        .image-lightbox-content {
+            position: relative;
+            max-width: min(92vw, 1600px);
+            max-height: 92vh;
+        }
+        .image-lightbox img {
+            display: block;
+            max-width: 100%;
+            max-height: 92vh;
+            border-radius: 12px;
+            border: 1px solid #444;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+        }
+        .image-lightbox-close {
+            position: absolute;
+            top: -14px;
+            right: -14px;
+            width: 34px;
+            height: 34px;
+            border: none;
+            border-radius: 999px;
+            background: #2e2e2e;
+            color: #f0f0f0;
+            cursor: pointer;
+            font-size: 1.1em;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
         }
         h1 {
             color: #d4af37;
@@ -811,6 +934,7 @@
 
     <div class="settings-btn" id="settings-btn">⚙️ Settings</div>
 
+    <div class="layout-wrapper" id="layout-wrapper">
     <div class="container">
         <h1>PoE 2 League Guide</h1>
     <div class="character-selector-wrapper">
@@ -864,6 +988,14 @@
     <div id="app-version" style="text-align:center; font-size:0.75em; color:#444; margin-top:16px; user-select:none;"></div>
 </div>
 
+    <aside class="layout-panel" id="layout-panel">
+        <div class="layout-panel-title">Zone Layout Guide</div>
+        <div class="layout-panel-zone" id="layout-panel-zone">Waiting for Zone...</div>
+        <div class="layout-panel-images" id="layout-panel-images"></div>
+        <div class="layout-panel-credit">Layouts from mobalytics.gg</div>
+    </aside>
+    </div>
+
 <div class="settings-overlay" id="settings-overlay">
     <div class="settings-panel" id="settings-panel">
         <h3 style="margin-top:0; color:#d4af37;">Character</h3>
@@ -873,9 +1005,21 @@
                 Set
             </button>
         </div>
+        <h3 style="font-size:1em; color:#d4af37; margin-bottom:10px;">Display</h3>
+        <label class="setting-checkbox" style="margin-bottom:18px;">
+            <input type="checkbox" id="settings-show-layout-images">
+            <span>Show Zone Layout Guides</span>
+        </label>
         <h2 style="font-size:1.1em;">Gear Tracking Preferences</h2>
         <p style="font-size: 0.9em; color: #aaa; margin-top: -10px;">Select which weapon/armour bases you want to track breakpoints for.</p>
         <div id="tracking-options"></div>
+    </div>
+</div>
+
+<div class="image-lightbox" id="image-lightbox">
+    <div class="image-lightbox-content">
+        <button class="image-lightbox-close" id="image-lightbox-close" aria-label="Close layout image">✕</button>
+        <img id="image-lightbox-img" alt="Zone layout guide preview">
     </div>
 </div>
 
@@ -887,6 +1031,68 @@
     let visitedZones = new Set();
 
     let gearBreakpoints = {};
+    let currentZoneName = 'Unknown';
+    let showLayoutImages = false;
+
+    const ZONE_LAYOUT_IMAGES = {
+      // Act 1
+      "Clearfell": ["https://cdn.mobalytics.gg/assets/poe-2/images/layouts/Clearfell-Seed-1-Pilot.png", "https://cdn.mobalytics.gg/assets/poe-2/images/layouts/Clearfell-Seed-2-Pilot.png"],
+      "The Grelwood": ["https://cdn.mobalytics.gg/assets/poe-2/images/layouts/Grelwood-Pilot.png"],
+      "The Red Vale": ["https://cdn.mobalytics.gg/assets/poe-2/images/layouts/Red-Vale-Pilot.png"],
+      "The Grim Tangle": ["https://cdn.mobalytics.gg/assets/poe-2/images/layouts/Grim-Tangle-Pilot.png"],
+      "Cemetery of the Eternals": ["https://cdn.mobalytics.gg/assets/poe-2/images/layouts/Cemetery-Pilot.png"],
+      "Mausoleum of the Praetor": ["https://cdn.mobalytics.gg/assets/poe-2/images/layouts/Praetor-Pilot.png"],
+      "Tomb of the Consort": ["https://cdn.mobalytics.gg/assets/poe-2/images/layouts/Consort-Pilot.png"],
+      "Hunting Grounds": ["https://cdn.mobalytics.gg/assets/poe-2/images/layouts/Hunting-Grounds-Pilot.png", "https://cdn.mobalytics.gg/assets/poe-2/images/layouts/Hunting-Grounds-Boss.png"],
+      "Freythorn": ["https://cdn.mobalytics.gg/assets/poe-2/images/layouts/Freythorn-Pilot.png"],
+      "Ogham Farmlands": ["https://cdn.mobalytics.gg/assets/poe-2/images/layouts/Ogham-Farmlands-Pilot.png"],
+      "Ogham Village": ["https://cdn.mobalytics.gg/assets/poe-2/images/layouts/Ogham-Village-Pilot.png"],
+      "The Manor Ramparts": ["https://cdn.mobalytics.gg/assets/poe-2/images/layouts/Manor-Ramparts-Pilot.png"],
+      "Ogham Manor": ["https://cdn.mobalytics.gg/assets/poe-2/images/layouts/Ogham-Manor-First.png", "https://cdn.mobalytics.gg/assets/poe-2/images/layouts/Ogham-Manor-Second.png", "https://cdn.mobalytics.gg/assets/poe-2/images/layouts/Ogham-Manor-Third.png"],
+      // Act 2
+      "Vastiri Outskirts": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a2-layouts/A2-01-Vastiri-Outskirts-No-Text.png"],
+      "Mawdun Quarry": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a2-layouts/A2-02-Mawdun-Quarry.png"],
+      "Mawdun Mine": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a2-layouts/A2-03-Mawdun-Mine.png"],
+      "Traitor's Passage": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a2-layouts/A2-04-Traitors-Passage.png", "https://cdn.mobalytics.gg/assets/poe-2/images/guides/a2-layouts/A2-04-Traitors-Passage-ESS.png"],
+      "The Halani Gates": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a2-layouts/A2-05-Halani-Gates.png"],
+      "Keth": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a2-layouts/A2-06-Keth.png"],
+      "The Lost City": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a2-layouts/A2-07-Lost-City.png"],
+      "Buried Shrines": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a2-layouts/A2-08-Buried-Shrines.png"],
+      "Mastodon Badlands": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a2-layouts/A2-13-Mastodon-Badlands.png"],
+      "The Bone Pits": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a2-layouts/A2-14-Bone-Pits.png"],
+      "Valley of the Titans": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a2-layouts/A2-09-Valley-Of-The-Titans.png"],
+      "The Titan Grotto": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a2-layouts/A2-10-Titan-Grotto.png"],
+      "Deshar": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a2-layouts/A2-11-Deshar.png"],
+      "Path of Mourning": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a2-layouts/A2-12-Path-Of-Mourning.png"],
+      "The Spires of Deshar": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a2-layouts/A2-15-Spires-of-Deshar.png"],
+      // Act 3
+      "Sandswept Marsh": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a3-layouts/A3-01-Sandswept-Marsh.png"],
+      "Jungle Ruins": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a3-layouts/A3-02-Jungle-Ruins-2.png"],
+      "Infested Barrens": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a3-layouts/A3-03-Infested-Barrens.png"],
+      "The Azak Bog": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a3-layouts/A3-14-Azak-Bog.png"],
+      "Chimeral Wetlands": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a3-layouts/A3-04-Chimeral%20Wetlands.png"],
+      "Jiquani's Machinarium": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a3-layouts/A3-05-Jinquanis-Machinarium.png"],
+      "Jiquani's Sanctum": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a3-layouts/A3-06-Jinquanis-Sanctum.png"],
+      "Apex of Filth": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a3-layouts/A3-09-Apex-of-Filth.png"],
+      "Temple of Kopec": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a3-layouts/A3-10-Temple-of-Kopec.png"],
+      "Aggorat": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a3-layouts/A3-12-Aggorat.png"],
+      "The Black Chambers": ["https://cdn.mobalytics.gg/assets/poe-2/images/guides/a3-layouts/A3-13-Black-Chambers.png"],
+      // Act 4
+      "Isle of Kin": ["https://cdn.mobalytics.gg/uploads/images/poe-2/A4-01-Isle_of_Kin.png"],
+      "Volcanic Warrens": ["https://cdn.mobalytics.gg/uploads/images/poe-2/A4-02-Volcanic-Warrens.png"],
+      "Kedge Bay": ["https://cdn.mobalytics.gg/uploads/images/poe-2/A4-03-Kedge%20Bay.png"],
+      "Journey's End": ["https://cdn.mobalytics.gg/uploads/images/poe-2/A4-04-Journeys_End.png"],
+      "Shrike Island": ["https://cdn.mobalytics.gg/uploads/images/poe-2/A4-05-Shrike%20Island.png"],
+      "Whakapanu Island": ["https://cdn.mobalytics.gg/uploads/images/poe-2/A4-06-Whakapanu_Island.png"],
+      "Singing Caverns": ["https://cdn.mobalytics.gg/uploads/images/poe-2/A4-07-Singing-Caverns.png"],
+      "Solitary Confinement": ["https://cdn.mobalytics.gg/uploads/images/poe-2/A4-09-Solitary-Confinement.png"],
+      "Eye of Hinekora": ["https://cdn.mobalytics.gg/uploads/images/poe-2/A4-10-Eye%20of%20Hinekora.png"],
+      "Halls of the Dead": ["https://cdn.mobalytics.gg/uploads/images/poe-2/A4-11-Halls-of-the-Dead.png"],
+      "Arastas": ["https://cdn.mobalytics.gg/uploads/images/poe-2/A4-12-Arastas.png"],
+      "The Excavation": ["https://cdn.mobalytics.gg/uploads/images/poe-2/A4-13-Excavation.png"],
+      "Ngakanu": ["https://cdn.mobalytics.gg/uploads/images/poe-2/A4-14-Ngakanu.png"],
+      "Heart of the Tribe": ["https://cdn.mobalytics.gg/uploads/images/poe-2/A4-15-Heart-of-the-tribe.png"]
+    };
 
     const alwaysBreakpoints = {
         "Boots MS": [
@@ -1210,9 +1416,93 @@
         updateBreakpointsUI(currentLevel);
     }
 
+    function setLayoutMode(enabled) {
+        showLayoutImages = enabled === true;
+        const layoutWrapper = document.getElementById('layout-wrapper');
+        const toggle = document.getElementById('settings-show-layout-images');
+        layoutWrapper.classList.toggle('layout-enabled', showLayoutImages);
+        toggle.checked = showLayoutImages;
+        updateLayoutPanel(currentZoneName);
+    }
+
+    async function loadLayoutImagePreference() {
+        const prefs = await window.electronAPI.getPreferences();
+        setLayoutMode(prefs.showLayoutImages === true);
+    }
+
+    function openLayoutLightbox(imageUrl, zoneName, imageIndex) {
+        const lightbox = document.getElementById('image-lightbox');
+        const lightboxImg = document.getElementById('image-lightbox-img');
+        lightboxImg.src = imageUrl;
+        lightboxImg.alt = `${zoneName} layout guide ${imageIndex + 1}`;
+        lightbox.classList.add('visible');
+    }
+
+    function closeLayoutLightbox() {
+        const lightbox = document.getElementById('image-lightbox');
+        const lightboxImg = document.getElementById('image-lightbox-img');
+        lightbox.classList.remove('visible');
+        lightboxImg.removeAttribute('src');
+    }
+
+    function updateLayoutPanel(zoneName) {
+        const panelZone = document.getElementById('layout-panel-zone');
+        const panelImages = document.getElementById('layout-panel-images');
+        panelZone.textContent = zoneName || 'Waiting for Zone...';
+        panelImages.innerHTML = '';
+
+        if (!showLayoutImages) {
+            return;
+        }
+
+        const images = Array.isArray(ZONE_LAYOUT_IMAGES[zoneName]) ? ZONE_LAYOUT_IMAGES[zoneName] : [];
+        if (images.length === 0) {
+            const empty = document.createElement('div');
+            empty.className = 'layout-panel-empty';
+            empty.textContent = 'No layout guide for this zone';
+            panelImages.appendChild(empty);
+            return;
+        }
+
+        images.forEach((imageUrl, index) => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'layout-image-button';
+            button.title = 'Open full-size layout guide';
+            button.addEventListener('click', () => openLayoutLightbox(imageUrl, zoneName, index));
+
+            const image = document.createElement('img');
+            image.src = imageUrl;
+            image.alt = `${zoneName} layout guide ${index + 1}`;
+            image.loading = 'lazy';
+
+            button.appendChild(image);
+            panelImages.appendChild(button);
+        });
+    }
+
     document.getElementById('settings-overlay').addEventListener('click', async (e) => {
         if (e.target === e.currentTarget) {
             await saveAndCloseSettings();
+        }
+    });
+
+    document.getElementById('settings-show-layout-images').addEventListener('change', async (event) => {
+        const enabled = event.target.checked;
+        await window.electronAPI.savePreferences({ showLayoutImages: enabled });
+        await window.electronAPI.setLayoutImagesEnabled(enabled);
+        setLayoutMode(enabled);
+    });
+
+    document.getElementById('image-lightbox-close').addEventListener('click', closeLayoutLightbox);
+    document.getElementById('image-lightbox').addEventListener('click', (event) => {
+        if (event.target === event.currentTarget) {
+            closeLayoutLightbox();
+        }
+    });
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeLayoutLightbox();
         }
     });
 
@@ -1590,6 +1880,7 @@
     });
 
     loadVendorRegexes().then(() => renderRegexList());
+    loadLayoutImagePreference().catch(err => console.error('Failed to load layout image preference:', err));
 
     let vendorNotificationActive = false;
     let vendorDismissTimer = null;
@@ -1670,9 +1961,11 @@
         if (data.visited_zones && Array.isArray(data.visited_zones)) {
             visitedZones = new Set(data.visited_zones);
         }
+        currentZoneName = data.zone || 'Unknown';
         if (data.zone && data.zone !== "Unknown") {
             visitedZones.add(data.zone);
             updateUIForZone(data.zone);
+            updateLayoutPanel(data.zone);
             if (data.town_has_vendors && vendorNotificationActive) {
                 if (!vendorDismissTimer) {
                     vendorDismissTimer = setTimeout(dismissVendorNotification, 15000);
@@ -1681,6 +1974,8 @@
                 clearTimeout(vendorDismissTimer);
                 vendorDismissTimer = null;
             }
+        } else {
+            updateLayoutPanel(currentZoneName);
         }
         if (data.level) {
             currentLevel = data.level;

@@ -7,6 +7,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
   getState: () => ipcRenderer.invoke('get-state'),
   getPreferences: () => ipcRenderer.invoke('get-preferences'),
   savePreferences: (prefs) => ipcRenderer.invoke('save-preferences', prefs),
+  setLayoutImagesEnabled: (enabled) => ipcRenderer.invoke('set-layout-images-enabled', enabled),
   onStateUpdate: (callback) => ipcRenderer.on('state-update', (event, data) => callback(data)),
   onVendorDialog: (callback) => ipcRenderer.on('vendor-dialog', (event, data) => callback(data)),
   onUpdateAvailable: (callback) => ipcRenderer.on('update-available', (event, data) => callback(data)),

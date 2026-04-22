@@ -4,7 +4,8 @@ const path = require('path');
 const DEFAULT_CONFIG = {
   known_characters: [],
   vendor_regexes: [],
-  tracked_bases: {}
+  tracked_bases: {},
+  show_layout_images: false
 };
 
 function getElectronApp() {
@@ -49,6 +50,7 @@ function withDefaults(cfg) {
   next.tracked_bases = next.tracked_bases && typeof next.tracked_bases === 'object' && !Array.isArray(next.tracked_bases)
     ? next.tracked_bases
     : {};
+  next.show_layout_images = next.show_layout_images === true;
   return { ...DEFAULT_CONFIG, ...next };
 }
 

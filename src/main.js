@@ -21,6 +21,30 @@ let visitedZones = new Set();
 let config = null;
 let logPath = null;
 
+function getWindowWidthForLayoutImages(enabled) {
+  return enabled ? 1400 : 800;
+}
+
+function resizeWindowForLayoutImages(enabled) {
+  if (!win || win.isDestroyed()) {
+    return;
+  }
+
+  const [currentWidth, currentHeight] = win.getSize();
+  const targetWidth = getWindowWidthForLayoutImages(enabled);
+  if (currentWidth === targetWidth) {
+    return;
+  }
+
+  const bounds = win.getBounds();
+  win.setBounds({
+    x: bounds.x,
+    y: bounds.y,
+    width: targetWidth,
+    height: currentHeight
+  }, true);
+}
+
 function buildState(levelUp = false) {
   const state = {
     zone: currentZone,
@@ -207,7 +231,7 @@ function readInitialStateFromLog() {
 
 async function createWindow() {
   win = new BrowserWindow({
-    width: 800,
+    width: getWindowWidthForLayoutImages(config?.show_layout_images === true),
     height: 900,
     backgroundColor: '#1a1a1a',
     webPreferences: {
@@ -285,7 +309,8 @@ function setupIpc() {
 
   ipcMain.handle('get-preferences', async () => ({
     vendorRegexes: Array.isArray(config.vendor_regexes) ? config.vendor_regexes : [],
-    trackedBases: config.tracked_bases && typeof config.tracked_bases === 'object' ? config.tracked_bases : {}
+    trackedBases: config.tracked_bases && typeof config.tracked_bases === 'object' ? config.tracked_bases : {},
+    showLayoutImages: config.show_layout_images === true
   }));
 
   ipcMain.handle('save-preferences', async (event, prefs) => {
@@ -298,9 +323,20 @@ function setupIpc() {
         ? prefs.trackedBases
         : {};
     }
+    if (prefs && Object.prototype.hasOwnProperty.call(prefs, 'showLayoutImages')) {
+      next.show_layout_images = prefs.showLayoutImages === true;
+    }
     config = next;
     saveConfig(config);
     return { ok: true };
+  });
+
+  ipcMain.handle('set-layout-images-enabled', async (event, enabled) => {
+    const nextEnabled = enabled === true;
+    config = { ...config, show_layout_images: nextEnabled };
+    saveConfig(config);
+    resizeWindowForLayoutImages(nextEnabled);
+    return { ok: true, showLayoutImages: nextEnabled };
   });
 }
 
