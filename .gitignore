@@ -1,0 +1,10 @@
+node_modules/
+dist/
+out/
+poe2-guide/
+*.exe
+*.zip
+__pycache__/
+build/
+*.pyc
+config.json

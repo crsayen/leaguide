@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoE 2 League Guide</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background-color: #2a2a2a;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #d4af37;
+            text-align: center;
+            border-bottom: 2px solid #444;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .zone-info {
+            background-color: #333;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 4px solid #d4af37;
+        }
+        .current-zone {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        .next-zone {
+            font-size: 1.1em;
+            color: #aaa;
+        }
+        .level-info {
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 5px;
+            padding-top: 5px;
+            border-top: 1px dashed #444;
+        }
+        .level-info span {
+            color: #d4af37;
+            font-weight: bold;
+        }
+        .breakpoints-container {
+            margin-top: 20px;
+            background-color: #333;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+        }
+        .breakpoints-container h3 {
+            margin-top: 0;
+            color: #3498db;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        .breakpoint-item {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+        .bp-type {
+            color: #ccc;
+            font-weight: bold;
+            display: inline-block;
+            min-width: 80px;
+        }
+        .bp-current {
+            color: #fff;
+        }
+        .bp-next {
+            color: #888;
+            font-size: 0.9em;
+        }
+        .bp-next-highlight {
+            color: #e67e22;
+        }
+        .settings-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #333;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s;
+        }
+        .settings-btn:hover {
+            background: #444;
+        }
+        .settings-panel {
+            margin-top: 20px;
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            padding: 15px;
+            border-radius: 6px;
+        }
+        .setting-checkbox {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .setting-checkbox input {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+        .checklist {
+            list-style-type: none;
+            padding: 0;
+        }
+        .checklist li {
+            background-color: #333;
+            margin-bottom: 8px;
+            padding: 12px;
+            border-radius: 4px;
+            display: flex;
+            align-items: flex-start;
+            transition: background-color 0.2s;
+            position: relative;
+        }
+        .checklist li:hover {
+            background-color: #3a3a3a;
+        }
+        .checkbox-container {
+            margin-top: 2px;
+        }
+        input[type="checkbox"] {
+            margin-right: 15px;
+            transform: scale(1.5);
+            cursor: pointer;
+        }
+        .task-content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .task-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .task-text {
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        .badge-optional {
+            background-color: #555;
+            color: #ccc;
+            font-size: 0.75em;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-left: 10px;
+        }
+        .badge-required {
+            background-color: #8c1c1c;
+            color: #ffcccc;
+            font-size: 0.75em;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-left: 10px;
+        }
+        .task-subtext {
+            font-size: 0.9em;
+            color: #4caf50;
+            margin-top: 4px;
+        }
+        .task-subtext.no-reward {
+            color: #888;
+        }
+        .checked .task-text, .checked .task-subtext {
+            text-decoration: line-through;
+            color: #666 !important;
+        }
+        .checked .badge-optional, .checked .badge-required {
+            opacity: 0.4;
+        }
+        .status-dot {
+            height: 12px;
+            width: 12px;
+            background-color: #f44336;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .connected {
+            background-color: #4caf50;
+        }
+        .connection-status {
+            font-size: 0.9em;
+            color: #aaa;
+            text-align: right;
+            margin-top: -30px;
+            margin-bottom: 20px;
+        }
+        .update-banner {
+            display: none;
+            background: linear-gradient(135deg, #1f3544, #2a2a2a);
+            border: 1px solid #3498db;
+            border-radius: 6px;
+            padding: 12px 14px;
+            margin-bottom: 15px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .update-banner-text {
+            color: #cfe9ff;
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+        .update-banner-btn {
+            background: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .next-rewards {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed #444;
+        }
+        .next-reward-zone {
+            font-size: 0.85em;
+            color: #999;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+        .next-reward-zone:last-child {
+            margin-bottom: 0;
+        }
+        .next-reward-zone-name {
+            color: #ccc;
+            font-weight: 600;
+        }
+        .next-reward-zone-name::before {
+            content: '↳ ';
+            color: #666;
+        }
+        .next-reward-item {
+            color: #4caf50;
+            font-size: 0.85em;
+        }
+        .next-reward-item.optional {
+            color: #888;
+        }
+        .character-selector-wrapper {
+            text-align: center;
+            position: relative;
+            margin-bottom: 8px;
+        }
+        .character-name {
+            color: #d4af37;
+            font-size: 1.1em;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 4px;
+            transition: background 0.2s, color 0.2s;
+            user-select: none;
+        }
+        .character-name:hover {
+            background: rgba(212, 175, 55, 0.1);
+            color: #f0d060;
+        }
+        .character-dropdown-arrow {
+            font-size: 0.8em;
+            opacity: 0.6;
+            transition: transform 0.2s;
+        }
+        .character-name.open .character-dropdown-arrow {
+            transform: rotate(180deg);
+        }
+        .character-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-4px);
+            background: #333;
+            border: 1px solid #444;
+            border-radius: 6px;
+            min-width: 200px;
+            max-width: 100%;
+            z-index: 100;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            opacity: 0;
+            transition: opacity 0.15s, transform 0.15s;
+        }
+        .character-dropdown.visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+        .character-dropdown-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.15s;
+            color: #ccc;
+            font-size: 0.95em;
+        }
+        .character-dropdown-item:hover {
+            background: #3a3a3a;
+        }
+        .character-dropdown-item.active {
+            border-left: 3px solid #d4af37;
+            color: #d4af37;
+            padding-left: 12px;
+        }
+        .vendor-notification {
+            background: linear-gradient(135deg, #3d2e0a, #2a2a2a);
+            border: 2px solid #d4af37;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            animation: vendor-pulse 2s ease-in-out infinite;
+        }
+        @keyframes vendor-pulse {
+            0%, 100% { border-color: #d4af37; box-shadow: 0 0 5px rgba(212,175,55,0.3); }
+            50% { border-color: #f0d060; box-shadow: 0 0 20px rgba(212,175,55,0.6); }
+        }
+        .vendor-notification-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .vendor-notification-icon {
+            font-size: 1.3em;
+        }
+        .vendor-notification-text {
+            color: #e0c860;
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+        .vendor-dismiss-btn {
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 1.1em;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: color 0.2s, background 0.2s;
+        }
+        .vendor-dismiss-btn:hover {
+            color: #e0e0e0;
+            background: rgba(255,255,255,0.08);
+        }
+        .regex-container {
+            margin-top: 20px;
+            background-color: #333;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #9b59b6;
+        }
+        .regex-container h3 {
+            margin-top: 0;
+            color: #9b59b6;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        .regex-card {
+            background: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 4px;
+            padding: 10px 12px;
+            margin-bottom: 8px;
+        }
+        .regex-card:last-child {
+            margin-bottom: 0;
+        }
+        .regex-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+        .regex-card-title {
+            font-size: 0.85em;
+            color: #aaa;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .regex-card-actions {
+            display: flex;
+            gap: 4px;
+        }
+        .regex-card-btn {
+            background: none;
+            border: none;
+            color: #777;
+            font-size: 0.85em;
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 3px;
+            transition: color 0.15s, background 0.15s;
+        }
+        .regex-card-btn:hover {
+            color: #e0e0e0;
+            background: rgba(255,255,255,0.08);
+        }
+        .regex-card-btn.copied {
+            color: #4caf50;
+        }
+        .regex-string {
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.95em;
+            color: #e8c4ff;
+            background: #1a1a1a;
+            padding: 6px 10px;
+            border-radius: 3px;
+            word-break: break-all;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+        .regex-string:hover {
+            border-color: #9b59b6;
+        }
+        .regex-empty {
+            color: #555;
+            font-style: italic;
+            font-size: 0.9em;
+            text-align: center;
+            padding: 8px;
+        }
+        .regex-add-btn {
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            background: transparent;
+            border: 1px dashed #555;
+            border-radius: 4px;
+            color: #777;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: border-color 0.15s, color 0.15s;
+        }
+        .regex-add-btn:hover {
+            border-color: #9b59b6;
+            color: #9b59b6;
+        }
+        .regex-edit-overlay {
+            background: #2a2a2a;
+            border: 1px solid #9b59b6;
+            border-radius: 4px;
+            padding: 12px;
+            margin-bottom: 8px;
+        }
+        .regex-edit-overlay input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 6px 8px;
+            background: #1a1a1a;
+            border: 1px solid #555;
+            border-radius: 3px;
+            color: #e0e0e0;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+        .regex-edit-overlay input:focus {
+            outline: none;
+            border-color: #9b59b6;
+        }
+        .regex-edit-overlay input.regex-input {
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #e8c4ff;
+        }
+        .regex-edit-btns {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-end;
+        }
+        .regex-edit-btns button {
+            padding: 4px 12px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.85em;
+        }
+        .regex-save-btn {
+            background: #9b59b6;
+            color: #fff;
+        }
+        .regex-cancel-btn {
+            background: #444;
+            color: #ccc;
+        }
+        .regex-delete-btn {
+            background: #6b2020;
+            color: #ffaaaa;
+        }
+        .character-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+        .character-modal {
+            background: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 32px 36px;
+            min-width: 340px;
+            max-width: 420px;
+            width: 90%;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(212, 175, 55, 0.1);
+            text-align: center;
+        }
+        .character-modal-title {
+            font-size: 1.15em;
+            color: #ccc;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .character-modal-name {
+            color: #d4af37;
+            font-size: 1.4em;
+            font-weight: 700;
+            display: block;
+            margin: 8px 0 4px;
+            letter-spacing: 0.3px;
+        }
+        .character-modal-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 24px;
+        }
+        .character-modal-btn {
+            padding: 10px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-family: inherit;
+            font-weight: 600;
+            transition: background 0.15s, transform 0.1s;
+        }
+        .character-modal-btn:active {
+            transform: scale(0.97);
+        }
+        .character-modal-btn-primary {
+            background: #d4af37;
+            color: #1a1a1a;
+        }
+        .character-modal-btn-primary:hover {
+            background: #e0c050;
+        }
+        .character-modal-btn-secondary {
+            background: #444;
+            color: #ccc;
+        }
+        .character-modal-btn-secondary:hover {
+            background: #555;
+        }
+        .character-modal-input-group {
+            position: relative;
+            text-align: left;
+            margin-top: 16px;
+        }
+        .character-modal-input-group label {
+            display: block;
+            font-size: 0.85em;
+            color: #888;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .character-modal-input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px 12px;
+            background: #1a1a1a;
+            border: 1px solid #555;
+            border-radius: 6px;
+            color: #e0e0e0;
+            font-size: 1em;
+            font-family: inherit;
+            transition: border-color 0.15s;
+        }
+        .character-modal-input:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+        .character-modal-autocomplete {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #333;
+            border: 1px solid #555;
+            border-top: none;
+            border-radius: 0 0 6px 6px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 10;
+            display: none;
+        }
+        .character-modal-autocomplete-item {
+            padding: 9px 12px;
+            cursor: pointer;
+            color: #ccc;
+            font-size: 0.95em;
+            transition: background 0.1s;
+        }
+        .character-modal-autocomplete-item:hover {
+            background: #3a3a3a;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="character-modal-overlay" id="character-modal-overlay" style="display:none">
+        <div class="character-modal">
+            <div id="modal-confirm" style="display:none">
+                <div class="character-modal-title">
+                    Still playing as
+                    <span class="character-modal-name" id="modal-confirm-name"></span>
+                </div>
+                <div class="character-modal-actions">
+                    <button class="character-modal-btn character-modal-btn-primary" id="modal-confirm-yes">Yes</button>
+                    <button class="character-modal-btn character-modal-btn-secondary" id="modal-confirm-no">No, switch character</button>
+                </div>
+            </div>
+            <div id="modal-entry" style="display:none">
+                <div class="character-modal-title">Enter your character name</div>
+                <div class="character-modal-input-group">
+                    <label for="modal-char-input">Character name</label>
+                    <input type="text" class="character-modal-input" id="modal-char-input" autocomplete="off" spellcheck="false" placeholder="Type a name...">
+                    <div class="character-modal-autocomplete" id="modal-autocomplete"></div>
+                </div>
+                <div class="character-modal-actions">
+                    <button class="character-modal-btn character-modal-btn-primary" id="modal-start-btn">Start</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="settings-btn" id="settings-btn">⚙️ Settings</div>
+
+    <div class="container">
+        <h1>PoE 2 League Guide</h1>
+    <div class="character-selector-wrapper">
+        <div class="character-name" id="character-name" title="Click to switch character">
+            <span id="character-name-text">Loading...</span>
+            <span class="character-dropdown-arrow">▾</span>
+        </div>
+        <div class="character-dropdown" id="character-dropdown" style="display:none">
+        </div>
+    </div>
+    <div class="connection-status">
+        <span id="status-dot" class="status-dot"></span>
+        <span id="status-text">Disconnected</span>
+    </div>
+
+    <div class="update-banner" id="update-banner">
+        <div class="update-banner-text" id="update-banner-text">Version available</div>
+        <button class="update-banner-btn" id="update-banner-btn">Open release</button>
+    </div>
+
+    <div class="vendor-notification" id="vendor-notification" style="display:none">
+        <div class="vendor-notification-content">
+            <span class="vendor-notification-icon">⚒</span>
+            <span class="vendor-notification-text">Level up! Vendors have new stock — check them out!</span>
+        </div>
+        <button class="vendor-dismiss-btn" id="vendor-dismiss">✕</button>
+    </div>
+
+    <div class="zone-info" id="zone-info-container" style="display: none;">
+        <div class="current-zone" id="current-zone">Waiting for Zone...</div>
+        <div class="next-zone">Next: <span id="next-zone">...</span></div>
+        <div id="next-rewards"></div>
+        <div class="level-info" id="level-info">Level: <span id="est-level">1</span> <span id="class-name"></span></div>
+    </div>
+
+    <div class="breakpoints-container" id="breakpoints-container" style="display: none;">
+        <h3>Gear Breakpoints</h3>
+        <div id="breakpoints-list"></div>
+    </div>
+
+    <div class="regex-container" id="regex-container">
+        <h3>Vendor Search</h3>
+        <div id="regex-list"></div>
+    </div>
+
+    <ul class="checklist" id="checklist"></ul>
+
+    <div id="settings-panel" class="settings-panel" style="display: none;">
+        <h3 style="margin-top:0; color:#d4af37;">Character</h3>
+        <div style="display:flex; gap:8px; margin-bottom:15px;">
+            <input type="text" id="settings-character-name" placeholder="Character Name" style="flex:1; padding:8px; background:#333; border:1px solid #555; border-radius:4px; color:#e0e0e0;">
+            <button id="settings-character-save" style="padding:8px 16px; background:#d4af37; color:#1a1a1a; border:none; border-radius:4px; cursor:pointer; font-weight:bold;">
+                Set
+            </button>
+        </div>
+        <h2>Gear Tracking Preferences</h2>
+        <p style="font-size: 0.9em; color: #aaa; margin-top: -10px;">Select which weapon/armour bases you want to track breakpoints for. These will automatically update if we detect your class in the logs.</p>
+        <div id="tracking-options"></div>
+        <button id="save-settings-btn" style="margin-top: 15px; padding: 8px 16px; background: #3498db; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Save Settings</button>
+    </div>
+</div>
+
+<script>
+    let campaignData = null;
+    let currentLevel = 1;
+    let flatZoneOrder = [];
+    let zoneDataMap = {};
+    let visitedZones = new Set();
+
+    const gearBreakpoints = {
+        "Bows": [
+            { level: 1, name: "Crude Bow" },
+            { level: 5, name: "Shortbow" },
+            { level: 11, name: "Warden Bow" },
+            { level: 16, name: "Recurve Bow" },
+            { level: 22, name: "Composite Bow" },
+            { level: 28, name: "Dualstring Bow" },
+            { level: 33, name: "Cultist Bow" },
+            { level: 39, name: "Zealot Bow" },
+            { level: 45, name: "Artillery Bow" },
+            { level: 50, name: "Tribal Bow" }
+        ],
+        "Quivers": [
+            { level: 1, name: "Broadhead Quiver" },
+            { level: 8, name: "Fire Quiver" },
+            { level: 16, name: "Sacral Quiver" },
+            { level: 24, name: "Two-Point Quiver" },
+            { level: 33, name: "Blunt Quiver" },
+            { level: 39, name: "Toxic Quiver" },
+            { level: 44, name: "Serrated Quiver" },
+            { level: 51, name: "Primed Quiver" }
+        ],
+        "Wands": [
+            { level: 1, name: "Withered Wand (Chaos Bolt)" },
+            { level: 2, name: "Bone/Attuned Wand" },
+            { level: 11, name: "Siphoning Wand (Power Siphon)" },
+            { level: 16, name: "Volatile Wand (Volatile Dead)" },
+            { level: 25, name: "Galvanic Wand (Galvanic Field)" },
+            { level: 33, name: "Acrid Wand (Decompose)" },
+            { level: 38, name: "Offering Wand (Exsanguinate)" },
+            { level: 45, name: "Frigid Wand" }
+        ],
+        "Staves": [
+            { level: 1, name: "Ashen Staff (Firebolt)" },
+            { level: 2, name: "Gelid/Voltaic Staff" },
+            { level: 11, name: "Spriggan Staff" },
+            { level: 16, name: "Pyrophyte Staff (Solar Orb)" },
+            { level: 25, name: "Chiming Staff (Sigil of Power)" },
+            { level: 33, name: "Rending Staff (Soulrend)" },
+            { level: 38, name: "Reaping Staff (Reap)" },
+            { level: 45, name: "Icicle Staff" }
+        ],
+        "Spears": [
+            { level: 1, name: "Hardwood Spear" },
+            { level: 5, name: "Ironhead Spear" },
+            { level: 10, name: "Hunting Spear" },
+            { level: 16, name: "Winged Spear" },
+            { level: 21, name: "War Spear" },
+            { level: 26, name: "Forked Spear" },
+            { level: 33, name: "Barbed Spear" },
+            { level: 40, name: "Broad Spear" },
+            { level: 45, name: "Crossblade Spear" }
+        ],
+        "1H Maces": [
+            { level: 1, name: "Wooden Club" },
+            { level: 4, name: "Smithing Hammer" },
+            { level: 10, name: "Slim Mace" },
+            { level: 16, name: "Spiked Club" },
+            { level: 22, name: "Warpick" },
+            { level: 26, name: "Plated Mace" },
+            { level: 33, name: "Brigand Mace" },
+            { level: 36, name: "Construct Hammer" },
+            { level: 45, name: "Morning Star" }
+        ],
+        "2H Maces": [
+            { level: 1, name: "Felled Greatclub" },
+            { level: 4, name: "Oak Greathammer" },
+            { level: 11, name: "Forge Maul" },
+            { level: 16, name: "Studded Greatclub" },
+            { level: 22, name: "Cultist Greathammer" },
+            { level: 28, name: "Temple Maul" },
+            { level: 33, name: "Leaden Greathammer" },
+            { level: 38, name: "Crumbling Maul" },
+            { level: 45, name: "Pointed Maul" }
+        ],
+        "Sceptres": [
+            { level: 1, name: "Rattling Sceptre (Skele Warrior)" },
+            { level: 6, name: "Stoic Sceptre (Discipline)" },
+            { level: 12, name: "Lupine Sceptre" },
+            { level: 16, name: "Omen Sceptre (Malice)" },
+            { level: 21, name: "Ochre Sceptre" },
+            { level: 26, name: "Shrine Sceptre (Purity)" },
+            { level: 33, name: "Devouring Sceptre" },
+            { level: 36, name: "Clasped Sceptre" },
+            { level: 45, name: "Devotional Sceptre" }
+        ],
+        "Quarterstaves": [
+            { level: 1, name: "Wrapped Quarterstaff" },
+            { level: 4, name: "Long Quarterstaff" },
+            { level: 11, name: "Gothic Quarterstaff" },
+            { level: 16, name: "Crackling Quarterstaff" },
+            { level: 20, name: "Crescent Quarterstaff" },
+            { level: 28, name: "Steelpoint Quarterstaff" },
+            { level: 33, name: "Slicing Quarterstaff" },
+            { level: 37, name: "Barrier Quarterstaff" },
+            { level: 45, name: "Hefty Quarterstaff" }
+        ],
+        "Crossbows": [
+            { level: 1, name: "Makeshift Crossbow" },
+            { level: 4, name: "Tense Crossbow" },
+            { level: 10, name: "Sturdy Crossbow" },
+            { level: 16, name: "Varnished Crossbow" },
+            { level: 20, name: "Dyad Crossbow" },
+            { level: 26, name: "Alloy Crossbow" },
+            { level: 33, name: "Bombard Crossbow" },
+            { level: 38, name: "Construct Crossbow" },
+            { level: 45, name: "Blackfire Crossbow" }
+        ],
+        "Foci": [
+            { level: 1, name: "Twig Focus" },
+            { level: 6, name: "Woven Focus" },
+            { level: 10, name: "Antler Focus" },
+            { level: 16, name: "Engraved Focus" },
+            { level: 22, name: "Tonal Focus" },
+            { level: 26, name: "Crystal Focus" },
+            { level: 33, name: "Voodoo Focus" },
+            { level: 36, name: "Plumed Focus" },
+            { level: 45, name: "Runed Focus" }
+        ]
+    };
+
+    const alwaysBreakpoints = {
+        "Boots MS": [
+            { level: 1, name: "Runner's (10%)" },
+            { level: 16, name: "Sprinter's (15%)" },
+            { level: 33, name: "Stallion's (20%)" },
+            { level: 46, name: "Gazelle's (25%)" },
+            { level: 65, name: "Cheetah's (30%)" },
+            { level: 82, name: "Hellion's (35%)" }
+        ],
+        "Gem Lvl": [
+            { level: 1, name: "Gem Lvl 1" },
+            { level: 3, name: "Gem Lvl 2" },
+            { level: 6, name: "Gem Lvl 3" },
+            { level: 10, name: "Gem Lvl 4" },
+            { level: 14, name: "Gem Lvl 5" },
+            { level: 18, name: "Gem Lvl 6" },
+            { level: 22, name: "Gem Lvl 7" },
+            { level: 26, name: "Gem Lvl 8" },
+            { level: 31, name: "Gem Lvl 9" },
+            { level: 36, name: "Gem Lvl 10" },
+            { level: 41, name: "Gem Lvl 11" },
+            { level: 46, name: "Gem Lvl 12" },
+            { level: 52, name: "Gem Lvl 13" },
+            { level: 58, name: "Gem Lvl 14" },
+            { level: 64, name: "Gem Lvl 15" },
+            { level: 66, name: "Gem Lvl 16" },
+            { level: 72, name: "Gem Lvl 17" },
+            { level: 78, name: "Gem Lvl 18" },
+            { level: 84, name: "Gem Lvl 19" },
+            { level: 90, name: "Gem Lvl 20" }
+        ]
+    };
+
+    let trackedBases = JSON.parse(localStorage.getItem('trackedBases')) || ["Boots"];
+
+    const trackingOptionsEl = document.getElementById('tracking-options');
+    for (const base in gearBreakpoints) {
+        const div = document.createElement('div');
+        div.className = 'setting-checkbox';
+        const cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.id = `setting-${base}`;
+        cb.value = base;
+        cb.checked = trackedBases.includes(base);
+        const label = document.createElement('label');
+        label.htmlFor = `setting-${base}`;
+        label.textContent = `Track ${base}`;
+        div.appendChild(cb);
+        div.appendChild(label);
+        trackingOptionsEl.appendChild(div);
+    }
+
+    document.getElementById('settings-btn').addEventListener('click', () => {
+        const panel = document.getElementById('settings-panel');
+        panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+    });
+
+    document.getElementById('save-settings-btn').addEventListener('click', () => {
+        const checkboxes = document.querySelectorAll('#tracking-options input[type="checkbox"]');
+        trackedBases = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
+        localStorage.setItem('trackedBases', JSON.stringify(trackedBases));
+        document.getElementById('settings-panel').style.display = 'none';
+        updateBreakpointsUI(currentLevel);
+    });
+
+    const classGearMap = {
+        'ranger': ['Bows', 'Quivers', 'Spears'],
+        'deadeye': ['Bows', 'Quivers'],
+        'pathfinder': ['Bows', 'Quivers', 'Spears'],
+        'hunter': ['Bows', 'Quivers'],
+        'warden': ['Bows', 'Quivers', 'Spears'],
+        'sorceress': ['Wands', 'Staves', 'Foci'],
+        'stormweaver': ['Wands', 'Staves', 'Foci'],
+        'chronomancer': ['Wands', 'Staves', 'Foci'],
+        'witch': ['Wands', 'Sceptres', 'Foci'],
+        'blood mage': ['Wands', 'Sceptres', 'Foci'],
+        'infernalist': ['Wands', 'Sceptres', 'Foci'],
+        'warrior': ['2H Maces', '1H Maces'],
+        'titan': ['2H Maces', '1H Maces'],
+        'warbringer': ['2H Maces', '1H Maces'],
+        'mercenary': ['Crossbows'],
+        'witchhunter': ['Crossbows'],
+        'gemling legionnaire': ['Crossbows'],
+        'monk': ['Quarterstaves', 'Spears'],
+        'invoker': ['Quarterstaves'],
+        'acolyte of chayula': ['Quarterstaves']
+    };
+
+    function autoDetectClassSettings(className) {
+        let changed = false;
+        const c = className.toLowerCase();
+        for (const [key, gear] of Object.entries(classGearMap)) {
+            if (c.includes(key)) {
+                gear.forEach(g => {
+                    if (!trackedBases.includes(g)) {
+                        trackedBases.push(g);
+                        changed = true;
+                    }
+                });
+                break;
+            }
+        }
+        if (changed) {
+            localStorage.setItem('trackedBases', JSON.stringify(trackedBases));
+            for (const base in gearBreakpoints) {
+                const cb = document.getElementById(`setting-${base}`);
+                if (cb) cb.checked = trackedBases.includes(base);
+            }
+            updateBreakpointsUI(currentLevel);
+        }
+    }
+
+    function renderBreakpointRow(list, type, breakpoints, level) {
+        if (!breakpoints) return;
+        let current = breakpoints[0];
+        let next = null;
+        for (let i = 0; i < breakpoints.length; i++) {
+            if (level >= breakpoints[i].level) {
+                current = breakpoints[i];
+                next = (i + 1 < breakpoints.length) ? breakpoints[i + 1] : null;
+            }
+        }
+        const div = document.createElement('div');
+        div.className = 'breakpoint-item';
+        let html = `<span class="bp-type">${type.split(' ')[0]}:</span> `;
+        html += `<span class="bp-current">${current.name}</span>`;
+        if (next) {
+            const isClose = (next.level - level) <= 3 && (next.level - level) > 0;
+            const nextClass = isClose ? 'bp-next-highlight' : 'bp-next';
+            html += ` <span class="${nextClass}">| Next: ${next.name} (Lvl ${next.level})</span>`;
+        } else {
+            html += ` <span class="bp-next">| Max Tier Reached</span>`;
+        }
+        div.innerHTML = html;
+        list.appendChild(div);
+    }
+
+    function updateBreakpointsUI(level) {
+        const container = document.getElementById('breakpoints-container');
+        const list = document.getElementById('breakpoints-list');
+        list.innerHTML = '';
+        for (const type in alwaysBreakpoints) {
+            renderBreakpointRow(list, type, alwaysBreakpoints[type], level);
+        }
+        trackedBases.forEach(type => {
+            renderBreakpointRow(list, type, gearBreakpoints[type], level);
+        });
+        container.style.display = 'block';
+    }
+
+    fetch('campaign.json')
+        .then(response => response.json())
+        .then(data => {
+            campaignData = data;
+            flatZoneOrder = [];
+            zoneDataMap = {};
+            for (const act of data.acts) {
+                for (const zone of act.zones) {
+                    flatZoneOrder.push(zone.name);
+                    zoneDataMap[zone.name.toLowerCase()] = zone;
+                }
+            }
+            console.log("Loaded campaign data:", flatZoneOrder.length, "zones");
+        })
+        .catch(err => console.error("Failed to load campaign data:", err));
+
+    function computeNextZone() {
+        if (flatZoneOrder.length === 0) return "Unknown";
+        let maxIndex = -1;
+        for (const visited of visitedZones) {
+            const idx = flatZoneOrder.findIndex(z => z.toLowerCase() === visited.toLowerCase());
+            if (idx > maxIndex) maxIndex = idx;
+        }
+        if (maxIndex < 0) return flatZoneOrder.length > 0 ? flatZoneOrder[0] : "Unknown";
+        if (maxIndex + 1 < flatZoneOrder.length) return flatZoneOrder[maxIndex + 1];
+        return "Endgame";
+    }
+
+    function renderNextRewards(nextZoneName) {
+        const nextRewardsEl = document.getElementById('next-rewards');
+        nextRewardsEl.innerHTML = '';
+        const nz = zoneDataMap[nextZoneName.toLowerCase()];
+        if (nz && nz.tasks && nz.tasks.length > 0) {
+            const rewards = nz.tasks
+                .filter(t => t.reward && t.reward !== 'Progress' && t.reward !== 'Progression')
+                .map(t => {
+                    const span = document.createElement('span');
+                    span.className = 'next-reward-item' + (t.optional ? ' optional' : '');
+                    span.textContent = t.reward;
+                    return span;
+                });
+            if (rewards.length > 0) {
+                const div = document.createElement('div');
+                div.className = 'next-reward-zone';
+                const nameSpan = document.createElement('span');
+                nameSpan.className = 'next-reward-zone-name';
+                nameSpan.textContent = nextZoneName;
+                div.appendChild(nameSpan);
+                div.appendChild(document.createTextNode(': '));
+                rewards.forEach((r, i) => {
+                    div.appendChild(r);
+                    if (i < rewards.length - 1) div.appendChild(document.createTextNode(', '));
+                });
+                nextRewardsEl.appendChild(div);
+            }
+        }
+        nextRewardsEl.style.display = nextRewardsEl.children.length > 0 ? '' : 'none';
+    }
+
+    function updateUIForZone(zoneName) {
+        if (!campaignData) return;
+        const currentZoneEl = document.getElementById('current-zone');
+        const nextZoneEl = document.getElementById('next-zone');
+        const checklistEl = document.getElementById('checklist');
+        const zoneInfoContainer = document.getElementById('zone-info-container');
+        currentZoneEl.textContent = zoneName;
+        zoneInfoContainer.style.display = 'block';
+        const nextZoneName = computeNextZone();
+        nextZoneEl.textContent = nextZoneName;
+        renderNextRewards(nextZoneName);
+        const foundZone = zoneDataMap[zoneName.toLowerCase()] || null;
+        checklistEl.innerHTML = '';
+        if (foundZone) {
+            if (foundZone.tasks && foundZone.tasks.length > 0) {
+                foundZone.tasks.forEach((taskObj, index) => {
+                    const taskText = typeof taskObj === 'string' ? taskObj : taskObj.task;
+                    const subtext = taskObj.reward || taskObj.subtext || "";
+                    const isOptional = taskObj.optional === true;
+                    const li = document.createElement('li');
+                    const cbContainer = document.createElement('div');
+                    cbContainer.className = 'checkbox-container';
+                    const cb = document.createElement('input');
+                    cb.type = 'checkbox';
+                    cb.id = `task-${index}`;
+                    cbContainer.appendChild(cb);
+                    const contentDiv = document.createElement('div');
+                    contentDiv.className = 'task-content';
+                    const headerDiv = document.createElement('div');
+                    headerDiv.className = 'task-header';
+                    const label = document.createElement('label');
+                    label.htmlFor = `task-${index}`;
+                    label.className = 'task-text';
+                    label.textContent = taskText;
+                    const badge = document.createElement('span');
+                    if (isOptional) {
+                        badge.className = 'badge-optional';
+                        badge.textContent = 'Skip / Optional';
+                    } else {
+                        badge.className = 'badge-required';
+                        badge.textContent = 'Required';
+                    }
+                    headerDiv.appendChild(label);
+                    headerDiv.appendChild(badge);
+                    contentDiv.appendChild(headerDiv);
+                    if (subtext) {
+                        const subtextDiv = document.createElement('div');
+                        subtextDiv.className = 'task-subtext';
+                        subtextDiv.textContent = `Reward: ${subtext}`;
+                        contentDiv.appendChild(subtextDiv);
+                    } else if (typeof taskObj === 'object') {
+                        const subtextDiv = document.createElement('div');
+                        subtextDiv.className = 'task-subtext no-reward';
+                        subtextDiv.textContent = 'No specific reward';
+                        contentDiv.appendChild(subtextDiv);
+                    }
+                    cb.addEventListener('change', (e) => {
+                        if (e.target.checked) {
+                            contentDiv.classList.add('checked');
+                        } else {
+                            contentDiv.classList.remove('checked');
+                        }
+                    });
+                    li.appendChild(cbContainer);
+                    li.appendChild(contentDiv);
+                    checklistEl.appendChild(li);
+                });
+            } else {
+                checklistEl.innerHTML = '<li><span class="task-text">No tasks for this zone.</span></li>';
+            }
+        } else if (zoneName !== "Unknown") {
+            checklistEl.innerHTML = '<li><span class="task-text" style="color: #f44336;">Zone not found in guide data.</span></li>';
+        }
+    }
+
+    const MAX_REGEXES = 3;
+    let vendorRegexes = JSON.parse(localStorage.getItem('vendorRegexes')) || [];
+
+    function saveRegexes() {
+        localStorage.setItem('vendorRegexes', JSON.stringify(vendorRegexes));
+    }
+
+    function renderRegexList() {
+        const list = document.getElementById('regex-list');
+        list.innerHTML = '';
+        if (vendorRegexes.length === 0) {
+            const empty = document.createElement('div');
+            empty.className = 'regex-empty';
+            empty.textContent = 'No vendor regexes saved yet.';
+            list.appendChild(empty);
+        }
+        vendorRegexes.forEach((item, idx) => {
+            const card = document.createElement('div');
+            card.className = 'regex-card';
+            card.innerHTML = `
+                <div class="regex-card-header">
+                    <span class="regex-card-title">${escapeHtml(item.title)}</span>
+                    <div class="regex-card-actions">
+                        <button class="regex-card-btn" data-action="copy" data-idx="${idx}" title="Copy to clipboard">📋</button>
+                        <button class="regex-card-btn" data-action="edit" data-idx="${idx}" title="Edit">✎</button>
+                        <button class="regex-card-btn" data-action="delete" data-idx="${idx}" title="Delete">✕</button>
+                    </div>
+                </div>
+                <div class="regex-string" data-idx="${idx}" title="Click to copy">${escapeHtml(item.regex)}</div>
+            `;
+            list.appendChild(card);
+        });
+        if (vendorRegexes.length < MAX_REGEXES) {
+            const addBtn = document.createElement('button');
+            addBtn.className = 'regex-add-btn';
+            addBtn.textContent = '+ Add regex';
+            addBtn.addEventListener('click', () => showRegexEditor(list, -1));
+            list.appendChild(addBtn);
+        }
+    }
+
+    function escapeHtml(str) {
+        const d = document.createElement('div');
+        d.textContent = str;
+        return d.innerHTML;
+    }
+
+    function copyRegex(idx) {
+        const text = vendorRegexes[idx].regex;
+        navigator.clipboard.writeText(text).then(() => {
+            const btns = document.querySelectorAll(`[data-action="copy"][data-idx="${idx}"]`);
+            btns.forEach(b => { b.classList.add('copied'); b.textContent = '✓'; });
+            setTimeout(() => btns.forEach(b => { b.classList.remove('copied'); b.textContent = '📋'; }), 1500);
+        });
+    }
+
+    function showRegexEditor(container, idx) {
+        const existing = document.querySelector('.regex-edit-overlay');
+        if (existing) existing.remove();
+        const isNew = idx === -1;
+        const current = isNew ? { title: '', regex: '' } : vendorRegexes[idx];
+        const overlay = document.createElement('div');
+        overlay.className = 'regex-edit-overlay';
+        overlay.innerHTML = `
+            <input type="text" class="title-input" placeholder="Title (e.g. Movement Speed)" value="${escapeHtml(current.title)}">
+            <input type="text" class="regex-input" placeholder='Regex (e.g. "mov.*spd|spd.*mov")' value="${escapeHtml(current.regex)}">
+            <div class="regex-edit-btns">
+                ${!isNew ? '<button class="regex-delete-btn">Delete</button>' : ''}
+                <button class="regex-cancel-btn">Cancel</button>
+                <button class="regex-save-btn">${isNew ? 'Add' : 'Save'}</button>
+            </div>
+        `;
+        overlay.querySelector('.regex-save-btn').addEventListener('click', () => {
+            const title = overlay.querySelector('.title-input').value.trim();
+            const regex = overlay.querySelector('.regex-input').value.trim();
+            if (!title || !regex) return;
+            if (isNew) {
+                vendorRegexes.push({ title, regex });
+            } else {
+                vendorRegexes[idx] = { title, regex };
+            }
+            saveRegexes();
+            renderRegexList();
+        });
+        overlay.querySelector('.regex-cancel-btn').addEventListener('click', () => {
+            renderRegexList();
+        });
+        const delBtn = overlay.querySelector('.regex-delete-btn');
+        if (delBtn) {
+            delBtn.addEventListener('click', () => {
+                vendorRegexes.splice(idx, 1);
+                saveRegexes();
+                renderRegexList();
+            });
+        }
+        if (isNew) {
+            const addBtn = container.querySelector('.regex-add-btn');
+            if (addBtn) addBtn.replaceWith(overlay);
+            else container.appendChild(overlay);
+        } else {
+            const cards = container.querySelectorAll('.regex-card');
+            if (cards[idx]) cards[idx].replaceWith(overlay);
+        }
+        overlay.querySelector('.title-input').focus();
+    }
+
+    document.getElementById('regex-list').addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-action]');
+        if (btn) {
+            const idx = parseInt(btn.dataset.idx);
+            const action = btn.dataset.action;
+            if (action === 'copy') copyRegex(idx);
+            else if (action === 'edit') showRegexEditor(document.getElementById('regex-list'), idx);
+            else if (action === 'delete') {
+                vendorRegexes.splice(idx, 1);
+                saveRegexes();
+                renderRegexList();
+            }
+            return;
+        }
+        const regexEl = e.target.closest('.regex-string');
+        if (regexEl) {
+            copyRegex(parseInt(regexEl.dataset.idx));
+        }
+    });
+
+    renderRegexList();
+
+    let vendorNotificationActive = false;
+    let vendorDismissTimer = null;
+    let knownCharacters = [];
+    let currentCharacterName = '';
+    let classDetected = false;
+    let latestReleaseUrl = '';
+
+    function showVendorNotification() {
+        if (vendorNotificationActive) return;
+        vendorNotificationActive = true;
+        document.getElementById('vendor-notification').style.display = 'flex';
+    }
+
+    function dismissVendorNotification() {
+        vendorNotificationActive = false;
+        document.getElementById('vendor-notification').style.display = 'none';
+        if (vendorDismissTimer) {
+            clearTimeout(vendorDismissTimer);
+            vendorDismissTimer = null;
+        }
+    }
+
+    function populateCharacterDropdown() {
+        const dropdown = document.getElementById('character-dropdown');
+        dropdown.innerHTML = '';
+        knownCharacters.forEach(name => {
+            const item = document.createElement('div');
+            item.className = 'character-dropdown-item' + (name === currentCharacterName ? ' active' : '');
+            item.textContent = name;
+            item.addEventListener('click', () => switchCharacter(name));
+            dropdown.appendChild(item);
+        });
+    }
+
+    async function switchCharacter(name) {
+        const data = await window.electronAPI.setCharacter(name);
+        if (data.status === 'ok') {
+            currentCharacterName = data.character_name;
+            document.getElementById('character-name-text').textContent = data.character_name;
+            document.getElementById('settings-character-name').value = data.character_name;
+            closeCharacterDropdown();
+        }
+    }
+
+    function toggleCharacterDropdown() {
+        const dropdown = document.getElementById('character-dropdown');
+        const nameEl = document.getElementById('character-name');
+        if (dropdown.style.display === 'none') {
+            populateCharacterDropdown();
+            dropdown.style.display = 'block';
+            nameEl.classList.add('open');
+            requestAnimationFrame(() => dropdown.classList.add('visible'));
+        } else {
+            closeCharacterDropdown();
+        }
+    }
+
+    function closeCharacterDropdown() {
+        const dropdown = document.getElementById('character-dropdown');
+        const nameEl = document.getElementById('character-name');
+        dropdown.classList.remove('visible');
+        nameEl.classList.remove('open');
+        setTimeout(() => { dropdown.style.display = 'none'; }, 150);
+    }
+
+    const statusDot = document.getElementById("status-dot");
+    const statusText = document.getElementById("status-text");
+
+    function handleStateUpdate(data) {
+        console.log("Received state update:", data);
+        statusDot.classList.add("connected");
+        statusText.textContent = "Tracking Game State";
+        if (data.character_name) {
+            currentCharacterName = data.character_name;
+            document.getElementById('character-name-text').textContent = data.character_name;
+        }
+        if (data.visited_zones && Array.isArray(data.visited_zones)) {
+            visitedZones = new Set(data.visited_zones);
+        }
+        if (data.zone && data.zone !== "Unknown") {
+            visitedZones.add(data.zone);
+            updateUIForZone(data.zone);
+            if (data.town_has_vendors && vendorNotificationActive) {
+                if (!vendorDismissTimer) {
+                    vendorDismissTimer = setTimeout(dismissVendorNotification, 15000);
+                }
+            } else if (!data.town_has_vendors && vendorDismissTimer) {
+                clearTimeout(vendorDismissTimer);
+                vendorDismissTimer = null;
+            }
+        }
+        if (data.level) {
+            currentLevel = data.level;
+            document.getElementById('est-level').textContent = currentLevel;
+            if (data.class && data.class !== "Unknown") {
+                document.getElementById('class-name').textContent = `(${data.class})`;
+                if (!classDetected) {
+                    classDetected = true;
+                    autoDetectClassSettings(data.class);
+                }
+            }
+            updateBreakpointsUI(currentLevel);
+        }
+        if (data.level_up === true) {
+            showVendorNotification();
+        }
+    }
+
+    window.electronAPI.onStateUpdate(handleStateUpdate);
+    window.electronAPI.onVendorDialog(() => dismissVendorNotification());
+    window.electronAPI.onUpdateAvailable((data) => {
+        latestReleaseUrl = data.releaseUrl || data.downloadUrl || '';
+        document.getElementById('update-banner-text').textContent = `Version ${data.version} available`;
+        document.getElementById('update-banner').style.display = 'flex';
+    });
+
+    document.getElementById('update-banner-btn').addEventListener('click', () => {
+        if (latestReleaseUrl) {
+            window.open(latestReleaseUrl, '_blank');
+        }
+    });
+
+    document.getElementById('character-name').addEventListener('click', toggleCharacterDropdown);
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.character-selector-wrapper')) {
+            closeCharacterDropdown();
+        }
+    });
+
+    document.getElementById('vendor-dismiss').addEventListener('click', dismissVendorNotification);
+
+    document.getElementById('settings-character-save').addEventListener('click', async () => {
+        const input = document.getElementById('settings-character-name');
+        const name = input.value.trim();
+        if (!name) return;
+        const data = await window.electronAPI.setCharacter(name);
+        if (data.status === 'ok') {
+            currentCharacterName = data.character_name;
+            document.getElementById('character-name-text').textContent = data.character_name;
+            if (!knownCharacters.includes(data.character_name)) {
+                knownCharacters.push(data.character_name);
+            }
+        }
+    });
+
+    (function initCharacterModal() {
+        const overlay = document.getElementById('character-modal-overlay');
+        const confirmView = document.getElementById('modal-confirm');
+        const entryView = document.getElementById('modal-entry');
+        const confirmNameEl = document.getElementById('modal-confirm-name');
+        const confirmYes = document.getElementById('modal-confirm-yes');
+        const confirmNo = document.getElementById('modal-confirm-no');
+        const charInput = document.getElementById('modal-char-input');
+        const autocompleteEl = document.getElementById('modal-autocomplete');
+        const startBtn = document.getElementById('modal-start-btn');
+
+        function dismissModal() {
+            overlay.style.display = 'none';
+        }
+
+        function showConfirmFlow(activeName) {
+            confirmNameEl.textContent = activeName;
+            confirmView.style.display = 'block';
+            entryView.style.display = 'none';
+            overlay.style.display = 'flex';
+        }
+
+        function showEntryFlow() {
+            confirmView.style.display = 'none';
+            entryView.style.display = 'block';
+            overlay.style.display = 'flex';
+            charInput.value = '';
+            charInput.focus();
+            autocompleteEl.style.display = 'none';
+        }
+
+        async function confirmCharacter(name) {
+            const data = await window.electronAPI.setCharacter(name);
+            if (data.status === 'ok') {
+                currentCharacterName = data.character_name;
+                document.getElementById('character-name-text').textContent = data.character_name;
+                document.getElementById('settings-character-name').value = data.character_name;
+                if (!knownCharacters.includes(data.character_name)) {
+                    knownCharacters.push(data.character_name);
+                }
+                dismissModal();
+            }
+        }
+
+        confirmYes.addEventListener('click', function() {
+            confirmCharacter(confirmNameEl.textContent);
+        });
+
+        confirmNo.addEventListener('click', function() {
+            showEntryFlow();
+        });
+
+        function updateAutocomplete() {
+            var query = charInput.value.trim().toLowerCase();
+            autocompleteEl.innerHTML = '';
+            if (!query || knownCharacters.length === 0) {
+                autocompleteEl.style.display = 'none';
+                return;
+            }
+            var matches = knownCharacters.filter(function(n) {
+                return n.toLowerCase().indexOf(query) !== -1;
+            }).slice(0, 10);
+            if (matches.length === 0) {
+                autocompleteEl.style.display = 'none';
+                return;
+            }
+            matches.forEach(function(name) {
+                var item = document.createElement('div');
+                item.className = 'character-modal-autocomplete-item';
+                item.textContent = name;
+                item.addEventListener('mousedown', function(e) {
+                    e.preventDefault();
+                    charInput.value = name;
+                    autocompleteEl.style.display = 'none';
+                });
+                autocompleteEl.appendChild(item);
+            });
+            autocompleteEl.style.display = 'block';
+        }
+
+        charInput.addEventListener('input', updateAutocomplete);
+        charInput.addEventListener('focus', updateAutocomplete);
+        charInput.addEventListener('blur', function() {
+            setTimeout(function() { autocompleteEl.style.display = 'none'; }, 150);
+        });
+
+        startBtn.addEventListener('click', function() {
+            var name = charInput.value.trim();
+            if (!name) return;
+            confirmCharacter(name);
+        });
+
+        charInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                var name = charInput.value.trim();
+                if (!name) return;
+                confirmCharacter(name);
+            }
+        });
+
+        window.electronAPI.getCharacters()
+            .then(function(data) {
+                knownCharacters = data.known || [];
+                if (data.active) {
+                    currentCharacterName = data.active;
+                    document.getElementById('character-name-text').textContent = data.active;
+                    document.getElementById('settings-character-name').value = data.active;
+                    showConfirmFlow(data.active);
+                } else {
+                    showEntryFlow();
+                }
+            })
+            .catch(function(err) {
+                console.error('Failed to fetch characters:', err);
+                showEntryFlow();
+            });
+    })();
+
+    window.electronAPI.getState()
+        .then(handleStateUpdate)
+        .catch(() => {
+            statusDot.classList.remove("connected");
+            statusText.textContent = "Disconnected";
+        });
+</script>
+
+</body>
+</html>

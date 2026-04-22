@@ -1,0 +1,32 @@
+{
+  "name": "poe2-league-guide",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win"
+  },
+  "dependencies": {
+    "electron-updater": "^6.1.0"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "com.leaguide.poe2",
+    "productName": "PoE2 League Guide",
+    "win": {
+      "target": "nsis"
+    },
+    "files": [
+      "src/**/*",
+      "renderer/**/*"
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "crsayen",
+      "repo": "leaguide"
+    }
+  }
+}

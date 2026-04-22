@@ -1,0 +1,557 @@
+{
+  "acts": [
+    {
+      "act": 1,
+      "name": "Ogham",
+      "zones": [
+        {
+          "name": "The Riverbank",
+          "tasks": [
+            { "task": "Kill Bloated Miller", "optional": false, "reward": "Progress" },
+            { "task": "Speak to the wounded man", "optional": false, "reward": "Uncut Skill Gem Level 1" }
+          ],
+          "nextZone": "Clearfell"
+        },
+        {
+          "name": "Clearfell",
+          "tasks": [
+            { "task": "Kill Beira of the Rotten Pack", "optional": false, "reward": "+10% Cold Resistance (Permanent)" },
+            { "task": "Find Mysterious Campsite", "optional": true, "reward": "Uncut Skill Gem (Lvl 1)" }
+          ],
+          "nextZone": "Mud Burrow"
+        },
+        {
+          "name": "Mud Burrow",
+          "tasks": [
+            { "task": "Kill The Devourer", "optional": true, "reward": "Skill Gem Lvl 2 (Drop), Support Gem Lvl 1 + 100g (Quest)" }
+          ],
+          "nextZone": "The Grelwood"
+        },
+        {
+          "name": "The Grelwood",
+          "tasks": [
+            { "task": "Kill The Brambleghast", "optional": true, "reward": "Uncut Skill Gem (Lvl 2)" },
+            { "task": "Aregane's Hut - Slay Areagne", "optional": true, "reward": "Med Life+Mana Flask, Uncut Support Gem Lvl 1" }
+          ],
+          "nextZone": "The Red Vale"
+        },
+        {
+          "name": "The Red Vale",
+          "tasks": [
+            { "task": "Kill The Rust King", "optional": false, "reward": "Uncut Skill Gem (Lvl 3)" }
+          ],
+          "nextZone": "The Grim Tangle"
+        },
+        {
+          "name": "The Grim Tangle",
+          "tasks": [
+            { "task": "Kill The Rotten Druid", "optional": true, "reward": "Uncut Support Gem (Lvl 1)" }
+          ],
+          "nextZone": "Cemetery of the Eternals"
+        },
+        {
+          "name": "Cemetery of the Eternals",
+          "tasks": [
+            { "task": "Kill Lachlann of Endless Lament", "optional": false, "reward": "Uncut Skill Gem (Lvl 3)" },
+            { "task": "Sarcophagus beside Grieving Epitaph", "optional": true, "reward": "Normal Rarity Ring" }
+          ],
+          "nextZone": "Mausoleum of the Praetor"
+        },
+        {
+          "name": "Mausoleum of the Praetor",
+          "tasks": [
+            { "task": "Kill Draven", "optional": false, "reward": "Sorrow Among Stones Quest" }
+          ],
+          "nextZone": "Tomb of the Consort"
+        },
+        {
+          "name": "Tomb of the Consort",
+          "tasks": [
+            { "task": "Kill Asinia", "optional": false, "reward": "Sorrow Among Stones Quest" },
+            { "task": "Haunted Treasure (Slay Eternal Knight)", "optional": true, "reward": "Uncut Support Gem (Lvl 1)" }
+          ],
+          "nextZone": "Hunting Grounds"
+        },
+        {
+          "name": "Hunting Grounds",
+          "tasks": [
+            { "task": "Kill The Crowbell", "optional": false, "reward": "Book of Specialisation (+2 Weapon Set Skill Points)" },
+            { "task": "Complete Ritual Altar", "optional": true, "reward": "Uncut Skill Gem (Lvl 4)" },
+            { "task": "Dryadic Ritual", "optional": true, "reward": "Uncut Support Gem (Lvl 1)" }
+          ],
+          "nextZone": "Freythorn"
+        },
+        {
+          "name": "Freythorn",
+          "tasks": [
+            { "task": "Kill The King in the Mists", "optional": false, "reward": "+30 to Maximum Spirit (Permanent), Uncut Spirit Gem (Lvl 4)" }
+          ],
+          "nextZone": "Ogham Farmlands"
+        },
+        {
+          "name": "Ogham Farmlands",
+          "tasks": [
+            { "task": "Find Una's Lute (in her hut)", "optional": false, "reward": "Book of Specialisation (+2 Weapon Set Skill Points)" },
+            { "task": "Crop Circle", "optional": true, "reward": "Uncut Skill Gem (Lvl 4)" }
+          ],
+          "nextZone": "Ogham Village"
+        },
+        {
+          "name": "Ogham Village",
+          "tasks": [
+            { "task": "Kill The Executioner", "optional": false, "reward": "Uncut Support Gem (Lvl 1)" },
+            { "task": "Save Leitis (Quest)", "optional": false, "reward": "Uncut Skill Gem (Lvl 5)" },
+            { "task": "Renly's Workshop (First Char)", "optional": true, "reward": "Salvage Bench, Artificer's Orb, Blank Lesser Rune" }
+          ],
+          "nextZone": "The Manor Ramparts"
+        },
+        {
+          "name": "The Manor Ramparts",
+          "tasks": [
+            { "task": "The Gallows (click rope)", "optional": true, "reward": "Uncut Support Gem (Lvl 1)" }
+          ],
+          "nextZone": "Ogham Manor"
+        },
+        {
+          "name": "Ogham Manor",
+          "tasks": [
+            { "task": "Kill Candlemass, the Living Rite", "optional": false, "reward": "+20 to Maximum Life (Permanent)" },
+            { "task": "Kill Count of Ogham (3rd Floor)", "optional": false, "reward": "Completes Act 1" }
+          ],
+          "nextZone": "Vastiri Outskirts"
+        }
+      ]
+    },
+    {
+      "act": 2,
+      "name": "Vastiri",
+      "zones": [
+        {
+          "name": "Vastiri Outskirts",
+          "tasks": [
+            { "task": "Kill Rathbreaker", "optional": false, "reward": "Uncut Skill Gem (Lvl 5)" }
+          ],
+          "nextZone": "Mawdun Quarry"
+        },
+        {
+          "name": "Mawdun Quarry",
+          "tasks": [
+            { "task": "Faridun War Cache", "optional": true, "reward": "Artificer's Orb" }
+          ],
+          "nextZone": "Mawdun Mine"
+        },
+        {
+          "name": "Mawdun Mine",
+          "tasks": [
+            { "task": "Kill Rudja, the Dread Engineer", "optional": false, "reward": "Progression" },
+            { "task": "Munitions Bunker", "optional": true, "reward": "Uncut Skill Gem (Lvl 6)" }
+          ],
+          "nextZone": "Traitor's Passage"
+        },
+        {
+          "name": "Traitor's Passage",
+          "tasks": [
+            { "task": "Kill Balbala, the Traitor", "optional": false, "reward": "Djinn Barya (Ascendancy Trial Access)" },
+            { "task": "Bell Chest", "optional": true, "reward": "Uncut Skill Gem (Lvl 6)" }
+          ],
+          "nextZone": "The Halani Gates"
+        },
+        {
+          "name": "The Halani Gates",
+          "tasks": [
+            { "task": "Kill Jamanra, the Risen King", "optional": false, "reward": "Trail of Corruption Progress" }
+          ],
+          "nextZone": "Keth"
+        },
+        {
+          "name": "Keth",
+          "tasks": [
+            { "task": "Kill Kabala, Constrictor Queen", "optional": false, "reward": "Book of Specialisation (+2 Weapon Set Skill Points)" },
+            { "task": "Abandoned Prayer", "optional": true, "reward": "Magic Amulet" }
+          ],
+          "nextZone": "The Lost City"
+        },
+        {
+          "name": "The Lost City",
+          "tasks": [
+            { "task": "Golden Tomb", "optional": true, "reward": "Uncut Spirit Gem (Lvl 6/7)" }
+          ],
+          "nextZone": "Buried Shrines"
+        },
+        {
+          "name": "Buried Shrines",
+          "tasks": [
+            { "task": "Suspicious Sarcophagus", "optional": true, "reward": "Uncut Support Gem (Lvl 1)" },
+            { "task": "Elemental Offering (Pick One Ring)", "optional": true, "reward": "Magic Ruby/Sapphire/Topaz Ring" },
+            { "task": "City of Seven Waters Quest", "optional": true, "reward": "Uncut Support Gem (Lvl 1)" }
+          ],
+          "nextZone": "Mastodon Badlands"
+        },
+        {
+          "name": "Mastodon Badlands",
+          "tasks": [
+            { "task": "Fossilised Memorial", "optional": true, "reward": "Uncut Support Gem (Lvl 1)" }
+          ],
+          "nextZone": "The Bone Pits"
+        },
+        {
+          "name": "The Bone Pits",
+          "tasks": [
+            { "task": "Kill Iktab, the Deathlord", "optional": false, "reward": "Uncut Support Gem (Lvl 1) (Theft of Ivory Quest)" }
+          ],
+          "nextZone": "Valley of the Titans"
+        },
+        {
+          "name": "Valley of the Titans",
+          "tasks": [
+            { "task": "Offering to Amrit (Place Relics)", "optional": true, "reward": "+30% Charm Charges OR +15% Mana Recovery from Flasks" }
+          ],
+          "nextZone": "The Titan Grotto"
+        },
+        {
+          "name": "The Titan Grotto",
+          "tasks": [
+            { "task": "Kill Zalmarath, the Colossus", "optional": false, "reward": "Uncut Support Gem (Lvl 1), 500 Gold" },
+            { "task": "Titan's Sword", "optional": true, "reward": "Random Lesser Rune" }
+          ],
+          "nextZone": "Deshar"
+        },
+        {
+          "name": "Deshar",
+          "tasks": [
+            { "task": "Tradition's Toll Quest (Fallen Rhoa Rider)", "optional": false, "reward": "Book of Specialisation (+2 Weapon Set Skill Points)" },
+            { "task": "The Unremembered (skeleton)", "optional": true, "reward": "Artificer's Orb" },
+            { "task": "Slay Rare Vulture Monsters (both)", "optional": true, "reward": "Djinn Barya" }
+          ],
+          "nextZone": "Path of Mourning"
+        },
+        {
+          "name": "Path of Mourning",
+          "tasks": [
+            { "task": "Hushed Urn", "optional": true, "reward": "Uncut Skill Gem (Lvl 8)" }
+          ],
+          "nextZone": "The Spires of Deshar"
+        },
+        {
+          "name": "The Spires of Deshar",
+          "tasks": [
+            { "task": "Sisters of Garukhan", "optional": false, "reward": "+10% Lightning Resistance (Permanent)" },
+            { "task": "Complete Act 2 Finale", "optional": false, "reward": "Completes Act 2" }
+          ],
+          "nextZone": "Sandswept Marsh"
+        }
+      ]
+    },
+    {
+      "act": 3,
+      "name": "Aggorat",
+      "zones": [
+        {
+          "name": "Sandswept Marsh",
+          "tasks": [
+            { "task": "Foul Ritual (Environmental Event)", "optional": true, "reward": "Uncut Skill Gem (Lvl 9)" },
+            { "task": "Azak Campfire", "optional": true, "reward": "Lesser Jeweller's Orb" }
+          ],
+          "nextZone": "Jungle Ruins"
+        },
+        {
+          "name": "Jungle Ruins",
+          "tasks": [
+            { "task": "Kill Mighty Silverfist", "optional": false, "reward": "Book of Specialisation (+2 Weapon Set Skill Points)" },
+            { "task": "Jungle Grave (Summon Servi)", "optional": true, "reward": "Rare Belt" }
+          ],
+          "nextZone": "The Venom Crypts"
+        },
+        {
+          "name": "The Venom Crypts",
+          "tasks": [
+            { "task": "Corpse Snake Venom (Pick One Buff)", "optional": true, "reward": "+25% Stun Threshold / +30% Ailment Threshold / +25% Mana Regen (Permanent)" },
+            { "task": "Corpse Snake Venom (Servi)", "optional": true, "reward": "Artificer's Orb" }
+          ],
+          "nextZone": "Infested Barrens"
+        },
+        {
+          "name": "Infested Barrens",
+          "tasks": [
+            { "task": "Cave Location", "optional": true, "reward": "Uncut Support Gem" }
+          ],
+          "nextZone": "The Azak Bog"
+        },
+        {
+          "name": "The Azak Bog",
+          "tasks": [
+            { "task": "Kill Ignagduk, the Bog Witch", "optional": false, "reward": "+30 to Maximum Spirit (Permanent)" }
+          ],
+          "nextZone": "Chimeral Wetlands"
+        },
+        {
+          "name": "Chimeral Wetlands",
+          "tasks": [
+            { "task": "Kill Xyclucian, the Chimera", "optional": false, "reward": "Uncut Skill Gem (Lvl 9), Inscribed Ultimatum (Trial of Chaos Access)" }
+          ],
+          "nextZone": "Jiquani's Machinarium"
+        },
+        {
+          "name": "Jiquani's Machinarium",
+          "tasks": [
+            { "task": "Kill Blackjaw, the Remnant", "optional": false, "reward": "+10% Fire Resistance (Permanent)" }
+          ],
+          "nextZone": "Jiquani's Sanctum"
+        },
+        {
+          "name": "Jiquani's Sanctum",
+          "tasks": [
+            { "task": "Grand Soul Core Nexus", "optional": true, "reward": "Uncut Spirit Gem (Lvl 10)" },
+            { "task": "Paquate's Mechanism", "optional": true, "reward": "Free Vaal Orb (Corrupt one item)" }
+          ],
+          "nextZone": "The Drowned City"
+        },
+        {
+          "name": "The Drowned City",
+          "tasks": [
+            { "task": "Navigate Ruins", "optional": false, "reward": "Progression" }
+          ],
+          "nextZone": "The Molten Vault"
+        },
+        {
+          "name": "The Molten Vault",
+          "tasks": [
+            { "task": "Kill Mektul, the Forgemaster", "optional": false, "reward": "Uncut Skill Gem (Lvl 10), Artificer's Orb, Reforging Bench" }
+          ],
+          "nextZone": "Apex of Filth"
+        },
+        {
+          "name": "Apex of Filth",
+          "tasks": [
+            { "task": "Kill The Queen of Filth", "optional": false, "reward": "Temple Door Idol (unlocks Temple of Kopec)" }
+          ],
+          "nextZone": "Temple of Kopec"
+        },
+        {
+          "name": "Temple of Kopec",
+          "tasks": [
+            { "task": "Kill Ketzuli, High Priest of the Sun", "optional": false, "reward": "Uncut Skill Gem (Lvl 11)" }
+          ],
+          "nextZone": "Utzaal"
+        },
+        {
+          "name": "Utzaal",
+          "tasks": [
+            { "task": "Kill Viper Napuatzi", "optional": false, "reward": "Uncut Support Gem (Lvl 2)" },
+            { "task": "Sell Idols to Oswald (side areas)", "optional": true, "reward": "500-1500 Gold each" }
+          ],
+          "nextZone": "Aggorat"
+        },
+        {
+          "name": "Aggorat",
+          "tasks": [
+            { "task": "Blood Sacrifice (Heart on Altar)", "optional": true, "reward": "Book of Specialisation (+2 Weapon Set Skill Points)" }
+          ],
+          "nextZone": "The Black Chambers"
+        },
+        {
+          "name": "The Black Chambers",
+          "tasks": [
+            { "task": "Kill Doryani", "optional": false, "reward": "Completes Act 3" }
+          ],
+          "nextZone": "Solitary Confinement"
+        }
+      ]
+    },
+    {
+      "act": 4,
+      "name": "Ngamakanui",
+      "zones": [
+        {
+          "name": "Solitary Confinement",
+          "tasks": [
+            { "task": "Kill The Prisoner", "optional": false, "reward": "Escape to Abandoned Prison" }
+          ],
+          "nextZone": "Abandoned Prison"
+        },
+        {
+          "name": "Abandoned Prison",
+          "tasks": [
+            { "task": "Escape Prison", "optional": false, "reward": "30% increased Life OR Mana Recovery from Flasks (Choice)" }
+          ],
+          "nextZone": "Kingsmarch"
+        },
+        {
+          "name": "Kingsmarch",
+          "tasks": [
+            { "task": "Town Hub - Talk to NPCs", "optional": false, "reward": "Waypoint / Vendors" }
+          ],
+          "nextZone": "Isle of Kin"
+        },
+        {
+          "name": "Isle of Kin",
+          "tasks": [
+            { "task": "Kill The Blind Beast", "optional": false, "reward": "+2 Weapon Set Skill Points" },
+            { "task": "Beast Pen", "optional": true, "reward": "Skill Gem Lvl 12, Support Gem Lvl 4" }
+          ],
+          "nextZone": "Volcanic Warrens"
+        },
+        {
+          "name": "Volcanic Warrens",
+          "tasks": [
+            { "task": "Kill Krutog, Lord of Kin", "optional": false, "reward": "Frees Matiki, unlocks Eye of Hinekora" }
+          ],
+          "nextZone": "Shrike Island"
+        },
+        {
+          "name": "Shrike Island",
+          "tasks": [
+            { "task": "Kill Scourge of the Skies", "optional": false, "reward": "Uncut Skill Gem" }
+          ],
+          "nextZone": "Kedge Bay"
+        },
+        {
+          "name": "Kedge Bay",
+          "tasks": [
+            { "task": "Navigate Bay", "optional": false, "reward": "Progression" }
+          ],
+          "nextZone": "Journey's End"
+        },
+        {
+          "name": "Journey's End",
+          "tasks": [
+            { "task": "Kill Omniphobia (Dark Mists Quest)", "optional": false, "reward": "+2 Weapon Set Skill Points" }
+          ],
+          "nextZone": "Whakapanu Island"
+        },
+        {
+          "name": "Whakapanu Island",
+          "tasks": [
+            { "task": "Kill The Great White One", "optional": false, "reward": "Tribal Medicine Quest Item" },
+            { "task": "Crab Cave", "optional": true, "reward": "Uncut Support Gem (Lvl 4)" }
+          ],
+          "nextZone": "Singing Caverns"
+        },
+        {
+          "name": "Singing Caverns",
+          "tasks": [
+            { "task": "Kill Diamora", "optional": false, "reward": "Progression" },
+            { "task": "Beckoning Clam (return Pearl to Rog)", "optional": true, "reward": "Rare Pearlescent Amulet (All Ele Res implicit)" }
+          ],
+          "nextZone": "Halls of the Dead"
+        },
+        {
+          "name": "Halls of the Dead",
+          "tasks": [
+            { "task": "Kill Yama The White", "optional": false, "reward": "+5% Maximum Mana (Permanent)" },
+            { "task": "Trial of Ngkanu (Pick One per pair)", "optional": true, "reward": "+5% Fire/Cold/Light Res OR +5 Str/Dex/Int" }
+          ],
+          "nextZone": "Eye of Hinekora"
+        },
+        {
+          "name": "Eye of Hinekora",
+          "tasks": [
+            { "task": "Vision / Lore Event", "optional": false, "reward": "Progression" }
+          ],
+          "nextZone": "Arastas"
+        },
+        {
+          "name": "Arastas",
+          "tasks": [
+            { "task": "Kill Torvian, Hand of the Saviour", "optional": false, "reward": "Uncut Skill Gem" },
+            { "task": "Morning Bell", "optional": true, "reward": "3 Regal Orbs" },
+            { "task": "Evening Bell", "optional": true, "reward": "3 Exalted Orbs" }
+          ],
+          "nextZone": "The Excavation"
+        },
+        {
+          "name": "The Excavation",
+          "tasks": [
+            { "task": "Kill Benedictus, First Herald of Utopia", "optional": false, "reward": "Uncut Skill Gem" }
+          ],
+          "nextZone": "Trail of the Ancestors"
+        },
+        {
+          "name": "Trail of the Ancestors",
+          "tasks": [
+            { "task": "Complete Trial, speak to Hinekora", "optional": false, "reward": "+2 Weapon Set Skill Points" }
+          ],
+          "nextZone": "Ngakanu"
+        },
+        {
+          "name": "Ngakanu",
+          "tasks": [
+            { "task": "Navigate to Heart of the Tribe", "optional": false, "reward": "Progression" }
+          ],
+          "nextZone": "Heart of the Tribe"
+        },
+        {
+          "name": "Heart of the Tribe",
+          "tasks": [
+            { "task": "Kill Tavakai, the Chieftain", "optional": false, "reward": "Completes Act 4" }
+          ],
+          "nextZone": "Holten"
+        }
+      ]
+    },
+    {
+      "act": 5,
+      "name": "Interlude",
+      "zones": [
+        {
+          "name": "Holten",
+          "tasks": [
+            { "task": "Soul of the Ferryman (vendor)", "optional": true, "reward": "Greater Runes (~2000g each)" }
+          ],
+          "nextZone": "Wolvenhold"
+        },
+        {
+          "name": "Wolvenhold",
+          "tasks": [
+            { "task": "Kill Wolvenhold Boss", "optional": false, "reward": "+2 Weapon Set Skill Points" }
+          ],
+          "nextZone": "The Khari Crossing"
+        },
+        {
+          "name": "The Khari Crossing",
+          "tasks": [
+            { "task": "Molten One's Gift", "optional": true, "reward": "+5% to Maximum Life (Permanent)" },
+            { "task": "Slay Worm and Scorpion (Risu)", "optional": false, "reward": "+2 Weapon Set Skill Points" }
+          ],
+          "nextZone": "Qimah"
+        },
+        {
+          "name": "Qimah",
+          "tasks": [
+            { "task": "Choose Boon (7 options, changeable)", "optional": true, "reward": "Choice of 7 Boons" }
+          ],
+          "nextZone": "Ashen Forest"
+        },
+        {
+          "name": "Ashen Forest",
+          "tasks": [
+            { "task": "Ancient Monument", "optional": true, "reward": "Uncut Skill Gem (Lvl 14)" }
+          ],
+          "nextZone": "Kriar Village"
+        },
+        {
+          "name": "Kriar Village",
+          "tasks": [
+            { "task": "Slay Lythara, the Wayward Spear", "optional": false, "reward": "+40 Maximum Spirit (Permanent)" }
+          ],
+          "nextZone": "Howling Caves"
+        },
+        {
+          "name": "Howling Caves",
+          "tasks": [
+            { "task": "Slay the Yeti", "optional": false, "reward": "+2 Weapon Set Skill Points" }
+          ],
+          "nextZone": "Kriar Peaks"
+        },
+        {
+          "name": "Kriar Peaks",
+          "tasks": [
+            { "task": "Elder Madox", "optional": true, "reward": "Choose a Unique Item" },
+            { "task": "Complete the Interlude", "optional": false, "reward": "+2 Weapon Set Skill Points" }
+          ],
+          "nextZone": "Endgame"
+        }
+      ]
+    }
+  ]
+}
