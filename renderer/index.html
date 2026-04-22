@@ -1435,7 +1435,10 @@
         if (updateDevMode) {
             if (latestReleaseUrl) window.open(latestReleaseUrl, '_blank');
         } else {
-            window.electronAPI.downloadUpdate();
+            window.electronAPI.downloadUpdate().catch(() => {
+                // electron-updater download failed — fall back to opening release page
+                if (latestReleaseUrl) window.open(latestReleaseUrl, '_blank');
+            });
         }
     });
 
