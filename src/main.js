@@ -319,6 +319,10 @@ function initAutoUpdater() {
     autoUpdater.autoDownload = false;
     autoUpdater.autoInstallOnAppQuit = false;
 
+    autoUpdater.on('error', (err) => {
+      console.error('autoUpdater error:', err.message);
+    });
+
     autoUpdater.on('download-progress', (progress) => {
       if (win && !win.isDestroyed()) {
         win.webContents.send('download-progress', {
@@ -340,6 +344,13 @@ function initAutoUpdater() {
 
     ipcMain.on('install-update', () => {
       autoUpdater.quitAndInstall(false, true);
+    });
+
+    // Prime electron-updater so downloadUpdate() works when the user clicks the button.
+    // The banner is already shown by the manual GitHub API check above — this just
+    // prepares the download machinery in the background.
+    autoUpdater.checkForUpdates().catch((err) => {
+      console.error('autoUpdater check failed:', err.message);
     });
   } catch (err) {
     console.error('electron-updater setup failed:', err.message);
