@@ -17,7 +17,12 @@
     "appId": "com.leaguide.poe2",
     "productName": "PoE2 League Guide",
     "win": {
-      "target": "nsis"
+      "target": ["nsis", "zip"],
+      "sign": false
+    },
+    "nsis": {
+      "oneClick": true,
+      "allowToChangeInstallationDirectory": false
     },
     "files": [
       "src/**/*",
