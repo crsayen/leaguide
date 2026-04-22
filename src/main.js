@@ -297,66 +297,85 @@ async function init() {
 
 function initAutoUpdater() {
   const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
+  let latestDownloadUrl = null;
 
-  // Always check via GitHub releases API — this is reliable regardless of
-  // how the app was packaged. Shows the update banner.
+  // Always check via GitHub releases API — works for any build type.
   checkForUpdate(pkg.version, 'crsayen', 'leaguide').then((update) => {
     if (update && update.available && win && !win.isDestroyed()) {
-      win.webContents.send('update-available', {
-        ...update,
-        devMode: isDev  // dev = "View release" link; prod = "Download & Install" button
-      });
+      latestDownloadUrl = update.downloadUrl;
+      win.webContents.send('update-available', update);
     }
   });
 
-  if (isDev) {
-    return;
-  }
+  // Download handler: download the installer from GitHub, save to temp, launch it
+  ipcMain.handle('download-update', async () => {
+    if (!latestDownloadUrl) {
+      throw new Error('No download URL');
+    }
 
-  // In production, also set up electron-updater for in-app download + install
-  try {
-    const { autoUpdater } = require('electron-updater');
-    autoUpdater.autoDownload = false;
-    autoUpdater.autoInstallOnAppQuit = false;
+    const tmpDir = app.getPath('temp');
+    const fileName = path.basename(latestDownloadUrl);
+    const destPath = path.join(tmpDir, fileName);
 
-    autoUpdater.on('error', (err) => {
-      console.error('autoUpdater error:', err.message);
-    });
+    // Stream download with progress
+    const https = require('https');
+    const http = require('http');
 
-    autoUpdater.on('download-progress', (progress) => {
-      if (win && !win.isDestroyed()) {
-        win.webContents.send('download-progress', {
-          percent: Math.round(progress.percent)
-        });
+    return new Promise((resolve, reject) => {
+      const get = latestDownloadUrl.startsWith('https') ? https.get : http.get;
+
+      function doDownload(url) {
+        get(url, (res) => {
+          // Follow redirects (GitHub uses them for release assets)
+          if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+            doDownload(res.headers.location);
+            return;
+          }
+
+          if (res.statusCode !== 200) {
+            reject(new Error('Download failed: HTTP ' + res.statusCode));
+            return;
+          }
+
+          const totalBytes = parseInt(res.headers['content-length'], 10) || 0;
+          let downloaded = 0;
+          const fileStream = fs.createWriteStream(destPath);
+
+          res.on('data', (chunk) => {
+            downloaded += chunk.length;
+            if (totalBytes > 0 && win && !win.isDestroyed()) {
+              win.webContents.send('download-progress', {
+                percent: Math.round((downloaded / totalBytes) * 100)
+              });
+            }
+          });
+
+          res.pipe(fileStream);
+
+          fileStream.on('finish', () => {
+            fileStream.close();
+            if (win && !win.isDestroyed()) {
+              win.webContents.send('update-downloaded', { installerPath: destPath });
+            }
+            resolve({ status: 'downloaded', path: destPath });
+          });
+
+          fileStream.on('error', reject);
+        }).on('error', reject);
       }
-    });
 
-    autoUpdater.on('update-downloaded', () => {
-      if (win && !win.isDestroyed()) {
-        win.webContents.send('update-downloaded', {});
-      }
+      doDownload(latestDownloadUrl);
     });
+  });
 
-    ipcMain.handle('download-update', async () => {
-      autoUpdater.downloadUpdate();
-      return { status: 'downloading' };
-    });
-
-    ipcMain.on('install-update', () => {
-      autoUpdater.quitAndInstall(false, true);
-    });
-
-    // Prime electron-updater so downloadUpdate() works when the user clicks the button.
-    // The banner is already shown by the manual GitHub API check above — this just
-    // prepares the download machinery in the background.
-    autoUpdater.checkForUpdates().catch((err) => {
-      console.error('autoUpdater check failed:', err.message);
-    });
-  } catch (err) {
-    console.error('electron-updater setup failed:', err.message);
-    // Banner already shown by the manual check above — user can still
-    // click "View release" to download manually.
-  }
+  // Install handler: launch the downloaded installer and quit
+  ipcMain.on('install-update', (event, installerPath) => {
+    if (installerPath && fs.existsSync(installerPath)) {
+      const { spawn } = require('child_process');
+      spawn(installerPath, ['/S'], { detached: true, stdio: 'ignore' }).unref();
+      app.quit();
+    }
+  });
 }
 
 app.whenReady().then(init);

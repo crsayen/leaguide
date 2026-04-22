@@ -8,7 +8,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
   onVendorDialog: (callback) => ipcRenderer.on('vendor-dialog', (event, data) => callback(data)),
   onUpdateAvailable: (callback) => ipcRenderer.on('update-available', (event, data) => callback(data)),
   downloadUpdate: () => ipcRenderer.invoke('download-update'),
-  installUpdate: () => ipcRenderer.send('install-update'),
+  installUpdate: (installerPath) => ipcRenderer.send('install-update', installerPath),
   onDownloadProgress: (callback) => ipcRenderer.on('download-progress', (event, data) => callback(data)),
   onUpdateDownloaded: (callback) => ipcRenderer.on('update-downloaded', (event, data) => callback(data))
 });

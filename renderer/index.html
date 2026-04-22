@@ -1424,13 +1424,13 @@
 
     window.electronAPI.onStateUpdate(handleStateUpdate);
     window.electronAPI.onVendorDialog(() => dismissVendorNotification());
-    let updateDevMode = false;
+    let updateInstallerPath = null;
+
     window.electronAPI.onUpdateAvailable((data) => {
-        updateDevMode = data.devMode;
         latestReleaseUrl = data.releaseUrl || data.downloadUrl || '';
         document.getElementById('update-banner-text').textContent = `Version ${data.version} available`;
         const btn = document.getElementById('update-banner-btn');
-        btn.textContent = updateDevMode ? 'View release' : 'Download & Install';
+        btn.textContent = 'Download & Install';
         btn.disabled = false;
         document.getElementById('update-progress').style.display = 'none';
         document.getElementById('update-banner').style.display = 'flex';
@@ -1444,22 +1444,27 @@
         document.getElementById('update-banner-btn').disabled = true;
     });
 
-    window.electronAPI.onUpdateDownloaded(() => {
+    window.electronAPI.onUpdateDownloaded((data) => {
+        updateInstallerPath = data.installerPath;
         document.getElementById('update-progress').style.display = 'none';
         document.getElementById('update-banner-text').textContent = 'Update ready!';
         const btn = document.getElementById('update-banner-btn');
         btn.textContent = 'Restart & Update';
         btn.disabled = false;
-        btn.onclick = () => window.electronAPI.installUpdate();
     });
 
     document.getElementById('update-banner-btn').addEventListener('click', () => {
-        if (updateDevMode) {
-            if (latestReleaseUrl) window.open(latestReleaseUrl, '_blank');
+        if (updateInstallerPath) {
+            // Installer downloaded — launch it and quit
+            window.electronAPI.installUpdate(updateInstallerPath);
         } else {
+            // Download the installer
+            document.getElementById('update-banner-btn').textContent = 'Downloading...';
+            document.getElementById('update-banner-btn').disabled = true;
             window.electronAPI.downloadUpdate().catch(() => {
-                // electron-updater download failed — fall back to opening release page
                 if (latestReleaseUrl) window.open(latestReleaseUrl, '_blank');
+                document.getElementById('update-banner-btn').textContent = 'Download & Install';
+                document.getElementById('update-banner-btn').disabled = false;
             });
         }
     });
