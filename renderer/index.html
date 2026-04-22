@@ -922,6 +922,7 @@
     };
 
     const TRACKED_BASES_STORAGE_KEY = 'trackedBases';
+    const VENDOR_REGEXES_STORAGE_KEY = 'vendorRegexes';
     let trackedBases = {};
     let gearBreakpointsLoaded = false;
     let pendingAutoDetectedClass = null;
@@ -988,22 +989,28 @@
         return { normalized, changed };
     }
 
-    function persistTrackedBases() {
-        localStorage.setItem(TRACKED_BASES_STORAGE_KEY, JSON.stringify(trackedBases));
+    async function persistTrackedBases() {
+        await window.electronAPI.savePreferences({ trackedBases });
     }
 
-    function syncTrackedBasesFromStorage() {
+    function getLegacyTrackedBasesFromLocalStorage() {
         let rawTrackedBases = null;
         try {
             rawTrackedBases = JSON.parse(localStorage.getItem(TRACKED_BASES_STORAGE_KEY));
         } catch {
             rawTrackedBases = null;
         }
+        return rawTrackedBases;
+    }
+
+    async function syncTrackedBasesFromConfig(savedTrackedBases) {
+        const rawTrackedBases = savedTrackedBases ?? getLegacyTrackedBasesFromLocalStorage();
 
         const { normalized, changed } = normalizeTrackedBases(rawTrackedBases);
         trackedBases = normalized;
         if (changed || JSON.stringify(rawTrackedBases) !== JSON.stringify(normalized)) {
-            persistTrackedBases();
+            await persistTrackedBases();
+            try { localStorage.removeItem(TRACKED_BASES_STORAGE_KEY); } catch {}
         }
     }
 
@@ -1013,14 +1020,14 @@
         return (gearBreakpoints[category] || []).filter(base => selectedNames.has(base.name));
     }
 
-    function setTrackedBasesForCategory(category, selectedNames) {
+    async function setTrackedBasesForCategory(category, selectedNames) {
         const orderedNames = getAllBaseNamesForCategory(category).filter(name => selectedNames.includes(name));
         if (orderedNames.length > 0) {
             trackedBases[category] = orderedNames;
         } else {
             delete trackedBases[category];
         }
-        persistTrackedBases();
+        await persistTrackedBases();
     }
 
     function updateTrackingGroupUI(category) {
@@ -1088,11 +1095,11 @@
             selectAllBtn.type = 'button';
             selectAllBtn.className = 'tracking-group-select';
             selectAllBtn.id = `tracking-select-${slug}`;
-            selectAllBtn.addEventListener('click', (event) => {
+            selectAllBtn.addEventListener('click', async (event) => {
                 event.stopPropagation();
                 const allNames = getAllBaseNamesForCategory(category);
                 const shouldSelectAll = (trackedBases[category] || []).length !== allNames.length;
-                setTrackedBasesForCategory(category, shouldSelectAll ? allNames : []);
+                await setTrackedBasesForCategory(category, shouldSelectAll ? allNames : []);
                 trackingOptionsEl
                     .querySelectorAll(`.tracking-base-checkbox[data-category="${category}"]`)
                     .forEach(checkbox => {
@@ -1127,11 +1134,11 @@
                 checkbox.dataset.category = category;
                 checkbox.dataset.baseName = base.name;
                 checkbox.checked = selectedNames.has(base.name);
-                checkbox.addEventListener('change', () => {
+                checkbox.addEventListener('change', async () => {
                     syncDuplicateCheckboxes(category, base.name, checkbox.checked);
                     const checkboxesForCategory = trackingOptionsEl.querySelectorAll(`.tracking-base-checkbox[data-category="${category}"]`);
                     const selectedForCategory = [...new Set(Array.from(checkboxesForCategory).filter(cb => cb.checked).map(cb => cb.dataset.baseName))];
-                    setTrackedBasesForCategory(category, selectedForCategory);
+                    await setTrackedBasesForCategory(category, selectedForCategory);
                     updateTrackingGroupUI(category);
                     updateBreakpointsUI(currentLevel);
                 });
@@ -1178,10 +1185,11 @@
     function loadGearBreakpoints() {
         return fetch('poe2db-all-items.json')
             .then(response => response.json())
-            .then(data => {
+            .then(async data => {
                 gearBreakpoints = sanitizeGearBreakpoints(data);
                 gearBreakpointsLoaded = true;
-                syncTrackedBasesFromStorage();
+                const prefs = await window.electronAPI.getPreferences();
+                await syncTrackedBasesFromConfig(prefs.trackedBases);
                 renderTrackingOptions();
                 if (pendingAutoDetectedClass) {
                     autoDetectClassSettings(pendingAutoDetectedClass);
@@ -1196,15 +1204,15 @@
         overlay.style.display = overlay.style.display === 'flex' ? 'none' : 'flex';
     });
 
-    function saveAndCloseSettings() {
-        persistTrackedBases();
+    async function saveAndCloseSettings() {
+        await persistTrackedBases();
         document.getElementById('settings-overlay').style.display = 'none';
         updateBreakpointsUI(currentLevel);
     }
 
-    document.getElementById('settings-overlay').addEventListener('click', (e) => {
+    document.getElementById('settings-overlay').addEventListener('click', async (e) => {
         if (e.target === e.currentTarget) {
-            saveAndCloseSettings();
+            await saveAndCloseSettings();
         }
     });
 
@@ -1251,7 +1259,7 @@
             }
         }
         if (changed) {
-            persistTrackedBases();
+            void persistTrackedBases();
             renderTrackingOptions();
             updateBreakpointsUI(currentLevel);
         }
@@ -1438,10 +1446,29 @@
     }
 
     const MAX_REGEXES = 3;
-    let vendorRegexes = JSON.parse(localStorage.getItem('vendorRegexes')) || [];
+    let vendorRegexes = [];
 
-    function saveRegexes() {
-        localStorage.setItem('vendorRegexes', JSON.stringify(vendorRegexes));
+    function getLegacyVendorRegexesFromLocalStorage() {
+        try {
+            return JSON.parse(localStorage.getItem(VENDOR_REGEXES_STORAGE_KEY)) || [];
+        } catch {
+            return [];
+        }
+    }
+
+    async function saveRegexes() {
+        await window.electronAPI.savePreferences({ vendorRegexes });
+    }
+
+    async function loadVendorRegexes() {
+        const prefs = await window.electronAPI.getPreferences();
+        const saved = Array.isArray(prefs.vendorRegexes) ? prefs.vendorRegexes : [];
+        const legacy = getLegacyVendorRegexesFromLocalStorage();
+        vendorRegexes = saved.length > 0 ? saved : legacy;
+        if (legacy.length > 0) {
+            await saveRegexes();
+            try { localStorage.removeItem(VENDOR_REGEXES_STORAGE_KEY); } catch {}
+        }
     }
 
     function renderRegexList() {
@@ -1509,7 +1536,7 @@
                 <button class="regex-save-btn">${isNew ? 'Add' : 'Save'}</button>
             </div>
         `;
-        overlay.querySelector('.regex-save-btn').addEventListener('click', () => {
+        overlay.querySelector('.regex-save-btn').addEventListener('click', async () => {
             const title = overlay.querySelector('.title-input').value.trim();
             const regex = overlay.querySelector('.regex-input').value.trim();
             if (!title || !regex) return;
@@ -1518,7 +1545,7 @@
             } else {
                 vendorRegexes[idx] = { title, regex };
             }
-            saveRegexes();
+            await saveRegexes();
             renderRegexList();
         });
         overlay.querySelector('.regex-cancel-btn').addEventListener('click', () => {
@@ -1526,9 +1553,9 @@
         });
         const delBtn = overlay.querySelector('.regex-delete-btn');
         if (delBtn) {
-            delBtn.addEventListener('click', () => {
+            delBtn.addEventListener('click', async () => {
                 vendorRegexes.splice(idx, 1);
-                saveRegexes();
+                await saveRegexes();
                 renderRegexList();
             });
         }
@@ -1552,8 +1579,7 @@
             else if (action === 'edit') showRegexEditor(document.getElementById('regex-list'), idx);
             else if (action === 'delete') {
                 vendorRegexes.splice(idx, 1);
-                saveRegexes();
-                renderRegexList();
+                void saveRegexes().then(() => renderRegexList());
             }
             return;
         }
@@ -1563,7 +1589,7 @@
         }
     });
 
-    renderRegexList();
+    loadVendorRegexes().then(() => renderRegexList());
 
     let vendorNotificationActive = false;
     let vendorDismissTimer = null;

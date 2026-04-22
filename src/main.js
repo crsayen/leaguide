@@ -282,6 +282,26 @@ function setupIpc() {
   });
 
   ipcMain.handle('get-state', async () => buildState());
+
+  ipcMain.handle('get-preferences', async () => ({
+    vendorRegexes: Array.isArray(config.vendor_regexes) ? config.vendor_regexes : [],
+    trackedBases: config.tracked_bases && typeof config.tracked_bases === 'object' ? config.tracked_bases : {}
+  }));
+
+  ipcMain.handle('save-preferences', async (event, prefs) => {
+    const next = { ...config };
+    if (prefs && Object.prototype.hasOwnProperty.call(prefs, 'vendorRegexes')) {
+      next.vendor_regexes = Array.isArray(prefs.vendorRegexes) ? prefs.vendorRegexes : [];
+    }
+    if (prefs && Object.prototype.hasOwnProperty.call(prefs, 'trackedBases')) {
+      next.tracked_bases = prefs.trackedBases && typeof prefs.trackedBases === 'object' && !Array.isArray(prefs.trackedBases)
+        ? prefs.trackedBases
+        : {};
+    }
+    config = next;
+    saveConfig(config);
+    return { ok: true };
+  });
 }
 
 async function init() {

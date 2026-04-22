@@ -1,6 +1,6 @@
 {
   "name": "poe2-league-guide",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "PoE 2 League Guide - Campaign overlay that tracks your progress via game logs",
   "author": "crsayen",
   "main": "src/main.js",

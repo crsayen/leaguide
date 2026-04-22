@@ -2,7 +2,9 @@ const fs = require('fs');
 const path = require('path');
 
 const DEFAULT_CONFIG = {
-  known_characters: []
+  known_characters: [],
+  vendor_regexes: [],
+  tracked_bases: {}
 };
 
 function getElectronApp() {
@@ -43,6 +45,10 @@ function resolveConfigPath() {
 function withDefaults(cfg) {
   const next = cfg && typeof cfg === 'object' ? { ...cfg } : {};
   next.known_characters = Array.isArray(next.known_characters) ? next.known_characters : [];
+  next.vendor_regexes = Array.isArray(next.vendor_regexes) ? next.vendor_regexes : [];
+  next.tracked_bases = next.tracked_bases && typeof next.tracked_bases === 'object' && !Array.isArray(next.tracked_bases)
+    ? next.tracked_bases
+    : {};
   return { ...DEFAULT_CONFIG, ...next };
 }
 
