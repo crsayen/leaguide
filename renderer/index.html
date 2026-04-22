@@ -689,7 +689,10 @@
 
     <div class="update-banner" id="update-banner">
         <div class="update-banner-text" id="update-banner-text">Version available</div>
-        <button class="update-banner-btn" id="update-banner-btn">Open release</button>
+        <div style="display:flex; align-items:center; gap:8px;">
+            <div id="update-progress" style="display:none; color:#cfe9ff; font-size:0.85em; min-width:40px; text-align:right;"></div>
+            <button class="update-banner-btn" id="update-banner-btn">Update</button>
+        </div>
     </div>
 
     <div class="vendor-notification" id="vendor-notification" style="display:none">
@@ -1385,15 +1388,40 @@
 
     window.electronAPI.onStateUpdate(handleStateUpdate);
     window.electronAPI.onVendorDialog(() => dismissVendorNotification());
+    let updateDevMode = false;
     window.electronAPI.onUpdateAvailable((data) => {
+        updateDevMode = data.devMode;
         latestReleaseUrl = data.releaseUrl || data.downloadUrl || '';
         document.getElementById('update-banner-text').textContent = `Version ${data.version} available`;
+        const btn = document.getElementById('update-banner-btn');
+        btn.textContent = updateDevMode ? 'View release' : 'Download & Install';
+        btn.disabled = false;
+        document.getElementById('update-progress').style.display = 'none';
         document.getElementById('update-banner').style.display = 'flex';
     });
 
+    window.electronAPI.onDownloadProgress((data) => {
+        const progress = document.getElementById('update-progress');
+        progress.style.display = 'block';
+        progress.textContent = data.percent + '%';
+        document.getElementById('update-banner-btn').textContent = 'Downloading...';
+        document.getElementById('update-banner-btn').disabled = true;
+    });
+
+    window.electronAPI.onUpdateDownloaded(() => {
+        document.getElementById('update-progress').style.display = 'none';
+        document.getElementById('update-banner-text').textContent = 'Update ready!';
+        const btn = document.getElementById('update-banner-btn');
+        btn.textContent = 'Restart & Update';
+        btn.disabled = false;
+        btn.onclick = () => window.electronAPI.installUpdate();
+    });
+
     document.getElementById('update-banner-btn').addEventListener('click', () => {
-        if (latestReleaseUrl) {
-            window.open(latestReleaseUrl, '_blank');
+        if (updateDevMode) {
+            if (latestReleaseUrl) window.open(latestReleaseUrl, '_blank');
+        } else {
+            window.electronAPI.downloadUpdate();
         }
     });
 

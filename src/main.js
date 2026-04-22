@@ -7,6 +7,8 @@ const { getConfig, saveConfig, getLogPath, loadVisitedZones, saveVisitedZones } 
 const { LogTailer } = require('./log-tailer');
 const { checkForUpdate } = require('./updater');
 
+const isDev = !app.isPackaged;
+
 let win = null;
 let tailer = null;
 
@@ -290,12 +292,61 @@ async function init() {
   }
 
   sendState();
+  initAutoUpdater();
+}
 
-  const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
-  const update = await checkForUpdate(pkg.version, 'crsayen', 'leaguide');
-  if (update && update.available && win && !win.isDestroyed()) {
-    win.webContents.send('update-available', update);
+function initAutoUpdater() {
+  if (isDev) {
+    // In dev mode, fall back to manual GitHub API check
+    const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
+    checkForUpdate(pkg.version, 'crsayen', 'leaguide').then((update) => {
+      if (update && update.available && win && !win.isDestroyed()) {
+        // In dev mode, send with devMode flag so the UI shows "Open release" instead of "Download"
+        win.webContents.send('update-available', { ...update, devMode: true });
+      }
+    });
+    return;
   }
+
+  // In production, use electron-updater for in-app download + install
+  const { autoUpdater } = require('electron-updater');
+  autoUpdater.autoDownload = false;
+  autoUpdater.autoInstallOnAppQuit = false;
+
+  autoUpdater.on('update-available', (info) => {
+    if (win && !win.isDestroyed()) {
+      win.webContents.send('update-available', {
+        available: true,
+        version: info.version,
+        devMode: false
+      });
+    }
+  });
+
+  autoUpdater.on('download-progress', (progress) => {
+    if (win && !win.isDestroyed()) {
+      win.webContents.send('download-progress', {
+        percent: Math.round(progress.percent)
+      });
+    }
+  });
+
+  autoUpdater.on('update-downloaded', () => {
+    if (win && !win.isDestroyed()) {
+      win.webContents.send('update-downloaded', {});
+    }
+  });
+
+  ipcMain.handle('download-update', async () => {
+    autoUpdater.downloadUpdate();
+    return { status: 'downloading' };
+  });
+
+  ipcMain.on('install-update', () => {
+    autoUpdater.quitAndInstall(false, true);
+  });
+
+  autoUpdater.checkForUpdates().catch(() => {});
 }
 
 app.whenReady().then(init);
