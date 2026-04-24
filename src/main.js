@@ -449,9 +449,9 @@ function initAutoUpdater() {
   // Install handler: launch the downloaded installer and quit
   ipcMain.on('install-update', (event, installerPath) => {
     if (installerPath && fs.existsSync(installerPath)) {
-      const { spawn } = require('child_process');
-      spawn(installerPath, ['/S'], { detached: true, stdio: 'ignore', shell: true }).unref();
-      app.quit();
+      shell.openPath(installerPath).then(() => {
+        setTimeout(() => app.quit(), 1000);
+      });
     }
   });
 }
