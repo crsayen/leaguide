@@ -16,9 +16,10 @@
           "name": "Clearfell",
           "tasks": [
             { "task": "Kill Beira of the Rotten Pack", "optional": false, "reward": "+10% Cold Resistance (Permanent)" },
-            { "task": "Find Mysterious Campsite", "optional": true, "reward": "Uncut Skill Gem (Lvl 1)" }
+            { "task": "Find Mysterious Campsite", "optional": true, "reward": "Uncut Skill Gem (Lvl 1)" },
+            { "task": "Find and Clear the Mud Burrow", "optional": true, "reward": "Skill Gem Lvl 2 (Drop), Support Gem Lvl 1 + 100g (Quest)" }
           ],
-          "nextZone": "Mud Burrow"
+          "nextZone": "The Grelwood"
         },
         {
           "name": "Mud Burrow",
@@ -258,9 +259,10 @@
           "name": "Jungle Ruins",
           "tasks": [
             { "task": "Kill Mighty Silverfist", "optional": false, "reward": "Book of Specialisation (+2 Weapon Set Skill Points)" },
-            { "task": "Jungle Grave (Summon Servi)", "optional": true, "reward": "Rare Belt" }
+            { "task": "Jungle Grave (Summon Servi)", "optional": true, "reward": "Rare Belt" },
+            { "task": "Find and Clear the Venom Crypts", "optional": true, "reward": "+25% Stun Threshold / +30% Ailment Threshold / +25% Mana Regen (Permanent)" }
           ],
-          "nextZone": "The Venom Crypts"
+          "nextZone": "Infested Barrens"
         },
         {
           "name": "The Venom Crypts",
@@ -309,9 +311,10 @@
         {
           "name": "The Drowned City",
           "tasks": [
-            { "task": "Navigate Ruins", "optional": false, "reward": "Progression" }
+            { "task": "Navigate Ruins", "optional": false, "reward": "Progression" },
+            { "task": "Find and Clear the Molten Vault", "optional": false, "reward": "Uncut Skill Gem (Lvl 10), Artificer's Orb, Reforging Bench" }
           ],
-          "nextZone": "The Molten Vault"
+          "nextZone": "Apex of Filth"
         },
         {
           "name": "The Molten Vault",

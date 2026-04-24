@@ -1625,6 +1625,8 @@
             if (idx > maxIndex) maxIndex = idx;
         }
         if (maxIndex < 0) return flatZoneOrder.length > 0 ? flatZoneOrder[0] : "Unknown";
+        const currentZone = zoneDataMap[flatZoneOrder[maxIndex].toLowerCase()];
+        if (currentZone && currentZone.nextZone) return currentZone.nextZone;
         if (maxIndex + 1 < flatZoneOrder.length) return flatZoneOrder[maxIndex + 1];
         return "Endgame";
     }
