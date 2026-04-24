@@ -1964,8 +1964,10 @@
         currentZoneName = data.zone || 'Unknown';
         if (data.zone && data.zone !== "Unknown") {
             visitedZones.add(data.zone);
-            updateUIForZone(data.zone);
-            updateLayoutPanel(data.zone);
+        }
+        updateUIForZone(currentZoneName);
+        updateLayoutPanel(currentZoneName);
+        if (data.zone && data.zone !== "Unknown") {
             if (data.town_has_vendors && vendorNotificationActive) {
                 if (!vendorDismissTimer) {
                     vendorDismissTimer = setTimeout(dismissVendorNotification, 15000);
@@ -1974,8 +1976,6 @@
                 clearTimeout(vendorDismissTimer);
                 vendorDismissTimer = null;
             }
-        } else {
-            updateLayoutPanel(currentZoneName);
         }
         if (data.level) {
             currentLevel = data.level;

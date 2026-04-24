@@ -274,8 +274,14 @@ function setupIpc() {
     }
     saveConfig(config);
 
-    const hasPersisted = loadVisitedZones(config, newName).size > 0;
     visitedZones = loadVisitedZones(config, newName);
+    const hasPersisted = visitedZones.size > 0;
+
+    // Reset to defaults before applying new character state so that
+    // zone/level/class from the previously-active character cannot leak.
+    currentZone = 'Unknown';
+    currentLevel = 1;
+    playerClass = 'Unknown';
 
     if (tailer && logPath) {
       const result = tailer.backscan(newName);
@@ -283,20 +289,20 @@ function setupIpc() {
       const discovered = (result.discovered || []).filter((char) => !partyMembers.has(char));
       mergeKnownCharacters(discovered);
 
-      if (!result.characterInLog && !hasPersisted) {
-        currentLevel = 1;
-        playerClass = 'Unknown';
-        currentZone = 'Unknown';
-        visitedZones = new Set();
-      } else {
-        currentZone = result.zone || currentZone;
-        currentLevel = result.level || currentLevel;
-        playerClass = result.playerClass || 'Unknown';
+      if (result.characterInLog || hasPersisted) {
+        // Level/class from backscan are character-specific (parseLevelChange
+        // filters by name), so they are reliable when the character was found.
+        if (result.characterInLog) {
+          currentLevel = result.level || currentLevel;
+          playerClass = result.playerClass || playerClass;
+        }
+        // Zone changes in the log are NOT character-specific, so the backscan
+        // zone may belong to another character's session.  Only trust it when
+        // this character has actually visited that zone.
+        if (result.zone && visitedZones.has(result.zone)) {
+          currentZone = result.zone;
+        }
       }
-    } else if (!hasPersisted) {
-      currentLevel = 1;
-      playerClass = 'Unknown';
-      currentZone = 'Unknown';
     }
 
     restartTailer();
