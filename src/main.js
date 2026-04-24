@@ -439,7 +439,7 @@ function initAutoUpdater() {
   ipcMain.on('install-update', (event, installerPath) => {
     if (installerPath && fs.existsSync(installerPath)) {
       const { spawn } = require('child_process');
-      spawn(installerPath, ['/S'], { detached: true, stdio: 'ignore' }).unref();
+      spawn(installerPath, ['/S'], { detached: true, stdio: 'ignore', shell: true }).unref();
       app.quit();
     }
   });
