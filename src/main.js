@@ -337,6 +337,17 @@ function setupIpc() {
     return { ok: true };
   });
 
+  ipcMain.handle('set-campaign-location', async (event, newVisitedZones) => {
+    if (!characterName) {
+      throw new Error('No character selected');
+    }
+    visitedZones = new Set(Array.isArray(newVisitedZones) ? newVisitedZones : []);
+    saveVisitedZones(config, characterName, visitedZones);
+    config = getConfig();
+    sendState();
+    return { ok: true };
+  });
+
   ipcMain.handle('set-layout-images-enabled', async (event, enabled) => {
     const nextEnabled = enabled === true;
     config = { ...config, show_layout_images: nextEnabled };

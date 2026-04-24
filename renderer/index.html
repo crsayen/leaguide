@@ -967,7 +967,20 @@
     </div>
 
     <div class="zone-info" id="zone-info-container" style="display: none;">
-        <div class="current-zone" id="current-zone">Waiting for Zone...</div>
+        <div style="display: flex; align-items: baseline; gap: 10px;">
+            <div class="current-zone" id="current-zone" style="flex: 1;">Waiting for Zone...</div>
+            <button id="set-location-btn" title="Set campaign progress to this zone" style="
+                background: none;
+                border: 1px solid #555;
+                color: #aaa;
+                font-size: 0.7em;
+                padding: 2px 8px;
+                border-radius: 4px;
+                cursor: pointer;
+                white-space: nowrap;
+                transition: border-color 0.15s, color 0.15s;
+            ">I'm here</button>
+        </div>
         <div class="next-zone">Next: <span id="next-zone">...</span></div>
         <div id="next-rewards"></div>
         <div class="level-info" id="level-info">Level: <span id="est-level">1</span> <span id="class-name"></span></div>
@@ -1997,6 +2010,21 @@
     }
 
     window.electronAPI.onStateUpdate(handleStateUpdate);
+
+    document.getElementById('set-location-btn').addEventListener('click', async () => {
+        if (!currentZoneName || currentZoneName === 'Unknown' || flatZoneOrder.length === 0) return;
+        const idx = flatZoneOrder.findIndex(z => z.toLowerCase() === currentZoneName.toLowerCase());
+        if (idx < 0) return;
+        const allowedZones = new Set(flatZoneOrder.slice(0, idx + 1).map(z => z.toLowerCase()));
+        const newVisited = Array.from(visitedZones).filter(z => allowedZones.has(z.toLowerCase()));
+        if (!newVisited.some(z => z.toLowerCase() === currentZoneName.toLowerCase())) {
+            newVisited.push(currentZoneName);
+        }
+        visitedZones = new Set(newVisited);
+        updateUIForZone(currentZoneName);
+        await window.electronAPI.setCampaignLocation(newVisited);
+    });
+
     window.electronAPI.onVendorDialog(() => dismissVendorNotification());
     let updateInstallerPath = null;
 
